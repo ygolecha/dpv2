@@ -22,9 +22,4 @@
 		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<script>
-			jQuery(document).ready(function() {
-				Main.init();
-				
-			});
-		</script>
+		

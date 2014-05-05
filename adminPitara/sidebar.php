@@ -15,23 +15,16 @@
 							</a>
 						</li>
 						<li>
-							<a href="javascript:void(0)"><i class="clip-screen"></i>
-								<span class="title"> Deals </span><i class="icon-arrow"></i>
-								<span class="selected"></span>
+							<a href="#"><i class="clip-pencil"></i>
+								<span class="title"> Add Deals </span>
 							</a>
-							<ul class="sub-menu">
-								<li>
-									<a href="#">
-										<span class="title"> ADD </span>
-									</a>
-								</li>
-								<li>
-									<a href="#">
-										<span class="title"> EDIT </span>
-									</a>
-								</li>
-								
-							</ul>
+							
+						</li>
+						<li>
+							<a href="#"><i class="clip-pencil"></i>
+								<span class="title"> Edit Deals </span>
+							</a>
+							
 						</li>
                         <?php if($_SESSION['user_level'] == 1) { ?>
 						<li>

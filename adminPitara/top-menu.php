@@ -26,7 +26,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 						<li class="dropdown current-user">
 							<a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" data-close-others="true" href="#">
 								<img src="assets/images/avatar-1-small.jpg" class="circle-img" alt="">
-								<span class="username">Peter Clark</span>
+								<span class="username"><?php echo $_SESSION['username']; ?></span>
 								<i class="clip-chevron-down"></i>
 							</a>
 							<ul class="dropdown-menu">

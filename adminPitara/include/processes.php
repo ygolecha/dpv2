@@ -1,6 +1,8 @@
 <?php
+
+
 error_reporting (E_ERROR | 0);
-include 'constants.php';
+
 // include 'mail.php';
 
 if(isset($_GET['log_out'])) {
@@ -12,21 +14,7 @@ class Login_Process {
 	var $cookie_user = CKIEUS;
 	var $cookie_pass = CKIEPS;
 
-	function connect_db() {
-		$conn_str = mysql_connect(DBHOST, DBUSER, DBPASS);
-		mysql_select_db(DBNAME, $conn_str) or die ('Could not select Database.');
-	}
-
-	function query($sql) {
-
-		$this->connect_db();
-		$sql = mysql_query($sql);
-		$num_rows = mysql_num_rows($sql);
-		$result = mysql_fetch_assoc($sql);
-			
-	return array("num_rows"=>$num_rows,"result"=>$result,"sql"=>$sql);
-	
-	}
+		
 	function welcome_note() {
 			
 		ini_set("session.gc_maxlifetime", Session_Lifetime); 
@@ -69,15 +57,25 @@ class Login_Process {
 	}
 
 	function log_in($username, $password, $page, $submit) {
-		
+
+		global $mysqli;
+
 		if(isset($submit)) {
 
 		if($submit !== "cookie") {
 			$password = md5($password);
 		}
 
-		$query = $this->query("SELECT * FROM ".DBTBLE." WHERE user_name='$username' AND user_pass='$password'");
-		if($query['num_rows'] == 1) {
+		$sql = "SELECT * FROM ".DBTBLE." WHERE user_name='$username' AND user_pass='$password'";
+		if(!$result = $mysqli->query($sql)){
+                die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+		$num_rows = $result->num_rows;
+
+		$row = $result->fetch_assoc();
+
+		if($num_rows == 1) {
 
 				$this->set_session($username, $password);	
 				if(isset($remember)) 
@@ -86,7 +84,12 @@ class Login_Process {
 		} else {
 				return "Username or Password not reconised.";
 		}			
-			$this->query("UPDATE ".DBTBLE." SET last_loggedin = '".date ("d/m/y G:i:s")."' WHERE user_name = '$username'");
+			$sql = "UPDATE ".DBTBLE." SET last_loggedin = '".date ("d/m/y G:i:s")."' WHERE user_name = '$username'";
+
+			if(!$result = $mysqli->query($sql)){
+                die('There was an error running the query [' . $mysqli->error . ']');
+            }
+
 		
 		if(!$page) { $page = Script_Path."dashboard.php"; }
 			
@@ -100,16 +103,24 @@ class Login_Process {
 	}
 	
 	function set_session($username, $password) {
+
+		global $mysqli;
 	
-			$query = $this->query("SELECT * FROM ".DBTBLE." WHERE user_name='$username' AND user_pass='$password'");
+			$sql = "SELECT * FROM ".DBTBLE." WHERE user_name='$username' AND user_pass='$password'";
+
+			if(!$result = $mysqli->query($sql)){
+                die('There was an error running the query [' . $mysqli->error . ']');
+            }
+
+            $row = $result->fetch_assoc();
 	
 			ini_set("session.gc_maxlifetime", Session_Lifetime); 
 			session_start();
 
-			$_SESSION['username']    = $query['result']['user_name'];
-			$_SESSION['email_address'] = $query['result']['email_address'];
-			$_SESSION['password']      = $query['result']['password'];
-                        $_SESSION['user_level']      = $query['result']['user_level'];
+			$_SESSION['username']    = $row['user_name'];
+			$_SESSION['email_address'] = $row['email_address'];
+			$_SESSION['password']      = $row['password'];
+            $_SESSION['user_level']      = $row['user_level'];
 
 	}	
 	
@@ -141,6 +152,8 @@ class Login_Process {
 	}
 
 	function edit_details($post, $process) {
+		global $mysqli;
+
 
 		if(isset($process)) {
 			
@@ -155,8 +168,13 @@ class Login_Process {
 			return "Please enter all details.";
 		}
 
-		$this->query("UPDATE ".DBTBLE." SET first_name = '$first_name', last_name = '$last_name', 
-		email_address = '$email_address', info = '$info' WHERE username = '$username'");		
+		$sql = "UPDATE ".DBTBLE." SET first_name = '$first_name', last_name = '$last_name', 
+		email_address = '$email_address', info = '$info' WHERE username = '$username'";
+
+		if(!$result = $mysqli->query($sql)){
+                die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
 
 				$this->set_session($username, $password);		
 				if(isset($_COOKIE[$this->cookie_pass])) 
@@ -167,6 +185,8 @@ class Login_Process {
 	}
 
 	function edit_password($post, $process) {
+		global $mysqli;
+
 
 		if(isset($process)) {
 
@@ -186,7 +206,11 @@ class Login_Process {
 		}
 
 		$new = md5($pass1);
-		$this->query("UPDATE ".DBTBLE." SET user_pass = '$new' WHERE user_name = '$username'");
+		$sql = "UPDATE ".DBTBLE." SET user_pass = '$new' WHERE user_name = '$username'";
+
+		if(!$result = $mysqli->query($sql)){
+                die('There was an error running the query [' . $mysqli->error . ']');
+        }
 
 				$this->set_session($username, $new);		
 				if(isset($_COOKIE[$this->cookie_pass])) 
@@ -197,6 +221,8 @@ class Login_Process {
 	}
 
 	function Register($post, $process) {
+		global $mysqli;
+
 
 		if(isset($process)) {
 
@@ -211,9 +237,13 @@ class Login_Process {
         {
         	$user_level = 1;
         }
-        else if($user_role == "Company user")
+        else if($user_role == "Moderator")
         {
         	$user_level = 2;
+        }
+        else if($user_role == "Company user")
+        {
+        	$user_level = 3;
         }
 		
 		
@@ -223,22 +253,43 @@ class Login_Process {
 		if ($pass1 !== $pass2) {
 		return "Passwords do not match";
 		}
-		$query = $this->query("SELECT username FROM ".DBTBLE." WHERE user_name = '$username'");
-		if($query['num_rows'] > 0){
+		$sql = "SELECT user_name FROM ".DBTBLE." WHERE user_name = '$username'";
+		if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+        $num_rows = $result->num_rows;
+		if($num_rows > 0){
 		return "Username unavialable, please try a new username";
 		}
-		$query = $this->query("SELECT email_address FROM ".DBTBLE." WHERE email_address = '$email_address'");
-		if($query['num_rows'] > 0){
+		$sql = "SELECT email_address FROM ".DBTBLE." WHERE email_address = '$email_address'";
+		if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+        $num_rows = $result->num_rows;
+
+		if($num_rows > 0){
 		return "Emails address registered to another account.";
 		}
-		$query = $this->query("SELECT user_name FROM ".DBTBLE." WHERE user_name = '$username'");
-		if($query['num_rows'] > 0){
+		$sql = "SELECT user_name FROM ".DBTBLE." WHERE user_name = '$username'";
+		if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+        $num_rows = $result->num_rows;
+
+		if($num_rows > 0){
 		return "User name registered to another account.";
 		}
 		
 		
-		$this->query("INSERT INTO ".DBTBLE." (user_name, email_address, user_pass, user_level) VALUES ('$username', '$email_address', '".md5($pass1)."', '$user_level')");
-				
+		$sql = "INSERT INTO ".DBTBLE." (user_name, email_address, user_pass, user_level) VALUES ('$username', '$email_address', '".md5($pass1)."', '$user_level')";
+		if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+			
 		return '<h3>Sign up was sucessful, you may now log in.</h3>';
 			
 	}
@@ -246,6 +297,8 @@ class Login_Process {
 	} 
 
 	function Forgot_Password($get, $post) {
+		global $mysqli;
+
 	
 	$username = $post['username'];
 	if(!$username) { 
@@ -256,34 +309,47 @@ class Login_Process {
 	$code = $get['code']; } 
 
 		if (isset($code)) {
-			$query = $this->query("SELECT * FROM ".DBTBLE." WHERE username='$username' AND forgot='$code'");
-		
-		if($query['num_rows'] == 1) {		
-				return "<!-- !-->";
-		} else {
-		if(isset($code) && isset($username)) {
-				return "Link Invalid, Please Request a new link.";
-		} else {
-				return false;
-		}
-	}
-	}
-}
+			$sql = "SELECT * FROM ".DBTBLE." WHERE username='$username' AND forgot='$code'";
+
+		    if(!$result = $mysqli->query($sql)){
+              die('There was an error running the query [' . $mysqli->error . ']');
+            }
+
+	        $num_rows = $result->num_rows;
+			
+			if($num_rows == 1) {		
+						return "<!-- !-->";
+			} else {
+				if(isset($code) && isset($username)) {
+						return "Link Invalid, Please Request a new link.";
+				} else {
+						return false;
+				}
+		    }
+	    }
+    }
 
 	function Request_Password($post, $process) {
+		global $mysqli;
+
 		
 		$username = $post['username'];
 		$email = $post['email'];
 			
 		if(isset($process)) {
 
-		$query = $this->query("SELECT * FROM ".DBTBLE." WHERE username='$username' AND email_address = '$email'");
+		$sql = "SELECT * FROM ".DBTBLE." WHERE username='$username' AND email_address = '$email'";
+		if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+        $num_rows = $result->num_rows;
 
 			if((!$username) || (!$email)) {
 				return "Please enter all details.";
 			}
 
-			if($query['num_rows'] == 0){
+			if($num_rows == 0){
 				return "Matching details were not found.";
 			}
 
@@ -299,7 +365,12 @@ class Login_Process {
         		$i++;
     		}
 			$code = md5($pass);
-			$this->query("UPDATE ".DBTBLE." SET forgot = '$code' WHERE username='$username' AND email_address='$email'");
+			$sql = "UPDATE ".DBTBLE." SET forgot = '$code' WHERE username='$username' AND email_address='$email'";
+
+			if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+            }
+
 
 			Mail_Reset_Password($username, $code, $email);
 				return "We have sent an email to your address, this will allow you to reset your password.";
@@ -308,6 +379,8 @@ class Login_Process {
 	}
 
 	function Reset_Password($post, $process) {
+		global $mysqli;
+
 
 		if(isset($process)) {
 		
@@ -321,8 +394,13 @@ class Login_Process {
 		
 			$password = md5($pass1);
 
-		$query = $this->query("UPDATE ".DBTBLE." SET password = '$password', forgot = 'NULL' WHERE username = '$username'");
-		
+		$sql = "UPDATE ".DBTBLE." SET password = '$password', forgot = 'NULL' WHERE username = '$username'";
+
+		if(!$result = $mysqli->query($sql)){
+            die('There was an error running the query [' . $mysqli->error . ']');
+        }
+
+	
 		Mail_Reset_Password_Confirmation($username, $email);
 			return "Password Reset Sucsessfull, You may now login.";
 
