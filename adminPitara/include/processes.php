@@ -1,5 +1,4 @@
 <?php
-//ini_set("display_errors", "0");
 error_reporting(E_ALL);
 // include 'mail.php';
 if(isset($_GET['log_out'])) {
@@ -115,7 +114,7 @@ class Login_Process {
 			session_start();
 			$_SESSION['username']    = $row['user_name'];
 			$_SESSION['email_address'] = $row['email_address'];
-			$_SESSION['password']      = $row['password'];
+			$_SESSION['password']      = $row['user_pass'];
             $_SESSION['user_level']      = $row['user_level'];
 
 	}	

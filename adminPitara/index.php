@@ -1,3 +1,26 @@
+<?php
+include 'include/constants.php';
+include 'db_connection.php';
+//including processes file which contains all login functions
+include 'include/processes.php';
+$Login_Process = new Login_Process;
+if(isset($_GET['page']))
+{
+$page = $_GET['page'];
+$Login_Process->check_login($page);
+}
+else {
+$page = '';
+$Login_Process->check_login($page);
+}
+if(isset($_POST['user']))
+{
+	$user = $_POST['user'];
+	if(isset($_POST['pass']))
+		$pass = $_POST['pass'];
+	$Login = $Login_Process->log_in($user, $pass, $page, $_POST['submit']); 
+}
+?>
 <!DOCTYPE html>
 <!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
 <!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
@@ -5,15 +28,39 @@
 <!--[if !IE]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
-<?php
-//including header file
-include "header.php";
-//including processes file which contains all login functions
-include 'include/processes.php';
-$Login_Process = new Login_Process;
-$Login_Process->check_login($_POST['page']);
-$Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], $_POST['submit']); 
-?>
+<!-- start: HEAD -->
+    <head>
+		<title>Dealspitara Admin</title>
+		<!-- start: META -->
+		<meta charset="utf-8" />
+		<!--[if IE]><meta http-equiv='X-UA-Compatible' content="IE=edge,IE=9,IE=8,chrome=1" /><![endif]-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta content="" name="description" />
+		<meta content="" name="author" />
+		<!-- end: META -->
+		<!-- start: MAIN CSS -->
+		<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/fonts/style.css">
+		<link rel="stylesheet" href="assets/css/main.css">
+		<link rel="stylesheet" href="assets/css/main-responsive.css">
+		<link rel="stylesheet" href="assets/plugins/iCheck/skins/all.css">
+		<link rel="stylesheet" href="assets/plugins/bootstrap-colorpalette/css/bootstrap-colorpalette.css">
+		<link rel="stylesheet" href="assets/plugins/perfect-scrollbar/src/perfect-scrollbar.css">
+		<link rel="stylesheet" href="assets/css/theme_light.css" type="text/css" id="skin_color">
+		<link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print"/>
+		<!--[if IE 7]>
+		<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!-- end: MAIN CSS -->
+		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css">
+		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<link rel="shortcut icon" href="favicon.ico" />
+	</head>
+
 	<!-- end: HEAD -->
 	<!-- start: BODY -->
 	<body class="login example1">
@@ -36,34 +83,34 @@ $Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], 
 							<span class="input-icon">
 								<input type="text" class="form-control" name="user" id="user" placeholder="Username">
 								<i class="fa fa-user"></i> </span>
-							<!-- To mark the incorrectly filled input, you must add the class "error" to the input -->
-							<!-- example: <input type="text" class="login error" name="login" value="Username" /> -->
-						</div>
-						<div class="form-group form-actions">
-							<span class="input-icon">
-								<input type="password" class="form-control password" name="pass" id="pass" placeholder="Password">
+								<!-- To mark the incorrectly filled input, you must add the class "error" to the input -->
+								<!-- example: <input type="text" class="login error" name="login" value="Username" /> -->
+							</div>
+							<div class="form-group form-actions">
+								<span class="input-icon">
+									<input type="password" class="form-control password" name="pass" id="pass" placeholder="Password">
 								<!-- <i class="fa fa-lock"></i>
 								<a class="forgot" href="#">
 									I forgot my password
 								</a>--> </span>
-						</div>
-						<input name="page" type="hidden" value="<?php echo $_GET['page']; ?>" />
-						<div class="form-actions">
-							<label for="remember" class="checkbox-inline">
-								<input type="checkbox" class="grey remember" id="remember" name="remember">
-								Keep me signed in
-							</label>
-							<button type="submit" class="btn btn-bricky pull-right" name="submit">
-								Login <i class="fa fa-arrow-circle-right"></i>
-							</button>
+							</div>
+							<input name="page" type="hidden" value="" />
+							<div class="form-actions">
+								<label for="remember" class="checkbox-inline">
+									<input type="checkbox" class="grey remember" id="remember" name="remember">
+									Keep me signed in
+								</label>
+								<button type="submit" class="btn btn-bricky pull-right" name="submit">
+									Login <i class="fa fa-arrow-circle-right"></i>
+								</button>
 								
-						</div>
-						
-					</fieldset>
-				</form>
-			</div>
-			<!-- end: LOGIN BOX -->
-			<!-- start: FORGOT BOX -->
+							</div>
+
+						</fieldset>
+					</form>
+				</div>
+				<!-- end: LOGIN BOX -->
+				<!-- start: FORGOT BOX -->
 			<!-- <div class="box-forgot">
 				<h3>Forget Password?</h3>
 				<p>
@@ -126,4 +173,4 @@ $Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], 
 		</script> -->
 	</body>
 	<!-- end: BODY -->
-</html>
+	</html>
