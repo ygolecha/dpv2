@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
-<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
-<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
-<!--[if !IE]><!-->
-<html lang="en" class="no-js">
-<!--<![endif]-->
-<?php include "header.php"; ?>
+<?php 
+include 'include/constants.php';
+include 'db_connection.php';
+include_once 'include/processes.php';
+$Login_Process = new Login_Process;
+$Login_Process->check_status($_SERVER['SCRIPT_NAME']);
+
+include "header.php"; ?>
 <body>
 	<?php include "top-menu.php"; ?>
 
@@ -23,7 +23,7 @@
 				<!-- start: MAIN NAVIGATION MENU -->
 				<ul class="main-navigation-menu">
 					<li class="active open">
-						<a href="index.html"><i class="clip-home-3"></i>
+						<a href="index.php"><i class="clip-home-3"></i>
 							<span class="title"> Dashboard </span><span class="selected"></span>
 						</a>
 					</li>
@@ -34,7 +34,7 @@
 
 					</li>
 					<li>
-						<a href="edit_deals.php"><i class="clip-pencil"></i>
+						<a href="#"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span>
 						</a>
 
@@ -46,7 +46,7 @@
 
 					</li>
 					<li>
-						<a href="edit_store.php"><i class="clip-pencil"></i>
+						<a href="#"><i class="clip-pencil"></i>
 							<span class="title"> Edit Store </span>
 						</a>
 
@@ -58,7 +58,7 @@
 
 					</li>
 					<li>
-						<a href="edit_category.php"><i class="clip-pencil"></i>
+						<a href="#"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
 						</a>
 

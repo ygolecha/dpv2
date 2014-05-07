@@ -1,7 +1,11 @@
-	<?php
-	include 'include/constants.php';
-    include 'db_connection.php';  
-	?>
+<!DOCTYPE html>
+	<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
+	<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+	<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+	<!--[if !IE]><!-->
+	<html lang="en" class="no-js">
+	<!--<![endif]-->
+	<!-- start: HEAD -->
 	<!-- start: HEAD -->
 	<head>
 		<title>Dealspitara Admin</title>

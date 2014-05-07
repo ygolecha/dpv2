@@ -1,18 +1,11 @@
-
-<!DOCTYPE html>
-<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
-<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
-<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
-<!--[if !IE]><!-->
-<html lang="en" class="no-js">
-<!--<![endif]-->
-<?php include "header.php"; 
-
+<?php 
+include 'include/constants.php';
+include 'db_connection.php';
 include_once 'include/processes.php';
 $Login_Process = new Login_Process;
 $New = $Login_Process->Register($_POST, $_POST['process']);
 $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
-
+include "header.php"; 
 ?>
 <body>
   <!-- start: Top menu -->
@@ -73,7 +66,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
         <!-- start: MAIN NAVIGATION MENU -->
         <ul class="main-navigation-menu">
           <li>
-            <a href="index.html"><i class="clip-home-3"></i>
+            <a href="index.php"><i class="clip-home-3"></i>
               <span class="title"> Dashboard </span>
             </a>
           </li>
@@ -84,7 +77,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 
           </li>
           <li>
-            <a href="edit_deals.php"><i class="clip-pencil"></i>
+            <a href="#"><i class="clip-pencil"></i>
               <span class="title"> Edit Deals </span>
             </a>
 
@@ -96,7 +89,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 
           </li>
          <li>
-            <a href="edit_store.php"><i class="clip-pencil"></i>
+            <a href="#"><i class="clip-pencil"></i>
               <span class="title"> Edit Store </span>
             </a>
 
@@ -108,7 +101,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 
           </li>
           <li>
-            <a href="edit_category.php"><i class="clip-pencil"></i>
+            <a href="#"><i class="clip-pencil"></i>
               <span class="title"> Edit Category </span>
             </a>
 

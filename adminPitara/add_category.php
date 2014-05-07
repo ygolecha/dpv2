@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
-<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
-<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
-<!--[if !IE]><!-->
-<html lang="en" class="no-js">
-<!--<![endif]-->
-<?php include "header.php"; ?>
+<?php 
+include 'include/constants.php';
+include 'db_connection.php';
+include_once 'include/processes.php';
+$Login_Process = new Login_Process;
+$Login_Process->check_status($_SERVER['SCRIPT_NAME']);
+
+include "header.php"; ?>
 <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
 		<link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css">
@@ -33,7 +33,7 @@
 				<!-- start: MAIN NAVIGATION MENU -->
 				<ul class="main-navigation-menu">
 					<li>
-						<a href="index.html"><i class="clip-home-3"></i>
+						<a href="index.php"><i class="clip-home-3"></i>
 							<span class="title"> Dashboard </span>
 						</a>
 					</li>
@@ -44,7 +44,7 @@
 
 					</li>
 					<li>
-						<a href="edit_deals.php"><i class="clip-pencil"></i>
+						<a href="#"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span>
 						</a>
 
@@ -56,7 +56,7 @@
 
 					</li>
 					<li>
-						<a href="edit_store.php"><i class="clip-pencil"></i>
+						<a href="#"><i class="clip-pencil"></i>
 							<span class="title"> Edit Store </span>
 						</a>
 
@@ -68,7 +68,7 @@
 
 					</li>
 					<li>
-						<a href="edit_category.php"><i class="clip-pencil"></i>
+						<a href="#"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
 						</a>
 
@@ -279,7 +279,10 @@
 		<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-        <script src="dealspitara.js"></script>
+        <script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="assets/js/form-validation.js"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="dealspitara.js"></script>
 		
 		<script>
 			jQuery(document).ready(function() {
