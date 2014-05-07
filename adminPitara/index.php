@@ -4,8 +4,16 @@ include "header.php";
 //including processes file which contains all login functions
 include 'include/processes.php';
 $Login_Process = new Login_Process;
-$Login_Process->check_login($_GET['page']);
-$Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], $_POST['submit']); 
+if(isset($_GET['page']))
+{
+
+$Login_Process->check_login($page);
+}
+else
+$page = '';
+if($_POST['user'] && $_POST['pass']) 
+$Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $page, $_POST['submit']); 
+
 ?>
 	<!-- end: HEAD -->
 	<!-- start: BODY -->
@@ -40,7 +48,7 @@ $Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], 
 									I forgot my password
 								</a>--> </span>
 						</div>
-						<input name="page" type="hidden" value="<?php echo $_GET['page']; ?>" />
+						<input name="page" type="hidden" value="<?php echo $page; ?>" />
 						<div class="form-actions">
 							<label for="remember" class="checkbox-inline">
 								<input type="checkbox" class="grey remember" id="remember" name="remember">
