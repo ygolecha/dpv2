@@ -10,6 +10,7 @@
 
 include_once 'include/processes.php';
 $Login_Process = new Login_Process;
+if(isset($_POST['process']))
 $New = $Login_Process->Register($_POST, $_POST['process']);
 $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 
@@ -173,7 +174,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
                 <div class="panel-body">
                   <form role="form" class="form-horizontal" id="form" action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                     <div class="alert alert-success">
-                      <?php  echo $New; ?>
+                      <?php  if(isset($New)) echo $New; ?>
                     </div>
                       <div class="form-group">
                           <label class="col-sm-2 control-label" for="form-field-1">
@@ -205,7 +206,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
                         Email address
                       </label>
                       <div class="col-sm-9">
-                        <input type="text" placeholder="" id="email_address" name="email_address" class="form-control" value="<?php echo $_POST['email_address']; ?>">
+                        <input type="text" placeholder="" id="email_address" name="email_address" class="form-control" value="<?php if (isset($_POST['email_address'])) echo $_POST['email_address']; ?>">
                       </div>
               </div>
 
@@ -214,7 +215,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
                         Password
                       </label>
                       <div class="col-sm-9">
-                        <input type="password" placeholder="" id="pass1" name="pass1" class="form-control" value="<?php echo $_POST['pass1']; ?>">
+                        <input type="password" placeholder="" id="pass1" name="pass1" class="form-control" value="<?php if(isset($_POST['pass1'])) echo $_POST['pass1']; ?>">
                       </div>
               </div>
               

@@ -1,5 +1,7 @@
 <?php
+
 # Databse Infomation
+
 // Database Server (localhost)
 define("DBHOST","localhost");
 // Database Username
@@ -12,11 +14,10 @@ define("DBNAME","teamdp_pitara1");
 define("DBTBLE","users_login");                          
 
 # Location Infomation
-
 // Path of script with trailing slashes
-define("Script_Path","/dealspitara/dpv2/adminPitara/");
+define("Script_Path","/adminPitara/"	);
 // URL of script (no trailing slash)
-define("Script_URL","http://localhost/dealspitara/dpv2/adminPitara/");
+define("Script_URL",$_SERVER["HTTP_HOST"]);
 
 # Session and Cookie Infomation
 
