@@ -1,3 +1,7 @@
+	<?php
+	include 'include/constants.php';
+    include 'db_connection.php';  
+	?>
 	<!-- start: HEAD -->
 	<head>
 		<title>Dealspitara Admin</title>
@@ -30,9 +34,4 @@
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
-	<?php
-	include 'include/constants.php';
-    include 'db_connection.php';
-    
-
-?>
+	

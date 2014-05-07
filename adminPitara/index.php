@@ -6,8 +6,6 @@ include 'include/processes.php';
 $Login_Process = new Login_Process;
 $Login_Process->check_login($_GET['page']);
 $Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], $_POST['submit']); 
-
-
 ?>
 	<!-- end: HEAD -->
 	<!-- start: BODY -->

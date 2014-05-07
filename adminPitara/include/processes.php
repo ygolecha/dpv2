@@ -1,10 +1,7 @@
 <?php
-
-
-error_reporting (E_ERROR | 0);
-
+ini_set("display_errors", "1");
+error_reporting(E_ALL);
 // include 'mail.php';
-
 if(isset($_GET['log_out'])) {
 	$Login_Process = new Login_Process;
 	$Login_Process->log_out($_SESSION['username'], $_SESSION['password']); }
