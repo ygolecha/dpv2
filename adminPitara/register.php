@@ -95,10 +95,24 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
             </a>
 
           </li>
+         <li>
+            <a href="edit_store.php"><i class="clip-pencil"></i>
+              <span class="title"> Edit Store </span>
+            </a>
+
+          </li>
           <li>
             <a href="add_category.php"><i class="clip-pencil"></i>
-              <span class="title"> Add Category </span><span class="selected"></span>
+              <span class="title"> Add Category </span>
             </a>
+
+          </li>
+          <li>
+            <a href="edit_category.php"><i class="clip-pencil"></i>
+              <span class="title"> Edit Category </span>
+            </a>
+
+          </li>
 
           </li class="active open">
           <?php if($_SESSION['user_level'] == 1) { ?>

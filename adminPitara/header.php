@@ -32,11 +32,7 @@
 	</head>
 	<?php
 	include 'include/constants.php';
-
-    $mysqli = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
-
-    if ($mysqli->connect_errno) {
-        echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
+    include 'db_connection.php';
+    
 
 ?>

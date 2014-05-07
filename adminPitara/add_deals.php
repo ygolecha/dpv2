@@ -56,8 +56,20 @@
 
 					</li>
 					<li>
+						<a href="edit_store.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Store </span>
+						</a>
+
+					</li>
+					<li>
 						<a href="add_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Add Category </span>
+						</a>
+
+					</li>
+					<li>
+						<a href="edit_category.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Category </span>
 						</a>
 
 					</li>
@@ -127,12 +139,14 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Description <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="desc" name="desc" class="form-control" required>
-											</div>
+												<label class="col-sm-2 control-label" for="form-field-1">
+													Description
+												</label>
+												<div class="col-sm-9" id="desc">
+												<div class="summernote"  name="desc">
+													
+												</div>
+											    </div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
@@ -166,11 +180,12 @@
 												<input type="text" placeholder="" id="og_desc" name="og_desc" class="form-control" required>
 											</div>
 										</div>
+										<div class="col-sm-4">
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-													Store name
+											<label class="col-sm-6 control-label" for="form-field-1">
+													Store Name
 												</label>
-												<div class="col-sm-9">
+												<div class="col-sm-6" style="padding-left:5px;">
 												<select id="store_name" name="store_name" class="form-control" required>
 													<option value="">&nbsp;</option>
 													<option value="sad">frdfs</option>
@@ -189,15 +204,37 @@
 												</select>
 											    </div>
 										</div>
+									    </div>
+										<div class="col-sm-3">
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="category">
+											<label class="col-sm-6 control-label" for="form-field-1">
+												Original Price
+											</label>
+											<div class="col-sm-6">
+												<input type="number" placeholder="" id="original_price" name="original_price" class="form-control">
+											</div>
+										</div>
+									    </div>
+									    <div class="col-sm-4">
+										<div class="form-group">
+											<label class="col-sm-5 control-label" for="form-field-1">
+												Final Price
+											</label>
+											<div class="col-sm-7">
+												<input type="number" placeholder="" id="final_price" name="final_price" class="form-control">
+											</div>
+										</div>
+									    </div>
+										<div class="col-sm-4">
+										<div class="form-group">
+											<label class="col-sm-6 control-label" for="category">
 													Category
 												</label>
-												<div class="col-sm-9">
-												<select  multiple="multiple" id="category" name="category" class="form-control" required>
+												<div class="col-sm-6" style="padding-left:5px;">
+												<select  multiple="multiple" id="category" name="category" class="form-control search-select" required>
 													<option value="">&nbsp;</option>
 													<option value="sad">frdfs</option>
-													<option value="sad">frddasdafs</option>
+													<option value="sads">frddasdafs</option>
 													<?php 
 													$sql = "SELECT id, name FROM category_details ";
 
@@ -213,28 +250,33 @@
 												</select>
 											    </div>
 										</div>
+									   </div>
+									   <div class="col-sm-3">
 								    	<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
+											<label class="col-sm-6 control-label" for="form-field-1">
 												Discount
 											</label>
-											<div class="col-sm-9">
+											<div class="col-sm-6">
 												<input type="number" placeholder="" id="discount" name="discount" class="form-control">
 											</div>
 										</div>
+									    </div>
+									    <div class="col-sm-4">
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Expiry date
+											<label class="col-sm-5 control-label" for="form-field-1">
+												Expiry Date
 											</label>
-											<div class="col-sm-9">
+											<div class="col-sm-7">
 												<div class="input-group"> 
 									    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_Date" name="expiry_Date">
 									    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
 									           </div>
 											</div>
 										</div>
+									    </div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
-												Shipping charges
+												Shipping Charges
 											</label>
 											<div class="col-sm-9">
 												<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control">
@@ -242,7 +284,7 @@
 										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
-												Offer text
+												Offer Text
 											</label>
 											<div class="col-sm-9">
 												<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control">
@@ -250,30 +292,15 @@
 										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
-												Affiliate url
+												Affiliate Url
 											</label>
 											<div class="col-sm-9">
 												<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control" required>
 											</div>
 										</div>
+										<div class="col-sm-8">
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Original price
-											</label>
-											<div class="col-sm-9">
-												<input type="number" placeholder="" id="original_price" name="original_price" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Final price
-											</label>
-											<div class="col-sm-9">
-												<input type="number" placeholder="" id="final_price" name="final_price" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-												<label class="col-sm-2 control-label" for="form-field-1">
+												<label class="col-sm-3 control-label" for="form-field-1">
 													Content
 												</label>
 												<div class="col-sm-9">
@@ -282,9 +309,45 @@
 												</div>
 											    </div>
 										</div>
-										<div class="col-md-4" style="float:right;">
+								    	</div>
+								    	<div class="col-sm-4">
+										<div class="form-group">
+											<div class="col-sm-12 center">
+												<label>
+													Image Upload
+												</label>
+												<div class="fileupload fileupload-new" data-provides="fileupload">
+													<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
+													</div>
+													<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													<div>
+														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
+															<input type="file">
+														</span>
+														<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
+															<i class="fa fa-times"></i> Remove
+														</a>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+										<div class="clear" style="height:50px;"></div>
+								    	</div>
+								    	
+										<div class="col-md-2" style="float:right;">
 												<button class="btn btn-yellow btn-block" type="submit">
 													ADD Deal <i class="fa fa-arrow-circle-right"></i>
+												</button>
+										</div>
+										<div class="col-md-1" style="float:right;">
+												<button class="btn btn-yellow btn-block" type="submit">
+													Preview <i class="fa fa-arrow-circle-right"></i>
+												</button>
+										</div>
+										<div class="col-md-1" style="float:right;">
+												<button class="btn btn-yellow btn-block" type="submit">
+													Save <i class="fa fa-arrow-circle-right"></i>
 												</button>
 										</div>
 										
@@ -325,7 +388,7 @@
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
-		
+		<script src="dealspitara.js"></script>
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();
