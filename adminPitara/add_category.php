@@ -55,9 +55,21 @@
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
+						<a href="edit_store.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Store </span>
+						</a>
+
+					</li>
+					<li>
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span><span class="selected"></span>
+							<span class="title"> Add Category </span>
+						</a>
+
+					</li>
+					<li>
+						<a href="edit_category.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Category </span>
 						</a>
 
 					</li>
@@ -116,8 +128,16 @@
 					       <!-- start: TEXT FIELDS PANEL -->
 							<div class="panel panel-default">
 								<div class="panel-body">
-									<form role="form" class="form-horizontal" id="form" action"#" method="post">
+									<form role="form" class="form-horizontal" id="form" method="post">
 										
+										<div class="form-group">
+											<label class="col-sm-2 control-label" for="form-field-1">
+												Name <span class="symbol required"></span>
+											</label>
+											<div class="col-sm-9">
+												<input type="text" placeholder="" id="name" name="name" class="form-control" required />
+											</div>
+										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
 												Title <span class="symbol required"></span>
@@ -127,12 +147,14 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Description <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="desc" name="desc" class="form-control" required>
-											</div>
+												<label class="col-sm-2 control-label" for="form-field-1">
+													Description
+												</label>
+												<div class="col-sm-9" id="desc">
+												<div class="summernote"  name="desc">
+													
+												</div>
+											    </div>
 										</div>
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
@@ -169,7 +191,7 @@
 										
 										<div class="form-group">
 											<label class="col-sm-2 control-label" for="form-field-1">
-												Short description
+												Short Description
 											</label>
 											<div class="col-sm-9">
 												<input type="text" placeholder="" id="short_desc" name="short_desc" class="form-control">
@@ -177,21 +199,49 @@
 										</div>
 										
 										
+										<div class="col-sm-8">
 										<div class="form-group">
-												<label class="col-sm-2 control-label" for="form-field-1">
-													Long description
+												<label class="col-sm-3 control-label" for="form-field-1">
+													Long Description
 												</label>
-												<div class="col-sm-9">
-												<div class="summernote" id="content" name="content">
-													
+												<div class="col-sm-9" id="content">
+												<div class="summernote" name="content">
+													Write page content here....
 												</div>
 											    </div>
 										</div>
-										<div class="col-md-4" style="float:right;">
-												<button class="btn btn-yellow btn-block" type="submit">
-													ADD Category <i class="fa fa-arrow-circle-right"></i>
-												</button>
+								    	</div>
+								    	<div class="col-sm-4">
+										<div class="form-group">
+											<div class="col-sm-12 center">
+												<label>
+													Image Upload
+												</label>
+												<div class="fileupload fileupload-new" data-provides="fileupload">
+													<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
+													</div>
+													<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													<div>
+														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
+															<input type="file" name="upload_file">
+														</span>
+														<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
+															<i class="fa fa-times"></i> Remove
+														</a>
+													</div>
+												</div>
+												
+											</div>
 										</div>
+										<div class="clear" style="height:50px;"></div>
+								    	</div>
+										<div class="col-md-4" style="float:right;">
+												<div class="btn btn-yellow btn-block" id="add_category" >
+													ADD Category <i class="fa fa-arrow-circle-right"></i>
+												</div>
+										</div>
+										
+										<div class="result" style="width:200px;"></div>
 										
 										
 										
@@ -229,7 +279,7 @@
 		<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-
+        <script src="dealspitara.js"></script>
 		
 		<script>
 			jQuery(document).ready(function() {
