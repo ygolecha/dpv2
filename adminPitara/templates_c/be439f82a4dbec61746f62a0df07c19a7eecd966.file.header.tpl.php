@@ -1,17 +1,26 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-	<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
-	<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
-	<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
-	<!--[if !IE]><!-->
-	<html lang="en" class="no-js">
-	<!--<![endif]-->
-	<!-- start: HEAD -->
-	<!-- start: HEAD -->
-=======
-<html>
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 16:30:42
+         compiled from "templates/header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:1228803306536a125a8a33b0-16536328%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'be439f82a4dbec61746f62a0df07c19a7eecd966' => 
+    array (
+      0 => 'templates/header.tpl',
+      1 => 1399459950,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '1228803306536a125a8a33b0-16536328',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_536a125a948509_59835214',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_536a125a948509_59835214')) {function content_536a125a948509_59835214($_smarty_tpl) {?><html>
 <!-- start: HEAD -->
->>>>>>> 2761fe35dea0d09c78ca774341b91364425763ad
 	<head>
 		<title>Dealspitara Admin</title>
 		<!-- start: META -->
@@ -43,3 +52,4 @@
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
+<?php }} ?>

@@ -1,37 +1,4 @@
-<?php
-<<<<<<< HEAD
-include 'include/constants.php';
-include 'db_connection.php';
-//including processes file which contains all login functions
-=======
-session_start();
-include_once('../config.php');
-
-$smarty->assign("HEADER",$smarty->fetch("header.tpl"));
-$smarty->assign("FOOTER",$smarty->fetch("footer.tpl"));
-
->>>>>>> 2761fe35dea0d09c78ca774341b91364425763ad
-include 'include/processes.php';
-$Login_Process = new Login_Process;
-if(isset($_GET['page']))
-{
-$page = $_GET['page'];
-$Login_Process->check_login($page);
-}
-else {
-$page = '';
-$Login_Process->check_login($page);
-}
-if(isset($_POST['user']))
-{
-	$user = $_POST['user'];
-	if(isset($_POST['pass']))
-		$pass = $_POST['pass'];
-	$Login = $Login_Process->log_in($user, $pass, $page, $_POST['submit']); 
-}
-<<<<<<< HEAD
-include "header.php";
-?>
+~$HEADER`	<!-- end: HEAD -->
 	<!-- start: BODY -->
 	<body class="login example1">
 		<div class="main-login col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -44,7 +11,7 @@ include "header.php";
 				<p>
 					Please enter your name and password to log in.
 				</p>
-				<form class="form-login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+				<form class="form-login" action="~$processPage`" method="post">
 					<div class="errorHandler alert alert-danger no-display">
 						<i class="fa fa-remove-sign"></i> You have some form errors. Please check below.
 					</div>
@@ -53,34 +20,34 @@ include "header.php";
 							<span class="input-icon">
 								<input type="text" class="form-control" name="user" id="user" placeholder="Username">
 								<i class="fa fa-user"></i> </span>
-								<!-- To mark the incorrectly filled input, you must add the class "error" to the input -->
-								<!-- example: <input type="text" class="login error" name="login" value="Username" /> -->
-							</div>
-							<div class="form-group form-actions">
-								<span class="input-icon">
-									<input type="password" class="form-control password" name="pass" id="pass" placeholder="Password">
+							<!-- To mark the incorrectly filled input, you must add the class "error" to the input -->
+							<!-- example: <input type="text" class="login error" name="login" value="Username" /> -->
+						</div>
+						<div class="form-group form-actions">
+							<span class="input-icon">
+								<input type="password" class="form-control password" name="pass" id="pass" placeholder="Password">
 								<!-- <i class="fa fa-lock"></i>
 								<a class="forgot" href="#">
 									I forgot my password
 								</a>--> </span>
-							</div>
-							<input name="page" type="hidden" value="" />
-							<div class="form-actions">
-								<label for="remember" class="checkbox-inline">
-									<input type="checkbox" class="grey remember" id="remember" name="remember">
-									Keep me signed in
-								</label>
-								<button type="submit" class="btn btn-bricky pull-right" name="submit">
-									Login <i class="fa fa-arrow-circle-right"></i>
-								</button>
+						</div>
+						<input name="page" type="hidden" value="~$page`" />
+						<div class="form-actions">
+							<label for="remember" class="checkbox-inline">
+								<input type="checkbox" class="grey remember" id="remember" name="remember">
+								Keep me signed in
+							</label>
+							<button type="submit" class="btn btn-bricky pull-right" name="submit">
+								Login <i class="fa fa-arrow-circle-right"></i>
+							</button>
 								
-							</div>
-
-						</fieldset>
-					</form>
-				</div>
-				<!-- end: LOGIN BOX -->
-				<!-- start: FORGOT BOX -->
+						</div>
+						
+					</fieldset>
+				</form>
+			</div>
+			<!-- end: LOGIN BOX -->
+			<!-- start: FORGOT BOX -->
 			<!-- <div class="box-forgot">
 				<h3>Forget Password?</h3>
 				<p>
@@ -143,12 +110,4 @@ include "header.php";
 		</script> -->
 	</body>
 	<!-- end: BODY -->
-	</html>
-=======
-$smarty->assign("page",$page);
-$smarty->assign("processPage",$_SERVER['PHP_SELF']);
-$smarty->display("index.tpl");
-
-?>
-	
->>>>>>> 2761fe35dea0d09c78ca774341b91364425763ad
+</html>

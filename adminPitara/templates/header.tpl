@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-	<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
-	<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
-	<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
-	<!--[if !IE]><!-->
-	<html lang="en" class="no-js">
-	<!--<![endif]-->
-	<!-- start: HEAD -->
-	<!-- start: HEAD -->
-=======
 <html>
 <!-- start: HEAD -->
->>>>>>> 2761fe35dea0d09c78ca774341b91364425763ad
 	<head>
 		<title>Dealspitara Admin</title>
 		<!-- start: META -->
