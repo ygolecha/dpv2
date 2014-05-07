@@ -1,4 +1,8 @@
 <?php
+session_start();
+include_once('../config.php');
+
+print_r($smarty);die;
 //including header file
 include "header.php";
 //including processes file which contains all login functions
