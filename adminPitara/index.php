@@ -1,10 +1,17 @@
+<!DOCTYPE html>
+<!-- Template Name: Clip-One - Responsive Admin Template build with Twitter Bootstrap 3.x Version: 1.3 Author: ClipTheme -->
+<!--[if IE 8]><html class="ie8 no-js" lang="en"><![endif]-->
+<!--[if IE 9]><html class="ie9 no-js" lang="en"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
 <?php
 //including header file
 include "header.php";
 //including processes file which contains all login functions
 include 'include/processes.php';
 $Login_Process = new Login_Process;
-$Login_Process->check_login($_GET['page']);
+$Login_Process->check_login($_POST['page']);
 $Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $_POST['page'], $_POST['submit']); 
 ?>
 	<!-- end: HEAD -->

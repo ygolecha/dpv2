@@ -1,7 +1,5 @@
 <?php
-
 # Databse Infomation
-
 // Database Server (localhost)
 define("DBHOST","localhost");
 // Database Username

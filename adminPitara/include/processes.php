@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors", "1");
+ini_set("display_errors", "0");
 error_reporting(E_ALL);
 // include 'mail.php';
 if(isset($_GET['log_out'])) {
@@ -113,7 +113,6 @@ class Login_Process {
 	
 			ini_set("session.gc_maxlifetime", Session_Lifetime); 
 			session_start();
-
 			$_SESSION['username']    = $row['user_name'];
 			$_SESSION['email_address'] = $row['email_address'];
 			$_SESSION['password']      = $row['password'];
