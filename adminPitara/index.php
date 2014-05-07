@@ -11,8 +11,13 @@ $Login_Process->check_login($page);
 }
 else
 $page = '';
-if($_POST['user'] && $_POST['pass']) 
-$Login = $Login_Process->log_in($_POST['user'], $_POST['pass'], $page, $_POST['submit']); 
+if(isset($_POST['user']))
+{
+	$user = $_POST['user'];
+	if(isset($_POST['pass']))
+		$pass = $_POST['pass'];
+	$Login = $Login_Process->log_in($user, $pass, $page, $_POST['submit']); 
+}
 
 ?>
 	<!-- end: HEAD -->
