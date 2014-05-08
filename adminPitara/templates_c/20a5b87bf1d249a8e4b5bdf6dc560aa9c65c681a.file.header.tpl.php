@@ -1,6 +1,27 @@
-<html>
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 16:39:17
+         compiled from "templates\header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:7734536a45950ea400-50871894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '20a5b87bf1d249a8e4b5bdf6dc560aa9c65c681a' => 
+    array (
+      0 => 'templates\\header.tpl',
+      1 => 1399472908,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '7734536a45950ea400-50871894',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_536a45953d32b2_70278032',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_536a45953d32b2_70278032')) {function content_536a45953d32b2_70278032($_smarty_tpl) {?><html>
 <!-- start: HEAD -->
-        <head>
+	<head>
 		<title>Dealspitara Admin</title>
 		<!-- start: META -->
 		<meta charset="utf-8" />
@@ -31,3 +52,4 @@
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
+<?php }} ?>

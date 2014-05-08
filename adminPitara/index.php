@@ -1,11 +1,10 @@
 <?php
-session_start();
 include_once('../config.php');
 
 $smarty->assign("HEADER",$smarty->fetch("header.tpl"));
 $smarty->assign("FOOTER",$smarty->fetch("footer.tpl"));
 
-include 'include/processes.php';
+include_once 'include/processes.php';
 $Login_Process = new Login_Process;
 if(isset($_GET['page']))
 {
