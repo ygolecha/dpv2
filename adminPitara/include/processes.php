@@ -116,6 +116,7 @@ class Login_Process {
 			$_SESSION['email_address'] = $row['email_address'];
 			$_SESSION['password']      = $row['user_pass'];
             $_SESSION['user_level']      = $row['user_level'];
+            $_SESSION['user_id']   = $row['user_id'];
 
 	}	
 	

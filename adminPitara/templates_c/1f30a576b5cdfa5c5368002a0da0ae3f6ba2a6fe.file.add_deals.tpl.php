@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 19:00:55
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 20:18:42
          compiled from "templates\add_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13042536a65f74c1788-61393219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f30a576b5cdfa5c5368002a0da0ae3f6ba2a6fe' => 
     array (
       0 => 'templates\\add_deals.tpl',
-      1 => 1399482049,
+      1 => 1399572727,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'catName' => 0,
     'cat_id' => 0,
     'cat_name' => 0,
+    'sessionUserid' => 0,
     'FOOTER' => 0,
   ),
   'has_nocache_code' => false,
@@ -143,248 +144,266 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</form>
 							</li>
 						</ol>
-						<div class="page-header">
-							<h3>Add Deals</h3>
-						</div>
 						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT -->
-				<div class="row">
 
-					       <!-- start: TEXT FIELDS PANEL -->
+
+
+
+				<div class="row">
+						<div class="col-md-12">
+							<!-- start: FORM VALIDATION 1 PANEL -->
 							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-external-link-square"></i>
+									ADD DEAL
+									<div class="panel-tools">
+										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+										</a>
+										<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+											<i class="fa fa-wrench"></i>
+										</a>
+										<a class="btn btn-xs btn-link panel-refresh" href="#">
+											<i class="fa fa-refresh"></i>
+										</a>
+										<a class="btn btn-xs btn-link panel-expand" href="#">
+											<i class="fa fa-resize-full"></i>
+										</a>
+										<a class="btn btn-xs btn-link panel-close" href="#">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
 								<div class="panel-body">
-									<form role="form" class="form-horizontal" id="form" action"#" method="post">
-										
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Title <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="title" name="title" class="form-control" required />
-											</div>
-										</div>
-										<div class="form-group">
-												<label class="col-sm-2 control-label" for="form-field-1">
-													Description
-												</label>
-												<div class="col-sm-9" id="desc">
-												<div class="summernote"  name="desc">
-													
+						
+									<form action="#" role="form" id="form-deal">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="errorHandler alert alert-danger no-display">
+													<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
 												</div>
-											    </div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												SEO Title <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="seo_title" name="seo_title" class="form-control" required>
+												<div class="successHandler alert alert-success no-display">
+													<i class="fa fa-ok"></i> Your form validation is successful!
+												</div>
 											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												SEO Description <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="seo_desc" name="seo_desc" class="form-control" required>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												OG Title <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="og_title" name="og_title" class="form-control" required>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												OG Description <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="og_desc" name="og_desc" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-sm-4">
-										<div class="form-group">
-											<label class="col-sm-6 control-label" for="form-field-1">
-													Store Name
-												</label>
-												<div class="col-sm-6" style="padding-left:5px;">
-												<select id="store_name" name="store_name" class="form-control" required>
-													<option value="">&nbsp;</option>
-													<option value="sad">frdfs</option>
-													<?php  $_smarty_tpl->tpl_vars['store_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['store_name']->_loop = false;
+											<div class="col-md-6">
+												
+												<div class="form-group">
+													<label class="control-label">
+														Title <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="Insert category title" class="form-control" id="title" name="title">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														Description <span class="symbol required"></span>
+													</label>
+													<div class="col-sm-12" id="descMain">
+												    <div class="summernote">
+												    </div>
+												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
+											        </div>
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														SEO Title <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														SEO Description <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														OG Title <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														OG Description <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+												</div>
+												<div class="col-sm-6" style="padding-left:0;">
+												<div class="form-group">
+													<label class="control-label">
+															Store Name <span class="symbol required"></span>
+														</label>
+														<select id="store_name" name="store_name" class="form-control">
+															<option value="">&nbsp;</option>
+															<option value="sad">frdfs</option>
+															<?php  $_smarty_tpl->tpl_vars['store_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['store_name']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['storeName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['store_name']->key => $_smarty_tpl->tpl_vars['store_name']->value) {
 $_smarty_tpl->tpl_vars['store_name']->_loop = true;
 ?>
-													
-													<option value="<<?php ?>?php echo $row['name']; ?<?php ?>>"><?php echo $_smarty_tpl->tpl_vars['store_name']->value;?>
+															
+															<option value="<?php echo $_smarty_tpl->tpl_vars['store_name']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['store_name']->value;?>
 </option>
-													
-													<?php } ?>
-												</select>
+															
+															<?php } ?>
+														</select>
+												</div>
 											    </div>
-										</div>
-									    </div>
-										<div class="col-sm-3">
-										<div class="form-group">
-											<label class="col-sm-6 control-label" for="form-field-1">
-												Original Price
-											</label>
-											<div class="col-sm-6">
-												<input type="number" placeholder="" id="original_price" name="original_price" class="form-control">
-											</div>
-										</div>
-									    </div>
-									    <div class="col-sm-4">
-										<div class="form-group">
-											<label class="col-sm-5 control-label" for="form-field-1">
-												Final Price
-											</label>
-											<div class="col-sm-7">
-												<input type="number" placeholder="" id="final_price" name="final_price" class="form-control">
-											</div>
-										</div>
-									    </div>
-										<div class="col-sm-4">
-										<div class="form-group">
-											<label class="col-sm-6 control-label" for="category">
-													Category
-												</label>
-												<div class="col-sm-6" style="padding-left:5px;">
-												<select  multiple="multiple" id="category" name="category" class="form-control search-select" required>
-													<option value="">&nbsp;</option>
-													<option value="sad">frdfs</option>
-													<option value="sads">frddasdafs</option>
-													<?php  $_smarty_tpl->tpl_vars['cat_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat_name']->_loop = false;
+											    <div class="col-sm-6">
+												<div class="form-group">
+													<label class="control-label">
+															Category <span class="symbol required"></span>
+														</label>
+														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
+															<option value="">&nbsp;</option>
+															<?php  $_smarty_tpl->tpl_vars['cat_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat_name']->_loop = false;
  $_smarty_tpl->tpl_vars['cat_id'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['catName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['cat_name']->key => $_smarty_tpl->tpl_vars['cat_name']->value) {
 $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
  $_smarty_tpl->tpl_vars['cat_id']->value = $_smarty_tpl->tpl_vars['cat_name']->key;
 ?>
-													
-													<option value="<?php echo $_smarty_tpl->tpl_vars['cat_id']->value;?>
+															
+															<option value="<?php echo $_smarty_tpl->tpl_vars['cat_id']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['cat_name']->value;?>
 </option>
-													
-													<?php } ?>
-												</select>
-											    </div>
-										</div>
-									   </div>
-									   <div class="col-sm-3">
-								    	<div class="form-group">
-											<label class="col-sm-6 control-label" for="form-field-1">
-												Discount
-											</label>
-											<div class="col-sm-6">
-												<input type="number" placeholder="" id="discount" name="discount" class="form-control">
-											</div>
-										</div>
-									    </div>
-									    <div class="col-sm-4">
-										<div class="form-group">
-											<label class="col-sm-5 control-label" for="form-field-1">
-												Expiry Date
-											</label>
-											<div class="col-sm-7">
-												<div class="input-group"> 
-									    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_Date" name="expiry_Date">
-									    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
-									           </div>
-											</div>
-										</div>
-									    </div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Shipping Charges
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Offer Text
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Affiliate Url
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control" required>
-											</div>
-										</div>
-										<div class="col-sm-8">
-										<div class="form-group">
-												<label class="col-sm-3 control-label" for="form-field-1">
-													Content
-												</label>
-												<div class="col-sm-9">
-												<div class="summernote" id="content" name="content">
-													Write page content here....
+															
+															<?php } ?>
+														</select>
+												</div>
+											   </div>
+											   <div class="col-sm-6" style="padding-left:0;">
+												<div class="form-group">
+													<label class="control-label">
+														Original Price
+													</label>
+														<input type="number" placeholder="" id="original_price" name="original_price" class="form-control">
 												</div>
 											    </div>
-										</div>
-								    	</div>
-								    	<div class="col-sm-4">
-										<div class="form-group">
-											<div class="col-sm-12 center">
-												<label>
-													Image Upload
-												</label>
-												<div class="fileupload fileupload-new" data-provides="fileupload">
-													<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
-													</div>
-													<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-													<div>
+											    <div class="col-sm-6">
+												<div class="form-group">
+													<label class="control-label">
+														Final Price
+													</label>
+														<input type="number" placeholder="" id="final_price" name="final_price" class="form-control">
+												</div>
+											    </div>
+														
+												
+											</div>
+											<div class="col-md-6">
+
+												<div class="col-sm-4" style="padding-left:0;">
+										    	<div class="form-group">
+													<label class="control-label">
+														Discount
+													</label>
+														<input type="number" placeholder="" id="discount" name="discount" class="form-control">
+												</div>
+											    </div>
+											    <div class="col-sm-4">
+												<div class="form-group">
+													<label class="control-label">
+														Expiry Date
+													</label>
+														<div class="input-group"> 
+											    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_date" name="expiry_date">
+											    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+											           </div>
+												</div>
+											    </div>
+											    <div class="col-sm-4" style="padding-left:0;">
+										    	<div class="form-group">
+													<label class="control-label">
+														Coupon Code
+													</label>
+														<input type="text" placeholder="" id="coupon_code" name="coupon_code" class="form-control">
+												</div>
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Shipping Charges
+													</label>
+														<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control">
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Offer Text
+													</label>
+														<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control">
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Affiliate Url <span class="symbol required"></span>
+													</label>
+														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control">
+											    </div>
+
+												<div class="form-group">
+													<label class="control-label">
+														Content <span class="symbol required"></span>
+													</label>
+													<div class="col-sm-12" id="contentMain">
+												    <div class="summernote">													
+												    </div>
+												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
+											        </div>
+												</div>
+												<div class="form-group">
+												  <div class="col-sm-12 center">
+												    <label class="control-label">
+													   Image Upload
+												    </label>
+											     	<div class="fileupload fileupload-new" data-provides="fileupload">
+													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
+													  </div>
+													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													  <div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
-															<input type="file">
+															<input type="file" name="upload_file">
 														</span>
 														<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
 															<i class="fa fa-times"></i> Remove
 														</a>
-													</div>
+													  </div>
+												    </div>
+												
+										     	 </div>
 												</div>
+																								
 												
 											</div>
 										</div>
-										<div class="clear" style="height:50px;"></div>
-								    	</div>
-								    	
-										<div class="col-md-2" style="float:right;">
-												<button class="btn btn-yellow btn-block" type="submit">
-													ADD Deal <i class="fa fa-arrow-circle-right"></i>
+										<hr>
+										<div class="row">
+											<div class="col-md-8">
+												<p>
+													<span class="symbol required"></span>Required Fields
+												</p>
+											</div>
+											<input type="hidden" id="author" value="<?php echo $_smarty_tpl->tpl_vars['sessionUserid']->value;?>
+" />
+											<input type="hidden" id="page_type" value="Deal Add" />
+											<div class="col-md-4">
+												<button class="btn btn-yellow btn-block" id="add_deals">
+													ADD <i class="fa fa-arrow-circle-right"></i>
 												</button>
+											</div>
 										</div>
-										<div class="col-md-1" style="float:right;">
-												<button class="btn btn-yellow btn-block" type="submit">
-													Preview <i class="fa fa-arrow-circle-right"></i>
-												</button>
-										</div>
-										<div class="col-md-1" style="float:right;">
-												<button class="btn btn-yellow btn-block" type="submit">
-													Save <i class="fa fa-arrow-circle-right"></i>
-												</button>
-										</div>
-										
-										
-										
 									</form>
 								</div>
 							</div>
-							<!-- end: TEXT FIELDS PANEL -->
+							<!-- end: FORM VALIDATION 1 PANEL -->
 						</div>
+					</div>
+
+
+
+				
 
 				</div>
 
@@ -416,10 +435,15 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 
+		<script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="assets/js/form-validation.js"></script>
+		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="dealspitara.js"></script>
+		
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();
+				FormValidator.init();
 				FormElements.init();
 				
 			});

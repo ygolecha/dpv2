@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 19:20:01
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 18:48:26
          compiled from "templates\add_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26109536a635764c9b4-72690523%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c796abe93ca10ea884bce96266b9689a5ba97de9' => 
     array (
       0 => 'templates\\add_category.tpl',
-      1 => 1399482839,
+      1 => 1399567704,
       2 => 'file',
     ),
   ),
@@ -84,9 +84,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span>
+							<span class="title"> Add Category </span><span class="selected"></span>
 						</a>
 
 					</li>
@@ -138,144 +138,169 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</form>
 							</li>
 						</ol>
-						<div class="page-header">
-							<h3>Add Category</h3>
-						</div>
 						<!-- end: PAGE TITLE & BREADCRUMB -->
 					</div>
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT -->
-				<div class="row">
+                 
 
-					       <!-- start: TEXT FIELDS PANEL -->
+
+
+                 <div class="row">
+						<div class="col-md-12">
+							<!-- start: FORM VALIDATION 1 PANEL -->
 							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-external-link-square"></i>
+									ADD CATEGORY
+									<div class="panel-tools">
+										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
+										</a>
+										<a class="btn btn-xs btn-link panel-config" href="#panel-config" data-toggle="modal">
+											<i class="fa fa-wrench"></i>
+										</a>
+										<a class="btn btn-xs btn-link panel-refresh" href="#">
+											<i class="fa fa-refresh"></i>
+										</a>
+										<a class="btn btn-xs btn-link panel-expand" href="#">
+											<i class="fa fa-resize-full"></i>
+										</a>
+										<a class="btn btn-xs btn-link panel-close" href="#">
+											<i class="fa fa-times"></i>
+										</a>
+									</div>
+								</div>
 								<div class="panel-body">
-									<form role="form" class="form-horizontal" id="form" method="post">
-										
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Name <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="name" name="name" class="form-control" required />
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Title <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="title" name="title" class="form-control" required />
-											</div>
-										</div>
-										<div class="form-group">
-												<label class="col-sm-2 control-label" for="form-field-1">
-													Description
-												</label>
-												<div class="col-sm-9" id="desc">
-												<div class="summernote"  name="desc">
-													
+						
+									<form action="#" role="form" id="form">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="errorHandler alert alert-danger no-display">
+													<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
 												</div>
-											    </div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												SEO Title <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="seo_title" name="seo_title" class="form-control" required>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												SEO Description <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="seo_desc" name="seo_desc" class="form-control" required>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												OG Title <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="og_title" name="og_title" class="form-control" required>
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												OG Description <span class="symbol required"></span>
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="og_desc" name="og_desc" class="form-control" required>
-											</div>
-										</div>
-										
-										<div class="form-group">
-											<label class="col-sm-2 control-label" for="form-field-1">
-												Short Description
-											</label>
-											<div class="col-sm-9">
-												<input type="text" placeholder="" id="short_desc" name="short_desc" class="form-control">
-											</div>
-										</div>
-										
-										
-										<div class="col-sm-8">
-										<div class="form-group">
-												<label class="col-sm-3 control-label" for="form-field-1">
-													Long Description
-												</label>
-												<div class="col-sm-9" id="content">
-												<div class="summernote" name="content">
-													Write page content here....
+												<div class="successHandler alert alert-success no-display">
+													<i class="fa fa-ok"></i> Your form validation is successful!
 												</div>
-											    </div>
-										</div>
-								    	</div>
-								    	<div class="col-sm-4">
-										<div class="form-group">
-											<div class="col-sm-12 center">
-												<label>
-													Image Upload
-												</label>
-												<div class="fileupload fileupload-new" data-provides="fileupload">
-													<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
-													</div>
-													<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-													<div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="control-label">
+														Name <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="Insert category name" class="form-control" id="name" name="name">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														Title <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="Insert category title" class="form-control" id="title" name="title">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														Description <span class="symbol required"></span>
+													</label>
+													<div class="col-sm-12" id="descMain">
+												    <div class="summernote">
+												    </div>
+												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
+											        </div>
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														SEO Title <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														SEO Description <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														OG Title <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+												</div>
+												
+												
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label class="control-label">
+														OG Description <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														Short Description <span class="symbol required"></span>
+													</label>
+													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
+												</div>
+												<div class="form-group">
+													<label class="control-label">
+														Long Description <span class="symbol required"></span>
+													</label>
+													<div class="col-sm-12" id="contentMain">
+												    <div class="summernote">													
+												    </div>
+												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
+											        </div>
+												</div>
+												<div class="form-group">
+												  <div class="col-sm-12 center">
+												    <label class="control-label">
+													   Image Upload
+												    </label>
+											     	<div class="fileupload fileupload-new" data-provides="fileupload">
+													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
+													  </div>
+													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													  <div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
 															<input type="file" name="upload_file">
 														</span>
 														<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
 															<i class="fa fa-times"></i> Remove
 														</a>
-													</div>
+													  </div>
+												    </div>
+												
+										     	 </div>
 												</div>
+																								
 												
 											</div>
 										</div>
-										<div class="clear" style="height:50px;"></div>
-								    	</div>
-										<div class="col-md-4" style="float:right;">
-												<div class="btn btn-yellow btn-block" id="add_category" >
-													ADD Category <i class="fa fa-arrow-circle-right"></i>
-												</div>
+										<hr>
+										<div class="row">
+											<div class="col-md-8">
+												<p>
+													<span class="symbol required"></span>Required Fields
+												</p>
+											</div>
+											<input type="hidden" id="page_type" value="category" />
+											<div class="col-md-4">
+												<button class="btn btn-yellow btn-block" id="add_category">
+													ADD <i class="fa fa-arrow-circle-right"></i>
+												</button>
+											</div>
 										</div>
-										
-										<div class="result" style="width:200px;"></div>
-										
-										
-										
 									</form>
 								</div>
 							</div>
-							<!-- end: TEXT FIELDS PANEL -->
+							<!-- end: FORM VALIDATION 1 PANEL -->
 						</div>
+					</div>
 
-				</div>
 
+
+
+
+		
 			</div>
 		</div>
 		<!-- end: PAGE -->
@@ -311,9 +336,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();
-				FormElements.init();
+				FormValidator.init();
+
 				
-			});
+           });
+            
 		</script>
 
 </body>
