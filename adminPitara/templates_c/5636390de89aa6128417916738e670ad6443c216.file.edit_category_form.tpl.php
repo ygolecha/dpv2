@@ -1,4 +1,35 @@
-~$HEADER`
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 13:59:38
+         compiled from "templates\edit_category_form.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:19419536e0f521b8d49-68538287%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '5636390de89aa6128417916738e670ad6443c216' => 
+    array (
+      0 => 'templates\\edit_category_form.tpl',
+      1 => 1399723137,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '19419536e0f521b8d49-68538287',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_536e0f5223aa34_57052742',
+  'variables' => 
+  array (
+    'HEADER' => 0,
+    'TOPMENU' => 0,
+    'userLevel' => 0,
+    'catData' => 0,
+    'catID' => 0,
+    'FOOTER' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_536e0f5223aa34_57052742')) {function content_536e0f5223aa34_57052742($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
+
 <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
 		<link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css">
@@ -10,7 +41,8 @@
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 <body>
-	~$TOPMENU`
+	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
+
 
 	<div class="main-container">
 
@@ -42,9 +74,9 @@
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Store </span><span class="selected"></span>
+							<span class="title"> Add Store </span>
 						</a>
 
 					</li>
@@ -54,9 +86,9 @@
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span>
+							<span class="title"> Add Category </span><span class="selected"></span>
 						</a>
 
 					</li>
@@ -66,13 +98,13 @@
 						</a>
 
 					</li>
-					~if $userLevel eq 1`
+					<?php if ($_smarty_tpl->tpl_vars['userLevel']->value==1) {?>
 					<li>
 						<a href="register.php">
 							<i class="clip-user-2"></i><span class="title"> Register User </span>
 						</a>
 					</li>
-					~/if`
+					<?php }?>
 
 				</ul>
 				<!-- end: MAIN NAVIGATION MENU -->
@@ -123,7 +155,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									ADD STORE
+									EDIT CATEGORY
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -158,13 +190,15 @@
 													<label class="control-label">
 														Name <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert store name" class="form-control" id="name" name="name">
+													<input type="text" placeholder="Insert category name" class="form-control" id="name" name="name" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['name'];?>
+">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert store title" class="form-control" id="title" name="title">
+													<input type="text" placeholder="Insert category title" class="form-control" id="title" name="title" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['title'];?>
+">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -172,6 +206,8 @@
 													</label>
 													<div class="col-sm-12" id="descMain">
 												    <div class="summernote">
+												    	<?php echo $_smarty_tpl->tpl_vars['catData']->value['description'];?>
+
 												    </div>
 												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
 											        </div>
@@ -180,19 +216,22 @@
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['seo_title'];?>
+">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['seo_desc'];?>
+">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['og_title'];?>
+">
 												</div>
 												
 												
@@ -202,20 +241,24 @@
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['og_desc'];?>
+">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Short Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
+													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc" value="<?php echo $_smarty_tpl->tpl_vars['catData']->value['short_desc'];?>
+">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Long Description <span class="symbol required"></span>
 													</label>
 													<div class="col-sm-12" id="contentMain">
-												    <div class="summernote">													
+												    <div class="summernote">
+												      <?php echo $_smarty_tpl->tpl_vars['catData']->value['long_desc'];?>
+													
 												    </div>
 												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
 											        </div>
@@ -225,10 +268,11 @@
 												    <label class="control-label">
 													   Image Upload
 												    </label>
-											     	<div class="fileupload fileupload-new" data-provides="fileupload">
+											     	<div class="fileupload fileupload-exists" data-provides="fileupload">
 													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
 													  </div>
-													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"><img src="<?php echo $_smarty_tpl->tpl_vars['catData']->value['image_url'];?>
+" style="max-height: 150px;" /></div>
 													  <div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
 															<input type="file" name="upload_file">
@@ -252,7 +296,9 @@
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="store_add" />
+											<input type="hidden" id="page_type" value="category_edit" />
+											<input type="hidden" id="ID" value="<?php echo $_smarty_tpl->tpl_vars['catID']->value;?>
+" />
 											<div class="col-md-4">
 												<button class="btn btn-yellow btn-block" id="add_category">
 													ADD <i class="fa fa-arrow-circle-right"></i>
@@ -277,7 +323,8 @@
 
 	</div>
     
-	~$FOOTER`
+	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
+
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>
@@ -307,8 +354,10 @@
 				Main.init();
 				FormValidator.init();
 
-			});
+				
+           });
+            
 		</script>
 
 </body>
-</html>
+</html><?php }} ?>

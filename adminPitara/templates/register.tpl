@@ -27,7 +27,7 @@
 
           </li>
           <li>
-            <a href="#"><i class="clip-pencil"></i>
+            <a href="edit_deals.php"><i class="clip-pencil"></i>
               <span class="title"> Edit Deals </span>
             </a>
 
@@ -39,7 +39,7 @@
 
           </li>
          <li>
-            <a href="#"><i class="clip-pencil"></i>
+            <a href="edit_store.php"><i class="clip-pencil"></i>
               <span class="title"> Edit Store </span>
             </a>
 
@@ -51,7 +51,7 @@
 
           </li>
           <li>
-            <a href="#"><i class="clip-pencil"></i>
+            <a href="edit_category.php"><i class="clip-pencil"></i>
               <span class="title"> Edit Category </span>
             </a>
 

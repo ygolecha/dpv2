@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 07:33:34
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:04:24
          compiled from "templates\dashboard.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19879536a49e9a7e4a9-55661181%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fae4a1401156e5b20d1f084faaf483e3619d4522' => 
     array (
       0 => 'templates\\dashboard.tpl',
-      1 => 1399527212,
+      1 => 1399723123,
       2 => 'file',
     ),
   ),
@@ -57,7 +57,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_deals.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span>
 						</a>
 
@@ -69,7 +69,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Store </span>
 						</a>
 
@@ -81,7 +81,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
 						</a>
 

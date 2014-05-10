@@ -9,6 +9,11 @@
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
+		<link rel="stylesheet" href="assets/plugins/x-editable/css/bootstrap-editable.css">
+		<link rel="stylesheet" href="assets/plugins/typeaheadjs/lib/typeahead.js-bootstrap.css">
+		<link rel="stylesheet" href="assets/plugins/jquery-address/address.css">
+
 <body>
 	~$TOPMENU`
 
@@ -36,15 +41,15 @@
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="edit_deals.php"><i class="clip-pencil"></i>
-							<span class="title"> Edit Deals </span>
+							<span class="title"> Edit Deals </span><span class="selected"></span>
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Store </span><span class="selected"></span>
+							<span class="title"> Add Store </span>
 						</a>
 
 					</li>
@@ -113,17 +118,17 @@
 				</div>
 				<!-- end: PAGE HEADER -->
 				<!-- start: PAGE CONTENT -->
-                 
 
 
 
-                 <div class="row">
+
+				<div class="row">
 						<div class="col-md-12">
-							<!-- start: FORM VALIDATION 1 PANEL -->
+
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									ADD STORE
+									EDIT DEAL
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -143,7 +148,7 @@
 								</div>
 								<div class="panel-body">
 						
-									<form action="#" role="form" id="form">
+									<form action="#" role="form" id="form-deal">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="errorHandler alert alert-danger no-display">
@@ -154,17 +159,12 @@
 												</div>
 											</div>
 											<div class="col-md-6">
-												<div class="form-group">
-													<label class="control-label">
-														Name <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="Insert store name" class="form-control" id="name" name="name">
-												</div>
+												
 												<div class="form-group">
 													<label class="control-label">
 														Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert store title" class="form-control" id="title" name="title">
+													<input type="text" placeholder="Insert category title" class="form-control" id="title" name="title" value="~$dealData['title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -172,6 +172,7 @@
 													</label>
 													<div class="col-sm-12" id="descMain">
 												    <div class="summernote">
+												    	~$dealData['description']`
 												    </div>
 												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
 											        </div>
@@ -180,42 +181,141 @@
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="~$dealData['seo_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="~$dealData['seo_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="~$dealData['og_title']`">
 												</div>
-												
-												
-											</div>
-											<div class="col-md-6">
 												<div class="form-group">
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="~$dealData['og_desc']`">
 												</div>
+												<div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
 													<label class="control-label">
-														Short Description <span class="symbol required"></span>
+															Store Name <span class="symbol required"></span>
+														</label>
+														<select id="store_name" name="store_name" class="form-control">
+															<option value="~$dealData['store_name']`">~$dealData['store_name']`</option>
+															~foreach $storeName as $store_name`
+															
+															<option value="~$store_name`">~$store_name`</option>
+															
+															~/foreach`
+														</select>
+												</div>
+											    </div>
+											    <div class="col-sm-6">
+												<div class="form-group">
+													<label class="control-label">
+														Category <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
+														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
+															<option value="">&nbsp;</option>
+															~foreach $catName as $cat_id=>$cat_name`
+															
+															<option value="~$cat_id`">~$cat_name`</option>
+															
+															~/foreach`
+														</select>
 												</div>
+											   </div>
+											   <div class="col-sm-6"> 
+											   <div class="form-group">
+													<label class="control-label">
+														Category New <span class="symbol required"></span>
+													</label>
+														<a href="#" id="tags" data-type="select2" data-pk="1" data-original-title="Enter tags">
+											             xyz, javascript
+										                </a>
+												</div>
+											   </div>
+											   
+											   <div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
 													<label class="control-label">
-														Long Description <span class="symbol required"></span>
+														Original Price
+													</label>
+														<input type="number" placeholder="" id="original_price" name="original_price" class="form-control" value="~$dealData['original_price']`">
+												</div>
+											    </div>
+											    <div class="col-sm-6">
+												<div class="form-group">
+													<label class="control-label">
+														Final Price
+													</label>
+														<input type="number" placeholder="" id="final_price" name="final_price" class="form-control" value="~$dealData['final_price']`">
+												</div>
+											    </div>
+														
+												
+											</div>
+											<div class="col-md-6">
+
+												<div class="col-sm-4" style="padding-left:0;">
+										    	<div class="form-group">
+													<label class="control-label">
+														Discount
+													</label>
+														<input type="number" placeholder="" id="discount" name="discount" class="form-control" value="~$dealData['discount']`">
+												</div>
+											    </div>
+											    <div class="col-sm-4">
+												<div class="form-group">
+													<label class="control-label">
+														Expiry Date
+													</label>
+														<div class="input-group"> 
+											    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_date" name="expiry_date" value="~$dealData['expiry']`">
+											    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+											           </div>
+												</div>
+											    </div>
+											    <div class="col-sm-4" style="padding-left:0;">
+										    	<div class="form-group">
+													<label class="control-label">
+														Coupon Code
+													</label>
+														<input type="text" placeholder="" id="coupon_code" name="coupon_code" class="form-control" value="~$dealData['coupon_code']`">
+												</div>
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Shipping Charges
+													</label>
+														<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control" value="~$dealData['shipping_charges']`">
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Offer Text
+													</label>
+														<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control" value="~$dealData['offer_text']`">
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Affiliate Url <span class="symbol required"></span>
+													</label>
+														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control" value="~$dealData['affiliate_url']`">
+											    </div>
+
+												<div class="form-group">
+													<label class="control-label">
+														Content <span class="symbol required"></span>
 													</label>
 													<div class="col-sm-12" id="contentMain">
-												    <div class="summernote">													
+												    <div class="summernote">	
+												    ~$dealData['content']`												
 												    </div>
 												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
 											        </div>
@@ -225,10 +325,10 @@
 												    <label class="control-label">
 													   Image Upload
 												    </label>
-											     	<div class="fileupload fileupload-new" data-provides="fileupload">
+											     	<div class="fileupload fileupload-exists" data-provides="fileupload">
 													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
 													  </div>
-													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"><img src="~$dealData['image_url']`" style="max-height: 150px;" /></div>
 													  <div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
 															<input type="file" name="upload_file">
@@ -252,10 +352,12 @@
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="store_add" />
-											<div class="col-md-4">
-												<button class="btn btn-yellow btn-block" id="add_category">
-													ADD <i class="fa fa-arrow-circle-right"></i>
+											<input type="hidden" id="author" value="~$sessionUserid`" />
+											<input type="hidden" id="dealID" value="~$dealID`" />
+											<input type="hidden" id="page_type" value="Deal Edit" />
+											<div class="col-md-2">
+												<button class="btn btn-yellow btn-block" id="add_deals">
+													UPDATE <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
 										</div>
@@ -263,14 +365,16 @@
 								</div>
 							</div>
 							<!-- end: FORM VALIDATION 1 PANEL -->
+							
 						</div>
 					</div>
 
 
 
+				
 
+				</div>
 
-		
 			</div>
 		</div>
 		<!-- end: PAGE -->
@@ -297,16 +401,23 @@
 		<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-        <script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-		<script src="assets/js/form-validation.js"></script>
-		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
+		<script src="assets/plugins/jquery-mockjax/jquery.mockjax.js"></script>
+		<script src="assets/plugins/moment/moment.js"></script>
+		<script src="assets/plugins/x-editable/js/bootstrap-editable.min.js"></script>
+		<script src="assets/plugins/typeaheadjs/typeaheadjs.js"></script>
+		<script src="assets/plugins/typeaheadjs/lib/typeahead.js"></script>
+		<script src="assets/plugins/jquery-address/address.js"></script>
+		<script src="assets/plugins/x-editable/demo-mock.js"></script>
+		<script src="assets/plugins/x-editable/demo.js"></script>
+
+
 		<script src="dealspitara.js"></script>
 		
-		<script>
+		<script type='text/javascript'>
 			jQuery(document).ready(function() {
 				Main.init();
-				FormValidator.init();
-
+				FormElements.init();
+					
 			});
 		</script>
 

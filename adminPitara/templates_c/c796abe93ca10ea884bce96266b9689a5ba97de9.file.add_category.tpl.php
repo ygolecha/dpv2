@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 18:48:26
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 13:53:30
          compiled from "templates\add_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26109536a635764c9b4-72690523%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c796abe93ca10ea884bce96266b9689a5ba97de9' => 
     array (
       0 => 'templates\\add_category.tpl',
-      1 => 1399567704,
+      1 => 1399722348,
       2 => 'file',
     ),
   ),
@@ -67,7 +67,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_deals.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span>
 						</a>
 
@@ -91,7 +91,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
 						</a>
 
@@ -282,7 +282,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="category" />
+											<input type="hidden" id="page_type" value="category_add" />
 											<div class="col-md-4">
 												<button class="btn btn-yellow btn-block" id="add_category">
 													ADD <i class="fa fa-arrow-circle-right"></i>

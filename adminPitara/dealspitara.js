@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
 	$('#title').keyup(function(){
 
         var title = $('#title').val();

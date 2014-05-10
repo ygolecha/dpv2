@@ -37,7 +37,7 @@
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_deals.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span>
 						</a>
 
@@ -49,7 +49,7 @@
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Store </span>
 						</a>
 
@@ -61,7 +61,7 @@
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
 						</a>
 
@@ -252,7 +252,7 @@
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="category" />
+											<input type="hidden" id="page_type" value="category_add" />
 											<div class="col-md-4">
 												<button class="btn btn-yellow btn-block" id="add_category">
 													ADD <i class="fa fa-arrow-circle-right"></i>

@@ -42,9 +42,9 @@
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Store </span><span class="selected"></span>
+							<span class="title"> Add Store </span>
 						</a>
 
 					</li>
@@ -54,9 +54,9 @@
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span>
+							<span class="title"> Add Category </span><span class="selected"></span>
 						</a>
 
 					</li>
@@ -123,7 +123,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									ADD STORE
+									EDIT CATEGORY
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -158,13 +158,13 @@
 													<label class="control-label">
 														Name <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert store name" class="form-control" id="name" name="name">
+													<input type="text" placeholder="Insert category name" class="form-control" id="name" name="name" value="~$catData['name']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert store title" class="form-control" id="title" name="title">
+													<input type="text" placeholder="Insert category title" class="form-control" id="title" name="title" value="~$catData['title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -172,6 +172,7 @@
 													</label>
 													<div class="col-sm-12" id="descMain">
 												    <div class="summernote">
+												    	~$catData['description']`
 												    </div>
 												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
 											        </div>
@@ -180,19 +181,19 @@
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="~$catData['seo_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="~$catData['seo_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="~$catData['og_title']`">
 												</div>
 												
 												
@@ -202,20 +203,21 @@
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="~$catData['og_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Short Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
+													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc" value="~$catData['short_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Long Description <span class="symbol required"></span>
 													</label>
 													<div class="col-sm-12" id="contentMain">
-												    <div class="summernote">													
+												    <div class="summernote">
+												      ~$catData['long_desc']`													
 												    </div>
 												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
 											        </div>
@@ -225,10 +227,10 @@
 												    <label class="control-label">
 													   Image Upload
 												    </label>
-											     	<div class="fileupload fileupload-new" data-provides="fileupload">
+											     	<div class="fileupload fileupload-exists" data-provides="fileupload">
 													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
 													  </div>
-													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"><img src="~$catData['image_url']`" style="max-height: 150px;" /></div>
 													  <div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
 															<input type="file" name="upload_file">
@@ -252,7 +254,8 @@
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="store_add" />
+											<input type="hidden" id="page_type" value="category_edit" />
+											<input type="hidden" id="ID" value="~$catID`" />
 											<div class="col-md-4">
 												<button class="btn btn-yellow btn-block" id="add_category">
 													ADD <i class="fa fa-arrow-circle-right"></i>
@@ -307,7 +310,9 @@
 				Main.init();
 				FormValidator.init();
 
-			});
+				
+           });
+            
 		</script>
 
 </body>

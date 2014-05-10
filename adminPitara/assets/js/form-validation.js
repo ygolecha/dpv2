@@ -1,6 +1,8 @@
 var FormValidator = function () {
     // function to initiate Validation Sample 1
     var runValidator1 = function () {
+        
+                
         var form1 = $('#form');
         var errorHandler1 = $('.errorHandler', form1);
         var successHandler1 = $('.successHandler', form1);
@@ -77,7 +79,8 @@ var FormValidator = function () {
             submitHandler: function (form) {
                 successHandler1.show();
                 errorHandler1.hide();
-                
+
+
                 // action on successful form submition
                 var title = $("#title").val(),
                 name = $("#name").val(),
@@ -89,10 +92,11 @@ var FormValidator = function () {
                 content = $("#contentMain").find("div.note-editable").html(),
                 short_desc = $("#short_desc").val(),
                 img_url = $(".fileupload-preview").find("img").attr('src'),
-                page_type = $("#page_type").val();
+                page_type = $("#page_type").val(),
+                ID = $("#ID").val();
 
 
-                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_category_action.php', {name:name, title:title, desc:desc, og_title:og_title, og_desc:og_desc, seo_title:seo_title, seo_desc:seo_desc, content:content, short_desc:short_desc, img_url:img_url, page_type:page_type}, function(data){
+                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_category_action.php', {ID:ID, name:name, title:title, desc:desc, og_title:og_title, og_desc:og_desc, seo_title:seo_title, seo_desc:seo_desc, content:content, short_desc:short_desc, img_url:img_url, page_type:page_type}, function(data){
                     $("#title").val('');
                     $("#descMain").find("div.note-editable").html('');
                     $("#seo_title").val('');
@@ -110,6 +114,7 @@ var FormValidator = function () {
     };
     
     var runValidator3 = function () {
+         
         var form3 = $('#form-deal');
         var errorHandler3 = $('.errorHandler', form3);
         var successHandler3 = $('.successHandler', form3);
@@ -187,7 +192,7 @@ var FormValidator = function () {
             submitHandler: function (form) {
                 successHandler3.show();
                 errorHandler3.hide();
-                
+              
                 // action on successful form submition
                 var title = $("#title").val(),
                 store_name = $("#store_name").val(),
@@ -208,10 +213,11 @@ var FormValidator = function () {
                 author = $("#author").val(),
                 coupon_code = $("#coupon_code").val(),
                 img_url = $(".fileupload-preview").find("img").attr('src'),
-                page_type = $("#page_type").val();
+                page_type = $("#page_type").val(),
+                dealID = $("#dealID").val();
 
 
-                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, page_type:page_type, author:author}, function(data){
+                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, page_type:page_type, author:author, dealID:dealID}, function(data){
                     $(".xyz").html(data);
                     $("#title").val('');
                     $("#descMain").find("div.note-editable").html('');

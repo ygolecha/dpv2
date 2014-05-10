@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 20:18:42
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:03:44
          compiled from "templates\add_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13042536a65f74c1788-61393219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f30a576b5cdfa5c5368002a0da0ae3f6ba2a6fe' => 
     array (
       0 => 'templates\\add_deals.tpl',
-      1 => 1399572727,
+      1 => 1399723109,
       2 => 'file',
     ),
   ),
@@ -73,7 +73,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_deals.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span>
 						</a>
 
@@ -85,7 +85,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Store </span>
 						</a>
 
@@ -97,7 +97,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 					</li>
 					<li>
-						<a href="#"><i class="clip-pencil"></i>
+						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
 						</a>
 
@@ -388,7 +388,17 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 											<input type="hidden" id="author" value="<?php echo $_smarty_tpl->tpl_vars['sessionUserid']->value;?>
 " />
 											<input type="hidden" id="page_type" value="Deal Add" />
-											<div class="col-md-4">
+											<div class="col-md-1">
+												<button class="btn btn-yellow btn-block" id="save_deals">
+													SAVE <i class="fa fa-arrow-circle-right"></i>
+												</button>
+											</div>
+											<div class="col-md-1">
+												<div class="btn btn-yellow btn-block" id="preview_deals">
+													PREVIEW <i class="fa fa-arrow-circle-right"></i>
+												</div>
+											</div>
+											<div class="col-md-2">
 												<button class="btn btn-yellow btn-block" id="add_deals">
 													ADD <i class="fa fa-arrow-circle-right"></i>
 												</button>
