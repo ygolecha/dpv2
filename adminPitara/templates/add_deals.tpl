@@ -347,7 +347,14 @@
 													SAVE AGAIN <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
-											
+											<form method="post" action="deal_preview.php" target="_blank">
+												<input type="hidden" name="hidden_lastID" id="hidden_lastID" value="" />
+												<div class="col-md-1">
+													<button class="btn btn-yellow btn-block" id="preview_deals" disabled="disabled">
+														PREVIEW <i class="fa fa-arrow-circle-right"></i>
+													</button>
+												</div>
+										    </form>
 											<div class="col-md-2">
 												<div class="btn btn-yellow btn-block" id="add_deals_main">
 													ADD <i class="fa fa-arrow-circle-right"></i>
