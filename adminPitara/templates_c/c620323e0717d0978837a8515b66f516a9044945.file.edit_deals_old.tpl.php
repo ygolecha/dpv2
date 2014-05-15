@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 08:18:05
-         compiled from "templates\edit_category.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14809536e0d46a41943-65799059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 13:49:57
+         compiled from "templates\edit_deals_old.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:193155374a607cd7bf7-77364662%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '6cfca0876199a7187e5244712471ffc51bc76a9d' => 
+    'c620323e0717d0978837a8515b66f516a9044945' => 
     array (
-      0 => 'templates\\edit_category.tpl',
-      1 => 1400134394,
+      0 => 'templates\\edit_deals_old.tpl',
+      1 => 1400154595,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '14809536e0d46a41943-65799059',
+  'nocache_hash' => '193155374a607cd7bf7-77364662',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_536e0d46acd229_80336733',
+  'unifunc' => 'content_5374a607db5650_50115606',
   'variables' => 
   array (
     'HEADER' => 0,
     'TOPMENU' => 0,
     'userLevel' => 0,
-    'catName' => 0,
-    'catTitle' => 0,
-    'catID' => 0,
+    'dealName' => 0,
+    'dealTitle' => 0,
+    'dealID' => 0,
     'totalPages' => 0,
     'currentPage' => 0,
     'i' => 0,
@@ -32,7 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_536e0d46acd229_80336733')) {function content_536e0d46acd229_80336733($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
+<?php if ($_valid && !is_callable('content_5374a607db5650_50115606')) {function content_5374a607db5650_50115606($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
 
 <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
@@ -44,6 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
 <body>
 	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
 
@@ -78,6 +79,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
+					<li class="active open">
+						<a href="edit_deals_old.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Old Deals </span><span class="selected"></span>
+						</a>
+
+					</li>
 					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Add Store </span>
@@ -96,9 +103,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="edit_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Edit Category </span><span class="selected"></span>
+							<span class="title"> Edit Category </span>
 						</a>
 
 					</li>
@@ -137,7 +144,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<form class="sidebar-search">
 									<div class="form-group">
 										<input type="text" id="search_term" placeholder="Start Searching...">
-										<input type="hidden" id="pageType" value="category" />
+										<input type="hidden" id="pageType" value="deal" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -161,7 +168,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									EDIT CATEGORY
+									EDIT DEAL
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -183,24 +190,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
-												<th>Category Name</th>
+												<th>Deal Title</th>
 												<th class="hidden-xs">Action</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php  $_smarty_tpl->tpl_vars['catTitle'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['catTitle']->_loop = false;
- $_smarty_tpl->tpl_vars['catID'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['catName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['catTitle']->key => $_smarty_tpl->tpl_vars['catTitle']->value) {
-$_smarty_tpl->tpl_vars['catTitle']->_loop = true;
- $_smarty_tpl->tpl_vars['catID']->value = $_smarty_tpl->tpl_vars['catTitle']->key;
+											<?php  $_smarty_tpl->tpl_vars['dealTitle'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dealTitle']->_loop = false;
+ $_smarty_tpl->tpl_vars['dealID'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['dealName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['dealTitle']->key => $_smarty_tpl->tpl_vars['dealTitle']->value) {
+$_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
+ $_smarty_tpl->tpl_vars['dealID']->value = $_smarty_tpl->tpl_vars['dealTitle']->key;
 ?>
 											<tr>
-												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['catTitle']->value;?>
+												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['dealTitle']->value;?>
 </td>
 												<td>
-													<form method="post" action="edit_category_form.php"> <input type="hidden" name="cat_id" value="<?php echo $_smarty_tpl->tpl_vars['catID']->value;?>
+													<form method="post" action="edit_deal_form_old.php"> <input type="hidden" name="deal_id" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
 " />
 														<button class="btn btn-default">EDIT</button>
 													</form>
@@ -215,27 +222,26 @@ $_smarty_tpl->tpl_vars['catTitle']->_loop = true;
 							<div class="pagination">
 								<?php if ($_smarty_tpl->tpl_vars['totalPages']->value>1) {?>
 								   <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==1) {?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php" class="btn btn-bricky">1</a>
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php" class="btn btn-bricky">1</a>
 	                               <?php } else { ?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php" class="btn btn-light-grey">1</a>
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php" class="btn btn-light-grey">1</a>
 	                               <?php }?>
 	                               <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPages']->value+1 - (2) : 2-($_smarty_tpl->tpl_vars['totalPages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
 if ($_smarty_tpl->tpl_vars['i']->total > 0) {
 for ($_smarty_tpl->tpl_vars['i']->value = 2, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
 $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
 		                                <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==$_smarty_tpl->tpl_vars['i']->value) {?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 " class="btn btn-bricky"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 </a>
 			                                 <?php } else { ?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 " class="btn btn-light-grey"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
 </a>
 		                                 <?php }?>
 	                               <?php }} ?>
 								<?php }?>
 							</div>
-							
 						</div>
 					</div>
 

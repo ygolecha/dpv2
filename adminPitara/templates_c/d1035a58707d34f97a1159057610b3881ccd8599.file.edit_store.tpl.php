@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 13:59:31
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 08:13:16
          compiled from "templates\edit_store.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19718536e14a3958c88-19129419%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd1035a58707d34f97a1159057610b3881ccd8599' => 
     array (
       0 => 'templates\\edit_store.tpl',
-      1 => 1399723159,
+      1 => 1400134382,
       2 => 'file',
     ),
   ),
@@ -15,20 +15,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_536e14a39e7c18_06832343',
   'variables' => 
   array (
     'HEADER' => 0,
     'TOPMENU' => 0,
     'userLevel' => 0,
     'storeName' => 0,
-    'num' => 0,
     'storeTitle' => 0,
     'storeID' => 0,
+    'totalPages' => 0,
+    'currentPage' => 0,
+    'i' => 0,
     'FOOTER' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_536e14a39e7c18_06832343',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_536e14a39e7c18_06832343')) {function content_536e14a39e7c18_06832343($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
 
@@ -134,7 +136,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<li class="search-box">
 								<form class="sidebar-search">
 									<div class="form-group">
-										<input type="text" placeholder="Start Searching...">
+										<input type="text" id="search_term" placeholder="Start Searching...">
+										<input type="hidden" id="pageType" value="store" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -176,18 +179,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										</a>
 									</div>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" id="panel-body">
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
-												<th class="center">#</th>
 												<th>Store Name</th>
 												<th class="hidden-xs">Action</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $_smarty_tpl->tpl_vars['num'] = new Smarty_variable(1, null, 0);?>
 											<?php  $_smarty_tpl->tpl_vars['storeTitle'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['storeTitle']->_loop = false;
  $_smarty_tpl->tpl_vars['storeID'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['storeName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -196,25 +197,44 @@ $_smarty_tpl->tpl_vars['storeTitle']->_loop = true;
  $_smarty_tpl->tpl_vars['storeID']->value = $_smarty_tpl->tpl_vars['storeTitle']->key;
 ?>
 											<tr>
-												<td class="center"><?php echo $_smarty_tpl->tpl_vars['num']->value;?>
-</td>
 												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['storeTitle']->value;?>
 </td>
 												<td>
-													<form method="post" action="edit_category_form.php"> <input type="hidden" name="store_id" value="<?php echo $_smarty_tpl->tpl_vars['storeID']->value;?>
+													<form method="post" action="edit_store_form.php"> <input type="hidden" name="store_id" value="<?php echo $_smarty_tpl->tpl_vars['storeID']->value;?>
 " />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
 											</tr>
-											<?php $_smarty_tpl->tpl_vars['num'] = new Smarty_variable($_smarty_tpl->tpl_vars['num']->value+1, null, 0);?>
 											<?php } ?>
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							
+							<div class="pagination">
+								<?php if ($_smarty_tpl->tpl_vars['totalPages']->value>1) {?>
+								   <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==1) {?>
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-bricky">1</a>
+	                               <?php } else { ?>
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-light-grey">1</a>
+	                               <?php }?>
+	                               <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPages']->value+1 - (2) : 2-($_smarty_tpl->tpl_vars['totalPages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 2, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+		                                <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==$_smarty_tpl->tpl_vars['i']->value) {?>
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+" class="btn btn-bricky"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a>
+			                                 <?php } else { ?>
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+" class="btn btn-light-grey"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a>
+		                                 <?php }?>
+	                               <?php }} ?>
+								<?php }?>
+							</div>
 						</div>
 					</div>
 

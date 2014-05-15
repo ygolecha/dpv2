@@ -100,7 +100,8 @@
 							<li class="search-box">
 								<form class="sidebar-search">
 									<div class="form-group">
-										<input type="text" placeholder="Start Searching...">
+										<input type="text" id="search_term" placeholder="Start Searching...">
+										<input type="hidden" id="pageType" value="store" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -142,36 +143,47 @@
 										</a>
 									</div>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" id="panel-body">
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
-												<th class="center">#</th>
 												<th>Store Name</th>
 												<th class="hidden-xs">Action</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											~assign var=num value=1`
 											~foreach $storeName as $storeID=>$storeTitle`
 											<tr>
-												<td class="center">~$num`</td>
 												<td class="hidden-xs">~$storeTitle`</td>
 												<td>
-													<form method="post" action="edit_category_form.php"> <input type="hidden" name="store_id" value="~$storeID`" />
+													<form method="post" action="edit_store_form.php"> <input type="hidden" name="store_id" value="~$storeID`" />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
 											</tr>
-											~$num= $num+1`
 											~/foreach`
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							
+							<div class="pagination">
+								~if $totalPages gt 1`
+								   ~if $currentPage eq 1`
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-bricky">1</a>
+	                               ~else`
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-light-grey">1</a>
+	                               ~/if`
+	                               ~for $i=2 to $totalPages`
+		                                ~if $currentPage eq $i`
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=~$i`" class="btn btn-bricky">~$i`</a>
+			                                 ~else`
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=~$i`" class="btn btn-light-grey">~$i`</a>
+		                                 ~/if`
+	                               ~/for`
+								~/if`
+							</div>
 						</div>
 					</div>
 

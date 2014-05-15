@@ -10,10 +10,6 @@
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 
-		<link rel="stylesheet" href="assets/plugins/x-editable/css/bootstrap-editable.css">
-		<link rel="stylesheet" href="assets/plugins/typeaheadjs/lib/typeahead.js-bootstrap.css">
-		<link rel="stylesheet" href="assets/plugins/jquery-address/address.css">
-
 <body>
 	~$TOPMENU`
 
@@ -47,6 +43,7 @@
 						</a>
 
 					</li>
+					
 					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Add Store </span>
@@ -221,6 +218,10 @@
 													<label class="control-label">
 														Category <span class="symbol required"></span>
 													</label>
+													<input type="hidden" id="num_tags" value="~$countCat`">
+													~foreach $catMap as $catI=>$catM`
+													<input type="hidden" id="num~$catI`" value="~$catM`">
+													~/foreach`
 														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
 															<option value="">&nbsp;</option>
 															~foreach $catName as $cat_id=>$cat_name`
@@ -231,16 +232,7 @@
 														</select>
 												</div>
 											   </div>
-											   <div class="col-sm-6"> 
-											   <div class="form-group">
-													<label class="control-label">
-														Category New <span class="symbol required"></span>
-													</label>
-														<a href="#" id="tags" data-type="select2" data-pk="1" data-original-title="Enter tags">
-											             xyz, javascript
-										                </a>
-												</div>
-											   </div>
+											   
 											   
 											   <div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
@@ -355,6 +347,7 @@
 											<input type="hidden" id="author" value="~$sessionUserid`" />
 											<input type="hidden" id="dealID" value="~$dealID`" />
 											<input type="hidden" id="page_type" value="Deal Edit" />
+											<div class="xyz"></div>
 											<div class="col-md-2">
 												<button class="btn btn-yellow btn-block" id="add_deals">
 													UPDATE <i class="fa fa-arrow-circle-right"></i>
@@ -401,15 +394,9 @@
 		<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<script src="assets/plugins/jquery-mockjax/jquery.mockjax.js"></script>
-		<script src="assets/plugins/moment/moment.js"></script>
-		<script src="assets/plugins/x-editable/js/bootstrap-editable.min.js"></script>
-		<script src="assets/plugins/typeaheadjs/typeaheadjs.js"></script>
-		<script src="assets/plugins/typeaheadjs/lib/typeahead.js"></script>
-		<script src="assets/plugins/jquery-address/address.js"></script>
-		<script src="assets/plugins/x-editable/demo-mock.js"></script>
-		<script src="assets/plugins/x-editable/demo.js"></script>
-
+		<script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="assets/js/form-validation.js"></script>
+		
 
 		<script src="dealspitara.js"></script>
 		
@@ -417,7 +404,22 @@
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
-					
+
+				var num_tag = eval($('#num_tags').val());
+			    if(num_tag > 0)
+			    {
+			    var myTags=new Array(); 
+			    for(var i=0;i<num_tag;i++)
+			    {
+			    myTags[i]= eval($('#num'+i).val());    
+			    }
+			    $('#category').select2();
+			    $('#category').val(myTags).select2();
+			    
+			    }
+			    FormValidator.init();
+			    
+    
 			});
 		</script>
 

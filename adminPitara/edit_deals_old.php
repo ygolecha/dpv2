@@ -28,7 +28,7 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 		$currentPage = 1;
 	}
     //for total deals count
-	$sql = "SELECT deal_id,title FROM product_deals ";
+	$sql = "SELECT deal_id FROM product_deals_old ";
 	if(!$result = $mysqli->query($sql)) {
 
 		die('There was an error running the query [' . $mysqli->error . ']');
@@ -38,11 +38,11 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 	$totalPages = ceil($totaDeals/20);
     
     if($_SESSION['user_id'] != 3) {
-    $sql = "SELECT deal_id,title FROM product_deals ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";
+    $sql = "SELECT deal_id,old_title FROM product_deals_old ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";
     }
     else
     {
-    $sql = "SELECT deal_id,title FROM product_deals WHERE author='".$_SESSION['user_id']."' ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";	
+    $sql = "SELECT deal_id,old_title FROM product_deals_old WHERE author='".$_SESSION['user_id']."' ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";	
     }
 
 	if(!$result = $mysqli->query($sql)) {
@@ -51,7 +51,7 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 	}
 	while($row = $result->fetch_assoc()) { 
 
-	   $dealArr[$row['deal_id']] = $row['title'];
+	   $dealArr[$row['deal_id']] = $row['old_title'];
 													
 	} 
 
@@ -60,7 +60,7 @@ $smarty->assign("totalPages", $totalPages);
 $smarty->assign("currentPage", $currentPage);
 
 
-$smarty->display("edit_deals.tpl");
+$smarty->display("edit_deals_old.tpl");
 
 ?>
 

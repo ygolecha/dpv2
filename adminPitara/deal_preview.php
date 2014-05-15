@@ -12,11 +12,11 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 $smarty->assign("sessionUsername",$_SESSION['username']);
 $smarty->assign("sessionUserid",$_SESSION['user_id']);
 $smarty->assign("userLevel",$_SESSION['user_level']);
-$smarty->assign("catID",$_POST['cat_id']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
+	$last_id = $mysqli->real_escape_string($_POST['hidden_lastID']);
 
-	$sql = "SELECT * FROM category_details WHERE id='".$_POST['cat_id']."' ";
+	$sql = "SELECT * FROM product_deals WHERE deal_id='$last_id' ";
 
 	if(!$result = $mysqli->query($sql)) {
 
@@ -26,15 +26,14 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
 	   foreach ($row as $key => $value) {
 	   	
-	   	    $catData[$key] = $value;
+	   	   $dealArr[$key] = $value;
 	   }
 	
 	} 
 
-    
-$smarty->assign("catData", $catData);
-    
-$smarty->display("edit_category_form.tpl");
+$smarty->assign("dealValue", $dealArr);
+
+$smarty->display("deals_preview.tpl");
 
 ?>
 

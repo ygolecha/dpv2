@@ -202,7 +202,6 @@
 														</label>
 														<select id="store_name" name="store_name" class="form-control">
 															<option value="">&nbsp;</option>
-															<option value="sad">frdfs</option>
 															~foreach $storeName as $store_name`
 															
 															<option value="~$store_name`">~$store_name`</option>
@@ -329,7 +328,7 @@
 											</div>
 										</div>
 										<hr>
-										<div class="row">
+										
 											<div class="col-md-8">
 												<p>
 													<span class="symbol required"></span>Required Fields
@@ -337,23 +336,25 @@
 											</div>
 											<input type="hidden" id="author" value="~$sessionUserid`" />
 											<input type="hidden" id="page_type" value="Deal Add" />
-											<div class="col-md-1">
+											<div class="col-md-1" id="save_col">
 												<button class="btn btn-yellow btn-block" id="save_deals">
 													SAVE <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
-											<div class="col-md-1">
-												<div class="btn btn-yellow btn-block" id="preview_deals">
-													PREVIEW <i class="fa fa-arrow-circle-right"></i>
-												</div>
-											</div>
-											<div class="col-md-2">
-												<button class="btn btn-yellow btn-block" id="add_deals">
-													ADD <i class="fa fa-arrow-circle-right"></i>
+									</form> <!-- main form ends -->
+									        <div class="col-md-1" id="update_col" style="display:none;">
+												<button class="btn btn-yellow btn-block" id="update_deals">
+													SAVE AGAIN <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
-										</div>
-									</form>
+											
+											<div class="col-md-2">
+												<div class="btn btn-yellow btn-block" id="add_deals_main">
+													ADD <i class="fa fa-arrow-circle-right"></i>
+												</div>
+											</div>
+										
+									
 								</div>
 							</div>
 							<!-- end: FORM VALIDATION 1 PANEL -->

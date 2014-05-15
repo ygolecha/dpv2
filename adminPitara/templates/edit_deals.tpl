@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
 <body>
 	~$TOPMENU`
 
@@ -39,6 +40,12 @@
 					<li class="active open">
 						<a href="edit_deals.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span><span class="selected"></span>
+						</a>
+
+					</li>
+					<li>
+						<a href="edit_deals_old.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Old Deals </span>
 						</a>
 
 					</li>
@@ -100,7 +107,8 @@
 							<li class="search-box">
 								<form class="sidebar-search">
 									<div class="form-group">
-										<input type="text" placeholder="Start Searching...">
+										<input type="text" id="search_term" placeholder="Start Searching...">
+										<input type="hidden" id="pageType" value="deal" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -142,36 +150,55 @@
 										</a>
 									</div>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" id="panel-body">
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
-												<th class="center">#</th>
 												<th>Deal Title</th>
 												<th class="hidden-xs">Action</th>
+												<th class="hidden-xs">Preview</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											~assign var=num value=1`
 											~foreach $dealName as $dealID=>$dealTitle`
 											<tr>
-												<td class="center">~$num`</td>
 												<td class="hidden-xs">~$dealTitle`</td>
 												<td>
 													<form method="post" action="edit_deal_form.php"> <input type="hidden" name="deal_id" value="~$dealID`" />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
+												<td>
+													<form method="post" action="deal_preview.php" target="_blank">
+														<button class="btn btn-default" id="preview_deals">
+															PREVIEW 
+														</button>
+												    </form>
+												</td>
 											</tr>
-											~$num= $num+1`
 											~/foreach`
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							
+							<div class="pagination">
+								~if $totalPages gt 1`
+								   ~if $currentPage eq 1`
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php" class="btn btn-bricky">1</a>
+	                               ~else`
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php" class="btn btn-light-grey">1</a>
+	                               ~/if`
+	                               ~for $i=2 to $totalPages`
+		                                ~if $currentPage eq $i`
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php?page=~$i`" class="btn btn-bricky">~$i`</a>
+			                                 ~else`
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php?page=~$i`" class="btn btn-light-grey">~$i`</a>
+		                                 ~/if`
+	                               ~/for`
+								~/if`
+							</div>
 						</div>
 					</div>
 

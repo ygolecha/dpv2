@@ -54,15 +54,15 @@
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span><span class="selected"></span>
+							<span class="title"> Add Category </span>
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="edit_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Edit Category </span>
+							<span class="title"> Edit Category </span><span class="selected"></span>
 						</a>
 
 					</li>

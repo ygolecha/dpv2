@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:00:06
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 13:35:55
          compiled from "templates\edit_deal_form.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18362536dbc58881fc0-24714215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a52c939b2df4987aec9cc09dd3eab657fc8e60cb' => 
     array (
       0 => 'templates\\edit_deal_form.tpl',
-      1 => 1399723144,
+      1 => 1400153584,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dealData' => 0,
     'storeName' => 0,
     'store_name' => 0,
+    'countCat' => 0,
+    'catMap' => 0,
+    'catI' => 0,
+    'catM' => 0,
     'catName' => 0,
     'cat_id' => 0,
     'cat_name' => 0,
@@ -46,10 +50,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-
-		<link rel="stylesheet" href="assets/plugins/x-editable/css/bootstrap-editable.css">
-		<link rel="stylesheet" href="assets/plugins/typeaheadjs/lib/typeahead.js-bootstrap.css">
-		<link rel="stylesheet" href="assets/plugins/jquery-address/address.css">
 
 <body>
 	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
@@ -85,6 +85,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
+					
 					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Add Store </span>
@@ -273,6 +274,19 @@ $_smarty_tpl->tpl_vars['store_name']->_loop = true;
 													<label class="control-label">
 														Category <span class="symbol required"></span>
 													</label>
+													<input type="hidden" id="num_tags" value="<?php echo $_smarty_tpl->tpl_vars['countCat']->value;?>
+">
+													<?php  $_smarty_tpl->tpl_vars['catM'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['catM']->_loop = false;
+ $_smarty_tpl->tpl_vars['catI'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['catMap']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['catM']->key => $_smarty_tpl->tpl_vars['catM']->value) {
+$_smarty_tpl->tpl_vars['catM']->_loop = true;
+ $_smarty_tpl->tpl_vars['catI']->value = $_smarty_tpl->tpl_vars['catM']->key;
+?>
+													<input type="hidden" id="num<?php echo $_smarty_tpl->tpl_vars['catI']->value;?>
+" value="<?php echo $_smarty_tpl->tpl_vars['catM']->value;?>
+">
+													<?php } ?>
 														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
 															<option value="">&nbsp;</option>
 															<?php  $_smarty_tpl->tpl_vars['cat_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat_name']->_loop = false;
@@ -291,16 +305,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 														</select>
 												</div>
 											   </div>
-											   <div class="col-sm-6"> 
-											   <div class="form-group">
-													<label class="control-label">
-														Category New <span class="symbol required"></span>
-													</label>
-														<a href="#" id="tags" data-type="select2" data-pk="1" data-original-title="Enter tags">
-											             xyz, javascript
-										                </a>
-												</div>
-											   </div>
+											   
 											   
 											   <div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
@@ -427,6 +432,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 											<input type="hidden" id="dealID" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
 " />
 											<input type="hidden" id="page_type" value="Deal Edit" />
+											<div class="xyz"></div>
 											<div class="col-md-2">
 												<button class="btn btn-yellow btn-block" id="add_deals">
 													UPDATE <i class="fa fa-arrow-circle-right"></i>
@@ -474,15 +480,9 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 		<script src="assets/plugins/ckeditor/adapters/jquery.js"></script>
 		<script src="assets/js/form-elements.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-		<script src="assets/plugins/jquery-mockjax/jquery.mockjax.js"></script>
-		<script src="assets/plugins/moment/moment.js"></script>
-		<script src="assets/plugins/x-editable/js/bootstrap-editable.min.js"></script>
-		<script src="assets/plugins/typeaheadjs/typeaheadjs.js"></script>
-		<script src="assets/plugins/typeaheadjs/lib/typeahead.js"></script>
-		<script src="assets/plugins/jquery-address/address.js"></script>
-		<script src="assets/plugins/x-editable/demo-mock.js"></script>
-		<script src="assets/plugins/x-editable/demo.js"></script>
-
+		<script src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="assets/js/form-validation.js"></script>
+		
 
 		<script src="dealspitara.js"></script>
 		
@@ -490,7 +490,22 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 			jQuery(document).ready(function() {
 				Main.init();
 				FormElements.init();
-					
+
+				var num_tag = eval($('#num_tags').val());
+			    if(num_tag > 0)
+			    {
+			    var myTags=new Array(); 
+			    for(var i=0;i<num_tag;i++)
+			    {
+			    myTags[i]= eval($('#num'+i).val());    
+			    }
+			    $('#category').select2();
+			    $('#category').val(myTags).select2();
+			    
+			    }
+			    FormValidator.init();
+			    
+    
 			});
 		</script>
 

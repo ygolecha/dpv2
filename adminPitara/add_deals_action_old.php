@@ -62,7 +62,7 @@ $content = trim($content);
 		}
 	}
 	if($page_type == "Deal Add") {
-	      $sql = "INSERT INTO product_deals (title, description, og_title, og_desc, seo_title, seo_desc, image_url, store_name, discount, coupon_code, expiry, shipping_charges, content, offer_text, affiliate_url, original_price, final_price, author, deal_flag) VALUES ('$title', '$desc', '$og_title', '$og_desc', '$seo_title', '$seo_desc', '$image_url', '$store_name', '$discount', '$coupon_code', '$expiry_date', '$shipping_charges', '$content', '$offer_text', '$affiliate_url', '$original_price', '$final_price', '$author', '$flag') ";
+	      $sql = "INSERT INTO product_deals_old (title, description, og_title, og_desc, seo_title, seo_desc, image_url, store_name, discount, coupon_code, expiry, shipping_charges, content, offer_text, affiliate_url, original_price, final_price, author, deal_flag) VALUES ('$title', '$desc', '$og_title', '$og_desc', '$seo_title', '$seo_desc', '$image_url', '$store_name', '$discount', '$coupon_code', '$expiry_date', '$shipping_charges', '$content', '$offer_text', '$affiliate_url', '$original_price', '$final_price', '$author', '$flag') ";
 
 	}
 	else if($page_type == "Deal Edit") {
@@ -73,7 +73,7 @@ $content = trim($content);
 			//adding deal id to url slug
 			$url_slug = $url_slug."-dp".$dealID;
 			$url_slug = $mysqli->real_escape_string($url_slug);
-	        $sql = "UPDATE product_deals SET title='$title', description='$desc', og_title='$og_title', og_desc='$og_desc', seo_title='$seo_title', seo_desc='$seo_desc', image_url='$image_url', store_name='$store_name', discount='$discount', coupon_code='$coupon_code', expiry='$expiry_date', shipping_charges='$shipping_charges', content='$content', offer_text='$offer_text', affiliate_url='$affiliate_url', original_price='$original_price', final_price='$final_price', author='$author', url_slug='$url_slug', deal_flag='$flag' WHERE deal_id='$dealID' ";
+	        $sql = "UPDATE product_deals_old SET title='$title', description='$desc', og_title='$og_title', og_desc='$og_desc', seo_title='$seo_title', seo_desc='$seo_desc', image_url='$image_url', store_name='$store_name', discount='$discount', coupon_code='$coupon_code', expiry='$expiry_date', shipping_charges='$shipping_charges', content='$content', offer_text='$offer_text', affiliate_url='$affiliate_url', original_price='$original_price', final_price='$final_price', author='$author', url_slug='$url_slug', deal_flag='$flag' WHERE deal_id='$dealID' ";
 	   
 	}
 
@@ -91,7 +91,7 @@ $content = trim($content);
 		$url_slug = $url_slug."-dp".$dealID;
 		$url_slug = $mysqli->real_escape_string($url_slug);
 
-		$sql = "UPDATE product_deals SET url_slug='$url_slug' WHERE deal_id='$dealID' ";
+		$sql = "UPDATE product_deals_old SET url_slug='$url_slug' WHERE deal_id='$dealID' ";
 		if(!$result = $mysqli->query($sql)) {
 
 			die('There was an error running the query [' . $mysqli->error . ']');

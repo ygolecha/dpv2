@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:00:04
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 13:33:18
          compiled from "templates\edit_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9774536dac83b0a427-93128273%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fa459eab869920dfa2887ac984d503486e1fc29a' => 
     array (
       0 => 'templates\\edit_deals.tpl',
-      1 => 1399723151,
+      1 => 1400153596,
       2 => 'file',
     ),
   ),
@@ -23,9 +23,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'TOPMENU' => 0,
     'userLevel' => 0,
     'dealName' => 0,
-    'num' => 0,
     'dealTitle' => 0,
     'dealID' => 0,
+    'totalPages' => 0,
+    'currentPage' => 0,
+    'i' => 0,
     'FOOTER' => 0,
   ),
   'has_nocache_code' => false,
@@ -42,6 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+
 <body>
 	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
 
@@ -73,6 +76,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li class="active open">
 						<a href="edit_deals.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Deals </span><span class="selected"></span>
+						</a>
+
+					</li>
+					<li>
+						<a href="edit_deals_old.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Old Deals </span>
 						</a>
 
 					</li>
@@ -134,7 +143,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<li class="search-box">
 								<form class="sidebar-search">
 									<div class="form-group">
-										<input type="text" placeholder="Start Searching...">
+										<input type="text" id="search_term" placeholder="Start Searching...">
+										<input type="hidden" id="pageType" value="deal" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -176,18 +186,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 										</a>
 									</div>
 								</div>
-								<div class="panel-body">
+								<div class="panel-body" id="panel-body">
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
-												<th class="center">#</th>
 												<th>Deal Title</th>
 												<th class="hidden-xs">Action</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php $_smarty_tpl->tpl_vars['num'] = new Smarty_variable(1, null, 0);?>
 											<?php  $_smarty_tpl->tpl_vars['dealTitle'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dealTitle']->_loop = false;
  $_smarty_tpl->tpl_vars['dealID'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['dealName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -196,8 +204,6 @@ $_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
  $_smarty_tpl->tpl_vars['dealID']->value = $_smarty_tpl->tpl_vars['dealTitle']->key;
 ?>
 											<tr>
-												<td class="center"><?php echo $_smarty_tpl->tpl_vars['num']->value;?>
-</td>
 												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['dealTitle']->value;?>
 </td>
 												<td>
@@ -207,14 +213,35 @@ $_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
 													</form>
 												</td>
 											</tr>
-											<?php $_smarty_tpl->tpl_vars['num'] = new Smarty_variable($_smarty_tpl->tpl_vars['num']->value+1, null, 0);?>
 											<?php } ?>
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							
+							<div class="pagination">
+								<?php if ($_smarty_tpl->tpl_vars['totalPages']->value>1) {?>
+								   <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==1) {?>
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php" class="btn btn-bricky">1</a>
+	                               <?php } else { ?>
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php" class="btn btn-light-grey">1</a>
+	                               <?php }?>
+	                               <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPages']->value+1 - (2) : 2-($_smarty_tpl->tpl_vars['totalPages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 2, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
+		                                <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==$_smarty_tpl->tpl_vars['i']->value) {?>
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+" class="btn btn-bricky"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a>
+			                                 <?php } else { ?>
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+" class="btn btn-light-grey"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</a>
+		                                 <?php }?>
+	                               <?php }} ?>
+								<?php }?>
+							</div>
 						</div>
 					</div>
 

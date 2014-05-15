@@ -5,12 +5,14 @@ include "db_connection.php";
 $name = $mysqli->real_escape_string($_POST['name']);
 $title = $mysqli->real_escape_string($_POST['title']);
 $desc = $mysqli->real_escape_string($_POST['desc']);
+$desc = trim($desc);
 $og_title = $mysqli->real_escape_string($_POST['og_title']);
 $og_desc = $mysqli->real_escape_string($_POST['og_desc']);
 $seo_title = $mysqli->real_escape_string($_POST['seo_title']);
 $seo_desc = $mysqli->real_escape_string($_POST['seo_desc']);
 $short_desc = $mysqli->real_escape_string($_POST['short_desc']);
 $content = $mysqli->real_escape_string($_POST['content']);
+$content = trim($content);
 $page_type = $_POST['page_type'];
 $ID = $_POST['ID'];
 

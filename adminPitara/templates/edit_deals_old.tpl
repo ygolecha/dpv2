@@ -1,39 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 08:18:05
-         compiled from "templates\edit_category.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:14809536e0d46a41943-65799059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    '6cfca0876199a7187e5244712471ffc51bc76a9d' => 
-    array (
-      0 => 'templates\\edit_category.tpl',
-      1 => 1400134394,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '14809536e0d46a41943-65799059',
-  'function' => 
-  array (
-  ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_536e0d46acd229_80336733',
-  'variables' => 
-  array (
-    'HEADER' => 0,
-    'TOPMENU' => 0,
-    'userLevel' => 0,
-    'catName' => 0,
-    'catTitle' => 0,
-    'catID' => 0,
-    'totalPages' => 0,
-    'currentPage' => 0,
-    'i' => 0,
-    'FOOTER' => 0,
-  ),
-  'has_nocache_code' => false,
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_536e0d46acd229_80336733')) {function content_536e0d46acd229_80336733($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
-
+~$HEADER`
 <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
 		<link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css">
@@ -44,9 +9,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-<body>
-	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
 
+<body>
+	~$TOPMENU`
 
 	<div class="main-container">
 
@@ -78,6 +43,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
+					<li class="active open">
+						<a href="edit_deals_old.php"><i class="clip-pencil"></i>
+							<span class="title"> Edit Old Deals </span><span class="selected"></span>
+						</a>
+
+					</li>
 					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
 							<span class="title"> Add Store </span>
@@ -96,19 +67,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="edit_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Edit Category </span><span class="selected"></span>
+							<span class="title"> Edit Category </span>
 						</a>
 
 					</li>
-					<?php if ($_smarty_tpl->tpl_vars['userLevel']->value==1) {?>
+					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
 							<i class="clip-user-2"></i><span class="title"> Register User </span>
 						</a>
 					</li>
-					<?php }?>
+					~/if`
 
 				</ul>
 				<!-- end: MAIN NAVIGATION MENU -->
@@ -137,7 +108,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								<form class="sidebar-search">
 									<div class="form-group">
 										<input type="text" id="search_term" placeholder="Start Searching...">
-										<input type="hidden" id="pageType" value="category" />
+										<input type="hidden" id="pageType" value="deal" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -161,7 +132,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									EDIT CATEGORY
+									EDIT DEAL
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -183,59 +154,43 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<table class="table table-hover" id="sample-table-1">
 										<thead>
 											<tr>
-												<th>Category Name</th>
+												<th>Deal Title</th>
 												<th class="hidden-xs">Action</th>
 												<th></th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php  $_smarty_tpl->tpl_vars['catTitle'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['catTitle']->_loop = false;
- $_smarty_tpl->tpl_vars['catID'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['catName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['catTitle']->key => $_smarty_tpl->tpl_vars['catTitle']->value) {
-$_smarty_tpl->tpl_vars['catTitle']->_loop = true;
- $_smarty_tpl->tpl_vars['catID']->value = $_smarty_tpl->tpl_vars['catTitle']->key;
-?>
+											~foreach $dealName as $dealID=>$dealTitle`
 											<tr>
-												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['catTitle']->value;?>
-</td>
+												<td class="hidden-xs">~$dealTitle`</td>
 												<td>
-													<form method="post" action="edit_category_form.php"> <input type="hidden" name="cat_id" value="<?php echo $_smarty_tpl->tpl_vars['catID']->value;?>
-" />
+													<form method="post" action="edit_deal_form_old.php"> <input type="hidden" name="deal_id" value="~$dealID`" />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
 											</tr>
-											<?php } ?>
+											~/foreach`
 										</tbody>
 									</table>
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
 							<div class="pagination">
-								<?php if ($_smarty_tpl->tpl_vars['totalPages']->value>1) {?>
-								   <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==1) {?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php" class="btn btn-bricky">1</a>
-	                               <?php } else { ?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php" class="btn btn-light-grey">1</a>
-	                               <?php }?>
-	                               <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPages']->value+1 - (2) : 2-($_smarty_tpl->tpl_vars['totalPages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 2, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-		                                <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==$_smarty_tpl->tpl_vars['i']->value) {?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-" class="btn btn-bricky"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a>
-			                                 <?php } else { ?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_category.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-" class="btn btn-light-grey"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a>
-		                                 <?php }?>
-	                               <?php }} ?>
-								<?php }?>
+								~if $totalPages gt 1`
+								   ~if $currentPage eq 1`
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php" class="btn btn-bricky">1</a>
+	                               ~else`
+	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php" class="btn btn-light-grey">1</a>
+	                               ~/if`
+	                               ~for $i=2 to $totalPages`
+		                                ~if $currentPage eq $i`
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php?page=~$i`" class="btn btn-bricky">~$i`</a>
+			                                 ~else`
+			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php?page=~$i`" class="btn btn-light-grey">~$i`</a>
+		                                 ~/if`
+	                               ~/for`
+								~/if`
 							</div>
-							
 						</div>
 					</div>
 
@@ -251,8 +206,7 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 
 	</div>
     
-	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
-
+	~$FOOTER`
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>
@@ -283,4 +237,4 @@ $_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1
 		</script>
 
 </body>
-</html><?php }} ?>
+</html>

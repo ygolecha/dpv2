@@ -40,7 +40,7 @@ $sql = "SELECT id,name FROM store_details ";
 	
 	} 
 
-	$sql = "SELECT * FROM product_deals WHERE deal_id='".$_POST['deal_id']."' ";
+	$sql = "SELECT * FROM product_deals_old WHERE deal_id='".$_POST['deal_id']."' ";
 
 	if(!$result = $mysqli->query($sql)) {
 
@@ -77,7 +77,7 @@ $smarty->assign("catMap", $catMap);
 $smarty->assign("countCat", $countCat);
 
     
-$smarty->display("edit_deal_form.tpl");
+$smarty->display("edit_deal_form_old.tpl");
 
 ?>
 

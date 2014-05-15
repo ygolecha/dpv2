@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 13:59:38
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 21:46:36
          compiled from "templates\edit_category_form.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19419536e0f521b8d49-68538287%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5636390de89aa6128417916738e670ad6443c216' => 
     array (
       0 => 'templates\\edit_category_form.tpl',
-      1 => 1399723137,
+      1 => 1399736525,
       2 => 'file',
     ),
   ),
@@ -86,15 +86,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span><span class="selected"></span>
+							<span class="title"> Add Category </span>
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="edit_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Edit Category </span>
+							<span class="title"> Edit Category </span><span class="selected"></span>
 						</a>
 
 					</li>

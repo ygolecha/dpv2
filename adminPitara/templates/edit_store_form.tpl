@@ -1,33 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:58:23
-         compiled from "templates\add_category.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:26109536a635764c9b4-72690523%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
-$_valid = $_smarty_tpl->decodeProperties(array (
-  'file_dependency' => 
-  array (
-    'c796abe93ca10ea884bce96266b9689a5ba97de9' => 
-    array (
-      0 => 'templates\\add_category.tpl',
-      1 => 1399723103,
-      2 => 'file',
-    ),
-  ),
-  'nocache_hash' => '26109536a635764c9b4-72690523',
-  'function' => 
-  array (
-  ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_536a63576b0436_77001828',
-  'variables' => 
-  array (
-    'HEADER' => 0,
-    'TOPMENU' => 0,
-    'userLevel' => 0,
-    'FOOTER' => 0,
-  ),
-  'has_nocache_code' => false,
-),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_536a63576b0436_77001828')) {function content_536a63576b0436_77001828($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
-
+~$HEADER`
 <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
 		<link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css">
@@ -39,8 +10,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 <body>
-	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
-
+	~$TOPMENU`
 
 	<div class="main-container">
 
@@ -78,15 +48,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
-					<li>
+					<li class="active open">
 						<a href="edit_store.php"><i class="clip-pencil"></i>
-							<span class="title"> Edit Store </span>
+							<span class="title"> Edit Store </span><span class="selected"></span>
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_category.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Category </span><span class="selected"></span>
+							<span class="title"> Add Category </span>
 						</a>
 
 					</li>
@@ -96,13 +66,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</a>
 
 					</li>
-					<?php if ($_smarty_tpl->tpl_vars['userLevel']->value==1) {?>
+					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
 							<i class="clip-user-2"></i><span class="title"> Register User </span>
 						</a>
 					</li>
-					<?php }?>
+					~/if`
 
 				</ul>
 				<!-- end: MAIN NAVIGATION MENU -->
@@ -153,7 +123,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									ADD CATEGORY
+									EDIT STORE
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -188,13 +158,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														Name <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert category name" class="form-control" id="name" name="name">
+													<input type="text" placeholder="Insert store name" class="form-control" id="name" name="name" value="~$storeData['name']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert category title" class="form-control" id="title" name="title">
+													<input type="text" placeholder="Insert store title" class="form-control" id="title" name="title" value="~$storeData['title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -202,6 +172,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													</label>
 													<div class="col-sm-12" id="descMain">
 												    <div class="summernote">
+												    	~$storeData['description']`
 												    </div>
 												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
 											        </div>
@@ -210,19 +181,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="~$storeData['seo_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="~$storeData['seo_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="~$storeData['og_title']`">
 												</div>
 												
 												
@@ -232,20 +203,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="~$storeData['og_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Short Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
+													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc" value="~$storeData['short_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Long Description <span class="symbol required"></span>
 													</label>
 													<div class="col-sm-12" id="contentMain">
-												    <div class="summernote">													
+												    <div class="summernote">
+												      ~$storeData['long_desc']`													
 												    </div>
 												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
 											        </div>
@@ -255,10 +227,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 												    <label class="control-label">
 													   Image Upload
 												    </label>
-											     	<div class="fileupload fileupload-new" data-provides="fileupload">
+											     	<div class="fileupload fileupload-exists" data-provides="fileupload">
 													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
 													  </div>
-													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"><img src="~$storeData['image_url']`" style="max-height: 150px;" /></div>
 													  <div>
 														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
 															<input type="file" name="upload_file">
@@ -282,9 +254,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="category_add" />
+											<input type="hidden" id="page_type" value="store_edit" />
+											<input type="hidden" id="ID" value="~$storeID`" />
 											<div class="col-md-4">
-												<button class="btn btn-yellow btn-block" id="add_category">
+												<button class="btn btn-yellow btn-block">
 													ADD <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
@@ -307,8 +280,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	</div>
     
-	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
-
+	~$FOOTER`
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>
@@ -344,4 +316,4 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</script>
 
 </body>
-</html><?php }} ?>
+</html>
