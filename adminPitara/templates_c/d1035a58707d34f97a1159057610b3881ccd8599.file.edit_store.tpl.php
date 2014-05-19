@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 08:13:16
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-16 14:28:48
          compiled from "templates\edit_store.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19718536e14a3958c88-19129419%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd1035a58707d34f97a1159057610b3881ccd8599' => 
     array (
       0 => 'templates\\edit_store.tpl',
-      1 => 1400134382,
+      1 => 1400243200,
       2 => 'file',
     ),
   ),
@@ -25,9 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'storeName' => 0,
     'storeTitle' => 0,
     'storeID' => 0,
-    'totalPages' => 0,
-    'currentPage' => 0,
-    'i' => 0,
+    'paginationHtml' => 0,
     'FOOTER' => 0,
   ),
   'has_nocache_code' => false,
@@ -212,29 +210,10 @@ $_smarty_tpl->tpl_vars['storeTitle']->_loop = true;
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							<div class="pagination">
-								<?php if ($_smarty_tpl->tpl_vars['totalPages']->value>1) {?>
-								   <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==1) {?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-bricky">1</a>
-	                               <?php } else { ?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-light-grey">1</a>
-	                               <?php }?>
-	                               <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPages']->value+1 - (2) : 2-($_smarty_tpl->tpl_vars['totalPages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 2, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-		                                <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==$_smarty_tpl->tpl_vars['i']->value) {?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-" class="btn btn-bricky"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a>
-			                                 <?php } else { ?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-" class="btn btn-light-grey"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a>
-		                                 <?php }?>
-	                               <?php }} ?>
-								<?php }?>
-							</div>
+							<!--pagination-->
+		                           <?php echo $_smarty_tpl->tpl_vars['paginationHtml']->value;?>
+
+							<!-- end:pagination-->
 						</div>
 					</div>
 

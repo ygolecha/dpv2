@@ -150,7 +150,7 @@
 													<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
 												</div>
 												<div class="successHandler alert alert-success no-display">
-													<i class="fa fa-ok"></i> Your form validation is successful!
+													<i class="fa fa-ok"></i> Your form validation is successful! Data updated/inserted in database!
 												</div>
 											</div>
 											<div class="col-md-6">
@@ -290,6 +290,12 @@
 														Affiliate Url <span class="symbol required"></span>
 													</label>
 														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control">
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Slug 
+													</label>
+														<input type="text" placeholder="" id="slug_url" name="slug_url" class="form-control">
 											    </div>
 
 												<div class="form-group">

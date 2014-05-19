@@ -1,6 +1,5 @@
 <?php
-include "include/constants.php";
-include "db_connection.php";
+require "../config.php";
 
 $name = $mysqli->real_escape_string($_POST['name']);
 $title = $mysqli->real_escape_string($_POST['title']);
@@ -14,20 +13,18 @@ $short_desc = $mysqli->real_escape_string($_POST['short_desc']);
 $content = $mysqli->real_escape_string($_POST['content']);
 $content = trim($content);
 $page_type = $_POST['page_type'];
+if(isset($_POST['ID'])) {
 $ID = $_POST['ID'];
+}
 
 $slug_pre = strtolower($title);
 $explode_slug = explode(" ", $slug_pre);
 $url_slug = implode("-", $explode_slug);
 $url_slug = $mysqli->real_escape_string($url_slug);
 
+$serverImgLoc = $upload_path;
 $img_url = $_POST['img_url'];
-$content_img = file_get_contents($img_url);
-$image_url = "http://localhost/dealspitara/dpv2/adminPitara/deals_images/".$name.".jpg";
-//Store in the filesystem.
-$fp = fopen($image_url, "w");
-fwrite($fp, $content_img);
-fclose($fp);
+
 if($page_type == "category_add") {
 $sql = "INSERT INTO category_details (name, title, description, og_title, og_desc, seo_title, seo_desc, short_desc, long_desc, url_slug, image_url) VALUES ('$name', '$title', '$desc', '$og_title', '$og_desc', '$seo_title', '$seo_desc', '$short_desc', '$content', '$url_slug', '$image_url') ";
 }
@@ -45,5 +42,32 @@ if(!$result = $mysqli->query($sql)) {
 	die('There was an error running the query [' . $mysqli->error . ']');
 }
 
+	    if($page_type == "category_add" || $page_type == "store_add") {
+	      $ID = $mysqli->insert_id;
+			
+	    }
+	    
+        if($img_url != "") {
+        	if(strpos($page_type, 'category') !== false) {
+        		$type = "cat";
+        	} else if(strpos($page_type, 'store') !== false) {
+                $type = "store";
+        	}
+			$image_url = $serverImgLoc.$type.$ID.".jpg";
+		    $imgData1 = substr($img_url, 1+strrpos($img_url, ','));
+		    file_put_contents($image_url,base64_decode($imgData1));
+		}
+		else {
+			$image_url = "";
+		}
+        if($page_type == "category_add"){
+           
+           $sql = "UPDATE category_details SET image_url = '$image_url' WHERE id='$ID' ";
+		}else if($page_type == "store_add") {
+           
+           $sql = "UPDATE store_details SET image_url = '$image_url' WHERE id='$ID' ";
+		}
 
+    
+echo $serverImgLoc;
 ?>

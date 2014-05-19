@@ -62,13 +62,19 @@ $sql = "SELECT id,name FROM store_details ";
 		die('There was an error running the query [' . $mysqli->error . ']');
 	}
 	$j=0;
-	while($row = $result->fetch_assoc()) { 
+	if($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) { 
 
-	   	    $catMap[$j] = $row['category_id'];
-	   	    $j++;
-	
-	} 
-    $countCat = count($catMap);
+		   	    $catMap[$j] = $row['category_id'];
+		   	    $j++;
+		
+		} 
+	    $countCat = count($catMap);
+    }
+    else {
+    	$catMap = "";
+    	$countCat = "";
+    }
     
 $smarty->assign("storeName", $storeArr);
 $smarty->assign("catName", $catArr);

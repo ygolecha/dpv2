@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="assets/plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
-
+		
 <body>
 	~$TOPMENU`
 
@@ -108,7 +108,7 @@
 								<form class="sidebar-search">
 									<div class="form-group">
 										<input type="text" id="search_term" placeholder="Start Searching...">
-										<input type="hidden" id="pageType" value="deal" />
+										<input type="hidden" id="pageType" value="deal_old" />
 										<button class="submit">
 											<i class="clip-search-3"></i>
 										</button>
@@ -156,6 +156,7 @@
 											<tr>
 												<th>Deal Title</th>
 												<th class="hidden-xs">Action</th>
+												<th class="hidden-xs">Preview</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -168,6 +169,14 @@
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
+												<td>
+													<form method="post" action="deal_preview.php" target="_blank">
+														<input type="hidden" name="hidden_lastID_old" value="~$dealID`" />
+														<button class="btn btn-default" id="preview_deals">
+															PREVIEW 
+														</button>
+												    </form>
+												</td>
 											</tr>
 											~/foreach`
 										</tbody>
@@ -175,22 +184,10 @@
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							<div class="pagination">
-								~if $totalPages gt 1`
-								   ~if $currentPage eq 1`
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php" class="btn btn-bricky">1</a>
-	                               ~else`
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php" class="btn btn-light-grey">1</a>
-	                               ~/if`
-	                               ~for $i=2 to $totalPages`
-		                                ~if $currentPage eq $i`
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php?page=~$i`" class="btn btn-bricky">~$i`</a>
-			                                 ~else`
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals_old.php?page=~$i`" class="btn btn-light-grey">~$i`</a>
-		                                 ~/if`
-	                               ~/for`
-								~/if`
-							</div>
+							<!--pagination-->
+		                           ~$paginationHtml`
+							<!-- end:pagination-->
+							
 						</div>
 					</div>
 
@@ -238,3 +235,6 @@
 
 </body>
 </html>
+
+
+

@@ -13,10 +13,20 @@ $smarty->assign("sessionUsername",$_SESSION['username']);
 $smarty->assign("sessionUserid",$_SESSION['user_id']);
 $smarty->assign("userLevel",$_SESSION['user_level']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
-
-	$last_id = $mysqli->real_escape_string($_POST['hidden_lastID']);
-
+    
+    if(isset($_POST['hidden_lastID'])) {
+	$last_id = $_POST['hidden_lastID'];
+    }
+    else {
+    $last_id = "";
+    $last_id_old = $_POST['hidden_lastID_old'];
+    }
+    if($last_id != "") {
 	$sql = "SELECT * FROM product_deals WHERE deal_id='$last_id' ";
+    }
+    else {
+    $sql = "SELECT * FROM product_deals_old WHERE deal_id='$last_id_old' ";	
+    }
 
 	if(!$result = $mysqli->query($sql)) {
 

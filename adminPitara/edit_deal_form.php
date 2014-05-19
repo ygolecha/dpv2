@@ -69,7 +69,6 @@ $sql = "SELECT id,name FROM store_details ";
 	
 	} 
     $countCat = count($catMap);
-    
 $smarty->assign("storeName", $storeArr);
 $smarty->assign("catName", $catArr);
 $smarty->assign("dealData", $dealData);

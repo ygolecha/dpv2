@@ -17,14 +17,10 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 	   $low_lim = ($_GET['page'] * 20) - 20;
        $up_lim = 20;
 
-	   $currentPage = $_GET['page'];
-	    
-
 	 }
 	 else {
 	 	$low_lim = 0;
 		$up_lim = 20;
-		$currentPage = 1;
 	 }
 
 
@@ -33,10 +29,14 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
 		die('There was an error running the query [' . $mysqli->error . ']');
 	 }
-	 $totalCat = $result->num_rows;
-	 $totalPages = ceil($totalCat/20);
+	 
+	//required data for pagination starts
+	$itemLimit = 20;
+	$totaDeals = $result->num_rows;
+	$totalPages = ceil($totaDeals/$itemLimit);
+	//required data for pagination ends
 
-	 echo $sql = "SELECT id,name FROM category_details ORDER BY id DESC LIMIT $low_lim,$up_lim ";
+	 $sql = "SELECT id,name FROM category_details ORDER BY id DESC LIMIT $low_lim,$up_lim ";
      if(!$result = $mysqli->query($sql)) {
 
 		die('There was an error running the query [' . $mysqli->error . ']');
@@ -46,10 +46,10 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 	   $catArr[$row['id']] = $row['name'];
 													
 	 } 
-
+include_once 'pagination.php';
 $smarty->assign("catName", $catArr);
 $smarty->assign("totalPages", $totalPages);
-$smarty->assign("currentPage", $currentPage);
+$smarty->assign("paginationHtml", $pagination);
 
 $smarty->display("edit_category.tpl");
 

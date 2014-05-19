@@ -17,15 +17,11 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
        
        $low_lim = ($_GET['page'] * 20) - 20;
        $up_lim = 20;
-
-	   $currentPage = $_GET['page'];
-
-
 	}
 	else {
+
 		$low_lim = 0;
 		$up_lim = 20;
-		$currentPage = 1;
 	}
     //for total deals count
 	$sql = "SELECT deal_id FROM product_deals_old ";
@@ -34,8 +30,11 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 		die('There was an error running the query [' . $mysqli->error . ']');
 	}
 
+	//required data for pagination starts
+	$itemLimit = 20;
 	$totaDeals = $result->num_rows;
-	$totalPages = ceil($totaDeals/20);
+	$totalPages = ceil($totaDeals/$itemLimit);
+	//required data for pagination ends
     
     if($_SESSION['user_id'] != 3) {
     $sql = "SELECT deal_id,old_title FROM product_deals_old ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";
@@ -54,11 +53,11 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 	   $dealArr[$row['deal_id']] = $row['old_title'];
 													
 	} 
+include_once 'pagination.php';
 
 $smarty->assign("dealName", $dealArr);
 $smarty->assign("totalPages", $totalPages);
-$smarty->assign("currentPage", $currentPage);
-
+$smarty->assign("paginationHtml", $pagination);
 
 $smarty->display("edit_deals_old.tpl");
 

@@ -9,19 +9,25 @@ if($page == 'category') {
     
     $action = "edit_category_form.php";
     $name = "cat_id";
-	$sql = "SELECT name,id FROM category_details WHERE name LIKE '%$term%' ";
+	$sql = "SELECT name,id FROM category_details WHERE name LIKE '%$term%' LIMIT 20 ";
 }
 else if($page == 'deal') {
 
     $action = "edit_deal_form.php";
     $name = "deal_id";
-	$sql = "SELECT title,deal_id FROM product_deals WHERE title LIKE '%$term%' ";
+	$sql = "SELECT title,deal_id FROM product_deals WHERE title LIKE '%$term%' LIMIT 20 ";
 }
 else if($page == 'store') {
     
     $action = "edit_store_form.php";
     $name = "store_id";
-	$sql = "SELECT name,id FROM store_details WHERE name LIKE '%$term%' ";
+	$sql = "SELECT name,id FROM store_details WHERE name LIKE '%$term%' LIMIT 20 ";
+}
+else if($page == 'deal_old') {
+    
+    $action = "edit_store_form_old.php";
+    $name = "deal_id";
+    $sql = "SELECT old_title,deal_id FROM product_deals_old WHERE old_title LIKE '%$term%' LIMIT 20 ";
 }
 if(!$result = $mysqli->query($sql)) {
 
@@ -42,6 +48,10 @@ while($row=$result->fetch_assoc()){
 
     	$id = $row['deal_id'];
     	$title = $row['title'];
+    }else if($page == "deal_old") {
+
+        $id = $row['deal_id'];
+        $title = $row['old_title'];
     }
     else {
 

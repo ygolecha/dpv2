@@ -338,7 +338,7 @@
 											</div>
 										</div>
 										<hr>
-										<div class="row">
+										
 											<div class="col-md-8">
 												<p>
 													<span class="symbol required"></span>Required Fields
@@ -347,14 +347,22 @@
 											<input type="hidden" id="author" value="~$sessionUserid`" />
 											<input type="hidden" id="dealID" value="~$dealID`" />
 											<input type="hidden" id="page_type" value="Deal Edit" />
-											<div class="xyz"></div>
 											<div class="col-md-2">
 												<button class="btn btn-yellow btn-block" id="add_deals">
 													UPDATE <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
-										</div>
-									</form>
+											</form>
+											<div class="col-md-2">
+												<form method="post" action="deal_preview.php" target="_blank">
+													<input type="hidden" name="hidden_lastID" value="~$dealID`" />
+													<button class="btn btn-yellow btn-block">
+														PREVIEW <i class="fa fa-arrow-circle-right"></i>
+													</button>
+												</form>
+											</div>
+										
+									
 								</div>
 							</div>
 							<!-- end: FORM VALIDATION 1 PANEL -->

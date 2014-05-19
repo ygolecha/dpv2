@@ -11,12 +11,7 @@ define("DBNAME","teamdp_pitara1");
 // Database Tabel
 define("DBTBLE","users_login");                          
 
-# Location Infomation
 
-// Path of script with trailing slashes
-define("Script_Path","/dealspitara/dpv2/adminPitara/");
-// URL of script (no trailing slash)
-define("Script_URL","http://localhost/dealspitara/dpv2/adminPitara/");
 
 # Session and Cookie Infomation
 

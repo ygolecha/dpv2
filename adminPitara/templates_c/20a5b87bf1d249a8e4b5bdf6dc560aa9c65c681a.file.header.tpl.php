@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 16:39:17
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-16 14:25:48
          compiled from "templates\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:7734536a45950ea400-50871894%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20a5b87bf1d249a8e4b5bdf6dc560aa9c65c681a' => 
     array (
       0 => 'templates\\header.tpl',
-      1 => 1399472908,
+      1 => 1400243143,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
   'unifunc' => 'content_536a45953d32b2_70278032',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_536a45953d32b2_70278032')) {function content_536a45953d32b2_70278032($_smarty_tpl) {?><html>
 <!-- start: HEAD -->
@@ -50,6 +50,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
+		<!--Our css file-->
+		<link rel="stylesheet" href="dealspitara.css">
+        <!--end: Our css file-->
 		<link rel="shortcut icon" href="favicon.ico" />
 	</head>
 <?php }} ?>

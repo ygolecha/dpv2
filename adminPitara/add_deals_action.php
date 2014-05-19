@@ -1,6 +1,5 @@
 <?php
-include "include/constants.php";
-include "db_connection.php";
+require "../config.php";
 
 $store_name = $_POST['store_name'];
 $title = $mysqli->real_escape_string($_POST['title']);
@@ -17,6 +16,11 @@ $discount = $_POST['discount'];
 $coupon_code = $_POST['coupon_code'];
 $expiry_date = $_POST['expiry_date'];
 $author = $_POST['author'];
+if(isset($_POST['slug_url'])) {
+  $slug_url = $_POST['slug_url'];
+} else {
+  $slug_url = "";
+}
 $shipping_charges = $mysqli->real_escape_string($_POST['shipping_charges']);
 $offer_text = $mysqli->real_escape_string($_POST['offer_text']);
 $affiliate_url = $mysqli->real_escape_string($_POST['affiliate_url']);
@@ -47,32 +51,36 @@ $content = trim($content);
 	if(isset($_POST['page_type'])) {
 		$page_type = $_POST['page_type'];
 	}
-
-
-	$image_url = "";
-	if(isset($_POST['img_url'])){
-	    $img_url = $_POST['img_url'];
-		if($img_url != "") {
-		$content_img = file_get_contents($img_url);
-		$image_url = "http://localhost/dealspitara/dpv2/adminPitara/deals_images/".$dealID.".jpg";
-		//Store in the filesystem.
-		$fp = fopen($image_url, "w");
-		fwrite($fp, $content_img);
-		fclose($fp);
-		}
-	}
+	if(isset($_POST['img_url'])) {
+      $img_url = $_POST['img_url'];
+    } else {
+      $img_url = "";
+    }
+    $image_url = "";
+	$serverImgLoc = $upload_path;
 	if($page_type == "Deal Add") {
 	      $sql = "INSERT INTO product_deals (title, description, og_title, og_desc, seo_title, seo_desc, image_url, store_name, discount, coupon_code, expiry, shipping_charges, content, offer_text, affiliate_url, original_price, final_price, author, deal_flag) VALUES ('$title', '$desc', '$og_title', '$og_desc', '$seo_title', '$seo_desc', '$image_url', '$store_name', '$discount', '$coupon_code', '$expiry_date', '$shipping_charges', '$content', '$offer_text', '$affiliate_url', '$original_price', '$final_price', '$author', '$flag') ";
 
 	}
 	else if($page_type == "Deal Edit") {
             //creating url slug after editing deal info
-			$slug_pre = strtolower($title);
+		    if($slug_url != "") {
+                $slug_pre = strtolower($slug_url);
+		    }else {
+		    	$slug_pre = strtolower($title);
+		    }
+			
 			$explode_slug = explode(" ", $slug_pre);
 			$url_slug = implode("-", $explode_slug);
 			//adding deal id to url slug
 			$url_slug = $url_slug."-dp".$dealID;
 			$url_slug = $mysqli->real_escape_string($url_slug);
+			    //uploading image
+				if($img_url != "") {
+				$image_url = $serverImgLoc.$dealID.".jpg";
+		        $imgData1 = substr($img_url, 1+strrpos($img_url, ','));
+		        file_put_contents($image_url,base64_decode($imgData1));
+				}
 	        $sql = "UPDATE product_deals SET title='$title', description='$desc', og_title='$og_title', og_desc='$og_desc', seo_title='$seo_title', seo_desc='$seo_desc', image_url='$image_url', store_name='$store_name', discount='$discount', coupon_code='$coupon_code', expiry='$expiry_date', shipping_charges='$shipping_charges', content='$content', offer_text='$offer_text', affiliate_url='$affiliate_url', original_price='$original_price', final_price='$final_price', author='$author', url_slug='$url_slug', deal_flag='$flag' WHERE deal_id='$dealID' ";
 	   
 	}
@@ -84,14 +92,23 @@ $content = trim($content);
 	if($page_type == "Deal Add") {
 		$dealID = $mysqli->insert_id;
         //creating url slug after inserting deal into database
-		$slug_pre = strtolower($title);
+		if($slug_url != "") {
+            $slug_pre = strtolower($slug_url);
+	    }else {
+	    	$slug_pre = strtolower($title);
+	    }
 		$explode_slug = explode(" ", $slug_pre);
 		$url_slug = implode("-", $explode_slug);
 		//adding deal id to url slug
 		$url_slug = $url_slug."-dp".$dealID;
 		$url_slug = $mysqli->real_escape_string($url_slug);
-
-		$sql = "UPDATE product_deals SET url_slug='$url_slug' WHERE deal_id='$dealID' ";
+            //uploading image
+			if($img_url != "") {
+			$image_url = $serverImgLoc.$dealID.".jpg";
+	        $imgData1 = substr($img_url, 1+strrpos($img_url, ','));
+	        file_put_contents($image_url,base64_decode($imgData1));
+			}
+		$sql = "UPDATE product_deals SET url_slug='$url_slug', image_url='$image_url' WHERE deal_id='$dealID' ";
 		if(!$result = $mysqli->query($sql)) {
 
 			die('There was an error running the query [' . $mysqli->error . ']');
@@ -115,7 +132,7 @@ $content = trim($content);
 			die('There was an error running the query [' . $mysqli->error . ']');
 		 }
 	}
-
+    
 	$sql = "INSERT INTO category_mapping 
 	(deal_id, category_id) VALUES ".$queryFinal." ";
 
@@ -123,6 +140,5 @@ $content = trim($content);
 
 		die('There was an error running the query [' . $mysqli->error . ']');
 	}
-	echo $dealID;
 
 ?>

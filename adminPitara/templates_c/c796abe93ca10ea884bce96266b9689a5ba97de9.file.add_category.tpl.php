@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:58:23
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 07:25:18
          compiled from "templates\add_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26109536a635764c9b4-72690523%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c796abe93ca10ea884bce96266b9689a5ba97de9' => 
     array (
       0 => 'templates\\add_category.tpl',
-      1 => 1399723103,
+      1 => 1400477067,
       2 => 'file',
     ),
   ),
@@ -286,7 +286,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<div class="col-md-4">
 												<button class="btn btn-yellow btn-block" id="add_category">
 													ADD <i class="fa fa-arrow-circle-right"></i>
-												</button>
+												</button><div id="xyz"></div>
 											</div>
 										</div>
 									</form>

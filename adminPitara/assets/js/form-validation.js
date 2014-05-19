@@ -97,7 +97,7 @@ var FormValidator = function () {
 
 
                 $.post('http://localhost/dealspitara/dpv2/adminPitara/add_category_action.php', {ID:ID, name:name, title:title, desc:desc, og_title:og_title, og_desc:og_desc, seo_title:seo_title, seo_desc:seo_desc, content:content, short_desc:short_desc, img_url:img_url, page_type:page_type}, function(data){
-                    
+                $("#xyz").html(data);    
                 });
                 // submit form
                 //$('#form').submit();
@@ -203,6 +203,7 @@ var FormValidator = function () {
                 shipping_charges = $("#shipping_charges").val(),
                 offer_text = $("#offer_text").val(),
                 affiliate_url = $("#affiliate_url").val(),
+                slug_url = $("#slug_url").val(),
                 author = $("#author").val(),
                 coupon_code = $("#coupon_code").val(),
                 img_url = $(".fileupload-preview").find("img").attr('src'),
@@ -210,7 +211,8 @@ var FormValidator = function () {
                 dealID = $("#dealID").val();
 
 
-                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, page_type:page_type, author:author, dealID:dealID}, function(data){
+                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, page_type:page_type, author:author, dealID:dealID, slug_url:slug_url}, function(data){
+                    
                     $("#hidden_lastID").val(data);
                     $("#save_col").hide();
                     $("#update_col").show();

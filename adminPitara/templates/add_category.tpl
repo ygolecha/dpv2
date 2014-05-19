@@ -256,7 +256,7 @@
 											<div class="col-md-4">
 												<button class="btn btn-yellow btn-block" id="add_category">
 													ADD <i class="fa fa-arrow-circle-right"></i>
-												</button>
+												</button><div id="xyz"></div>
 											</div>
 										</div>
 									</form>

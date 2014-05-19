@@ -168,22 +168,9 @@
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							<div class="pagination">
-								~if $totalPages gt 1`
-								   ~if $currentPage eq 1`
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-bricky">1</a>
-	                               ~else`
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php" class="btn btn-light-grey">1</a>
-	                               ~/if`
-	                               ~for $i=2 to $totalPages`
-		                                ~if $currentPage eq $i`
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=~$i`" class="btn btn-bricky">~$i`</a>
-			                                 ~else`
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_store.php?page=~$i`" class="btn btn-light-grey">~$i`</a>
-		                                 ~/if`
-	                               ~/for`
-								~/if`
-							</div>
+							<!--pagination-->
+		                           ~$paginationHtml`
+							<!-- end:pagination-->
 						</div>
 					</div>
 

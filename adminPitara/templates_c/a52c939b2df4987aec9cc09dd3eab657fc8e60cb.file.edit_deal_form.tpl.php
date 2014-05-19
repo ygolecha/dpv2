@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 13:35:55
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 07:26:40
          compiled from "templates\edit_deal_form.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18362536dbc58881fc0-24714215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a52c939b2df4987aec9cc09dd3eab657fc8e60cb' => 
     array (
       0 => 'templates\\edit_deal_form.tpl',
-      1 => 1400153584,
+      1 => 1400241786,
       2 => 'file',
     ),
   ),
@@ -421,7 +421,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 											</div>
 										</div>
 										<hr>
-										<div class="row">
+										
 											<div class="col-md-8">
 												<p>
 													<span class="symbol required"></span>Required Fields
@@ -432,14 +432,23 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 											<input type="hidden" id="dealID" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
 " />
 											<input type="hidden" id="page_type" value="Deal Edit" />
-											<div class="xyz"></div>
 											<div class="col-md-2">
 												<button class="btn btn-yellow btn-block" id="add_deals">
 													UPDATE <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
-										</div>
-									</form>
+											</form>
+											<div class="col-md-2">
+												<form method="post" action="deal_preview.php" target="_blank">
+													<input type="hidden" name="hidden_lastID" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
+" />
+													<button class="btn btn-yellow btn-block">
+														PREVIEW <i class="fa fa-arrow-circle-right"></i>
+													</button>
+												</form>
+											</div>
+										
+									
 								</div>
 							</div>
 							<!-- end: FORM VALIDATION 1 PANEL -->

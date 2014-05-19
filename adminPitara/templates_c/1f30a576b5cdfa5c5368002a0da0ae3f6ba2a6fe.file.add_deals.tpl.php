@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-14 18:39:09
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 07:26:01
          compiled from "templates\add_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13042536a65f74c1788-61393219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f30a576b5cdfa5c5368002a0da0ae3f6ba2a6fe' => 
     array (
       0 => 'templates\\add_deals.tpl',
-      1 => 1400085536,
+      1 => 1400241794,
       2 => 'file',
     ),
   ),
@@ -340,6 +340,12 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 														Affiliate Url <span class="symbol required"></span>
 													</label>
 														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control">
+											    </div>
+											    <div class="form-group">
+													<label class="control-label">
+														Slug 
+													</label>
+														<input type="text" placeholder="" id="slug_url" name="slug_url" class="form-control">
 											    </div>
 
 												<div class="form-group">

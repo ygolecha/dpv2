@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-15 13:33:18
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-16 14:25:07
          compiled from "templates\edit_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9774536dac83b0a427-93128273%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fa459eab869920dfa2887ac984d503486e1fc29a' => 
     array (
       0 => 'templates\\edit_deals.tpl',
-      1 => 1400153596,
+      1 => 1400242833,
       2 => 'file',
     ),
   ),
@@ -25,9 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dealName' => 0,
     'dealTitle' => 0,
     'dealID' => 0,
-    'totalPages' => 0,
-    'currentPage' => 0,
-    'i' => 0,
+    'paginationHtml' => 0,
     'FOOTER' => 0,
   ),
   'has_nocache_code' => false,
@@ -192,6 +190,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 											<tr>
 												<th>Deal Title</th>
 												<th class="hidden-xs">Action</th>
+												<th class="hidden-xs">Preview</th>
 												<th></th>
 											</tr>
 										</thead>
@@ -212,6 +211,15 @@ $_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
+												<td>
+													<form method="post" action="deal_preview.php" target="_blank">
+														<input type="hidden" name="hidden_lastID" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
+" />
+														<button class="btn btn-default" id="preview_deals">
+															PREVIEW 
+														</button>
+												    </form>
+												</td>
 											</tr>
 											<?php } ?>
 										</tbody>
@@ -219,29 +227,10 @@ $_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
 								</div>
 							</div>
 							<!-- end: BASIC TABLE PANEL -->
-							<div class="pagination">
-								<?php if ($_smarty_tpl->tpl_vars['totalPages']->value>1) {?>
-								   <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==1) {?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php" class="btn btn-bricky">1</a>
-	                               <?php } else { ?>
-	                                  <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php" class="btn btn-light-grey">1</a>
-	                               <?php }?>
-	                               <?php $_smarty_tpl->tpl_vars['i'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['totalPages']->value+1 - (2) : 2-($_smarty_tpl->tpl_vars['totalPages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
-if ($_smarty_tpl->tpl_vars['i']->total > 0) {
-for ($_smarty_tpl->tpl_vars['i']->value = 2, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
-$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration == 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration == $_smarty_tpl->tpl_vars['i']->total;?>
-		                                <?php if ($_smarty_tpl->tpl_vars['currentPage']->value==$_smarty_tpl->tpl_vars['i']->value) {?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-" class="btn btn-bricky"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a>
-			                                 <?php } else { ?>
-			                                 <a href="http://localhost/dealspitara/dpv2/adminPitara/edit_deals.php?page=<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-" class="btn btn-light-grey"><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
-</a>
-		                                 <?php }?>
-	                               <?php }} ?>
-								<?php }?>
-							</div>
+							<!--pagination-->
+		                           <?php echo $_smarty_tpl->tpl_vars['paginationHtml']->value;?>
+
+							<!-- end:pagination-->
 						</div>
 					</div>
 

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-/*
+
     $('#search_term').keyup(function(){
 
         var term = $('#search_term').val(),
@@ -11,7 +11,7 @@ $(document).ready(function(){
            });  
                  
     });
-*/
+
 	$('#title').keyup(function(){
 
         var title = $('#title').val();
