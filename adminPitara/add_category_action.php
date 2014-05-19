@@ -56,16 +56,17 @@ if(!$result = $mysqli->query($sql)) {
 			$image_url = $serverImgLoc.$type.$ID.".jpg";
 		    $imgData1 = substr($img_url, 1+strrpos($img_url, ','));
 		    file_put_contents($image_url,base64_decode($imgData1));
+		    $image_url_db = $upload_url.$type.$ID.".jpg";
 		}
 		else {
 			$image_url = "";
 		}
         if($page_type == "category_add"){
            
-           $sql = "UPDATE category_details SET image_url = '$image_url' WHERE id='$ID' ";
+           $sql = "UPDATE category_details SET image_url = '$image_url_db' WHERE id='$ID' ";
 		}else if($page_type == "store_add") {
            
-           $sql = "UPDATE store_details SET image_url = '$image_url' WHERE id='$ID' ";
+           $sql = "UPDATE store_details SET image_url = '$image_url_db' WHERE id='$ID' ";
 		}
 
     

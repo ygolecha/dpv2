@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 07:26:01
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 08:13:55
          compiled from "templates\add_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13042536a65f74c1788-61393219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f30a576b5cdfa5c5368002a0da0ae3f6ba2a6fe' => 
     array (
       0 => 'templates\\add_deals.tpl',
-      1 => 1400241794,
+      1 => 1400479455,
       2 => 'file',
     ),
   ),
@@ -186,7 +186,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
 												</div>
 												<div class="successHandler alert alert-success no-display">
-													<i class="fa fa-ok"></i> Your form validation is successful!
+													<i class="fa fa-ok"></i> Your form validation is successful! Data updated/inserted in database!
 												</div>
 											</div>
 											<div class="col-md-6">
