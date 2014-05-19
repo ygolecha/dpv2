@@ -41,7 +41,7 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
 $smarty->assign("storeName", $storeArr);
 $smarty->assign("catName", $catArr);
-
+$smarty->assign("dealAction", $Deal_Action);
 
 $smarty->display("add_deals.tpl");
 

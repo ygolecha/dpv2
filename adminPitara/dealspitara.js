@@ -4,7 +4,7 @@ $(document).ready(function(){
 
         var term = $('#search_term').val(),
             pageType = $("#pageType").val();
-            $.post('http://localhost/dealspitara/dpv2/adminPitara/search.php', {term:term,page:pageType}, function(data){
+            $.post(Search, {term:term,page:pageType}, function(data){
                
                $("#panel-body").html(data);
                $(".pagination").hide();    
@@ -53,7 +53,7 @@ $(document).ready(function(){
                 dealID = $("#hidden_lastID").val();
 
 
-                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, author:author, dealID:dealID, flag:deal_flag}, function(data){
+                $.post(Deal_Action, {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, author:author, dealID:dealID, flag:deal_flag}, function(data){
                     $("#add_deals_main").attr("disabled","disabled");
                     if(dealID == "") {
                     $("#save_deals").attr("disabled","disabled");    
@@ -89,7 +89,7 @@ $(document).ready(function(){
                 dealID = $("#hidden_lastID").val();
 
 
-                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, author:author, dealID:dealID, flag:deal_flag}, function(data){
+                $.post(Deal_Action, {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, author:author, dealID:dealID, flag:deal_flag}, function(data){
                     
                 });     
 
@@ -121,7 +121,7 @@ $(document).ready(function(){
                 dealID = $("#dealID").val();
 
 
-                $.post('http://localhost/dealspitara/dpv2/adminPitara/add_deals_action_old.php', {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, author:author, dealID:dealID, flag:deal_flag}, function(data){
+                $.post(Deal_Action_Old, {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, author:author, dealID:dealID, flag:deal_flag}, function(data){
                     $("#res").html('UPDATED');
                 });     
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 14:04:00
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 16:28:36
          compiled from "templates\add_store.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11680536a68efb6eb96-15478645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fbb5f3e8becc31effaa668049a72d424fa6b1fde' => 
     array (
       0 => 'templates\\add_store.tpl',
-      1 => 1399723117,
+      1 => 1400509524,
       2 => 'file',
     ),
   ),
@@ -23,6 +23,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'TOPMENU' => 0,
     'userLevel' => 0,
     'FOOTER' => 0,
+    'catAction' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -309,6 +310,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
+	<script>
+     var Cat_Action = "<?php echo $_smarty_tpl->tpl_vars['catAction']->value;?>
+";
+	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>

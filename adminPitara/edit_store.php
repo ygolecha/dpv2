@@ -47,6 +47,8 @@ include_once 'pagination.php';
 $smarty->assign("storeName", $storeArr);
 $smarty->assign("totalPages", $totalPages);
 $smarty->assign("paginationHtml", $pagination);
+$smarty->assign("catAction", $Cat_Action);
+$smarty->assign("Search", $Search);
 
 $smarty->display("edit_store.tpl");
 

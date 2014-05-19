@@ -56,6 +56,12 @@
 						</a>
 
 					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
+						</a>
+
+					</li>
 					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">

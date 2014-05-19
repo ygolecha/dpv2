@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 07:26:40
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 16:28:19
          compiled from "templates\edit_deal_form.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18362536dbc58881fc0-24714215%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a52c939b2df4987aec9cc09dd3eab657fc8e60cb' => 
     array (
       0 => 'templates\\edit_deal_form.tpl',
-      1 => 1400241786,
+      1 => 1400509297,
       2 => 'file',
     ),
   ),
@@ -35,6 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'sessionUserid' => 0,
     'dealID' => 0,
     'FOOTER' => 0,
+    'dealAction' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -470,6 +471,10 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
     
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
+	<script>
+     var Deal_Action = "<?php echo $_smarty_tpl->tpl_vars['dealAction']->value;?>
+";
+	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>

@@ -80,8 +80,9 @@ $content = trim($content);
 				$image_url = $serverImgLoc.$dealID.".jpg";
 		        $imgData1 = substr($img_url, 1+strrpos($img_url, ','));
 		        file_put_contents($image_url,base64_decode($imgData1));
+		        $image_url_db = $upload_url.$dealID.".jpg";
 				}
-	        $sql = "UPDATE product_deals_old SET title='$title', description='$desc', og_title='$og_title', og_desc='$og_desc', seo_title='$seo_title', seo_desc='$seo_desc', image_url='$image_url', store_name='$store_name', discount='$discount', coupon_code='$coupon_code', expiry='$expiry_date', shipping_charges='$shipping_charges', content='$content', offer_text='$offer_text', affiliate_url='$affiliate_url', original_price='$original_price', final_price='$final_price', author='$author', url_slug='$url_slug', deal_flag='$flag' WHERE deal_id='$dealID' ";
+	        $sql = "UPDATE product_deals_old SET title='$title', description='$desc', og_title='$og_title', og_desc='$og_desc', seo_title='$seo_title', seo_desc='$seo_desc', image_url='$image_url_db', store_name='$store_name', discount='$discount', coupon_code='$coupon_code', expiry='$expiry_date', shipping_charges='$shipping_charges', content='$content', offer_text='$offer_text', affiliate_url='$affiliate_url', original_price='$original_price', final_price='$final_price', author='$author', url_slug='$url_slug', deal_flag='$flag' WHERE deal_id='$dealID' ";
 	   
 	}
 
@@ -107,8 +108,9 @@ $content = trim($content);
 			$image_url = $serverImgLoc.$dealID.".jpg";
 	        $imgData1 = substr($img_url, 1+strrpos($img_url, ','));
 	        file_put_contents($image_url,base64_decode($imgData1));
+	        $image_url_db = $upload_url.$dealID.".jpg";
 			}
-		$sql = "UPDATE product_deals_old SET url_slug='$url_slug', image_url='$image_url' WHERE deal_id='$dealID' ";
+		$sql = "UPDATE product_deals_old SET url_slug='$url_slug', image_url='$image_url_db' WHERE deal_id='$dealID' ";
 		if(!$result = $mysqli->query($sql)) {
 
 			die('There was an error running the query [' . $mysqli->error . ']');

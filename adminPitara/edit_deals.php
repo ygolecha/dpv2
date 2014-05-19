@@ -61,6 +61,8 @@ include_once 'pagination.php';
 $smarty->assign("dealName", $dealArr);
 $smarty->assign("totalPages", $totalPages);
 $smarty->assign("paginationHtml", $pagination);
+$smarty->assign("dealAction", $Deal_Action);
+$smarty->assign("Search", $Search);
 
 $smarty->display("edit_deals.tpl");
 

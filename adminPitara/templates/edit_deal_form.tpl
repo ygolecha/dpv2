@@ -383,6 +383,9 @@
 	</div>
     
 	~$FOOTER`
+	<script>
+     var Deal_Action = "~$dealAction`";
+	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>

@@ -81,6 +81,7 @@ $smarty->assign("catName", $catArr);
 $smarty->assign("dealData", $dealData);
 $smarty->assign("catMap", $catMap);
 $smarty->assign("countCat", $countCat);
+$smarty->assign("dealActionOld", $Deal_Action);
 
     
 $smarty->display("edit_deal_form_old.tpl");

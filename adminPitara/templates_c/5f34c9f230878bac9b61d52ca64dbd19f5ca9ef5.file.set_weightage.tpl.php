@@ -1,4 +1,33 @@
-~$HEADER`
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 09:06:18
+         compiled from "templates\set_weightage.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:256985379a9d4523b13-42410257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '5f34c9f230878bac9b61d52ca64dbd19f5ca9ef5' => 
+    array (
+      0 => 'templates\\set_weightage.tpl',
+      1 => 1400483175,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '256985379a9d4523b13-42410257',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_5379a9d4586fe6_34322079',
+  'variables' => 
+  array (
+    'HEADER' => 0,
+    'TOPMENU' => 0,
+    'userLevel' => 0,
+    'FOOTER' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5379a9d4586fe6_34322079')) {function content_5379a9d4586fe6_34322079($_smarty_tpl) {?><?php echo $_smarty_tpl->tpl_vars['HEADER']->value;?>
+
 <!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="assets/plugins/select2/select2.css">
 		<link rel="stylesheet" href="assets/plugins/datepicker/css/datepicker.css">
@@ -10,7 +39,8 @@
 		<link rel="stylesheet" href="assets/plugins/summernote/build/summernote.css">
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 <body>
-	~$TOPMENU`
+	<?php echo $_smarty_tpl->tpl_vars['TOPMENU']->value;?>
+
 
 	<div class="main-container">
 
@@ -42,9 +72,9 @@
 						</a>
 
 					</li>
-					<li class="active open">
+					<li>
 						<a href="add_store.php"><i class="clip-pencil"></i>
-							<span class="title"> Add Store </span><span class="selected"></span>
+							<span class="title"> Add Store </span>
 						</a>
 
 					</li>
@@ -66,13 +96,19 @@
 						</a>
 
 					</li>
-					~if $userLevel eq 1`
+					<li class="active open">
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span><span class="selected"></span>
+						</a>
+
+					</li>
+					<?php if ($_smarty_tpl->tpl_vars['userLevel']->value==1) {?>
 					<li>
 						<a href="register.php">
 							<i class="clip-user-2"></i><span class="title"> Register User </span>
 						</a>
 					</li>
-					~/if`
+					<?php }?>
 
 				</ul>
 				<!-- end: MAIN NAVIGATION MENU -->
@@ -123,7 +159,7 @@
 							<div class="panel panel-default">
 								<div class="panel-heading">
 									<i class="fa fa-external-link-square"></i>
-									ADD STORE
+									SEARCH DEALS BASED ON DATE
 									<div class="panel-tools">
 										<a class="btn btn-xs btn-link panel-collapse collapses" href="#">
 										</a>
@@ -143,122 +179,41 @@
 								</div>
 								<div class="panel-body">
 						
-									<form action="#" role="form" id="form">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="errorHandler alert alert-danger no-display">
-													<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
+									<form action="search_page.php" role="form">
+											<div class="row">
+												<div class="col-md-5">
+													<p>
+											         Date Range Picker
+												    </p>
+													<div class="input-group">
+														<span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+														<input type="text" class="form-control date-range">
+													</div>
 												</div>
-												<div class="successHandler alert alert-success no-display">
-													<i class="fa fa-ok"></i> Your form validation is successful!
-												</div>
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="control-label">
-														Name <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="Insert store name" class="form-control" id="name" name="name">
-												</div>
-												<div class="form-group">
-													<label class="control-label">
-														Title <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="Insert store title" class="form-control" id="title" name="title">
-												</div>
-												<div class="form-group">
-													<label class="control-label">
-														Description <span class="symbol required"></span>
-													</label>
-													<div class="col-sm-12" id="descMain">
-												    <div class="summernote">
+												<div class="col-md-4">
+													<p>
+											         Deals Status
+												    </p>
+													<div class="input-group">
+														<select id="store_name" name="store_name" class="form-control">
+															<option value="">&nbsp;</option>
+															<option value="Not Expired">Not Expired</option>
+															<option value="Expired">Expired</option>
+															
+														</select>
 												    </div>
-												    <textarea class="form-control no-display" id="desc" name="desc" cols="10" rows="10"></textarea>
-											        </div>
 												</div>
-												<div class="form-group">
-													<label class="control-label">
-														SEO Title <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
-												</div>
-												<div class="form-group">
-													<label class="control-label">
-														SEO Description <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
-												</div>
-												<div class="form-group">
-													<label class="control-label">
-														OG Title <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
-												</div>
-												
-												
-											</div>
-											<div class="col-md-6">
-												<div class="form-group">
-													<label class="control-label">
-														OG Description <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
-												</div>
-												<div class="form-group">
-													<label class="control-label">
-														Short Description <span class="symbol required"></span>
-													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
-												</div>
-												<div class="form-group">
-													<label class="control-label">
-														Long Description <span class="symbol required"></span>
-													</label>
-													<div class="col-sm-12" id="contentMain">
-												    <div class="summernote">													
+												<div class="col-md-3">
+													<p>.
+												    </p>
+													<div class="input-group">
+														<button class="btn btn-yellow btn-block" id="date_range">
+													      SUBMIT <i class="fa fa-arrow-circle-right"></i>
+												        </button>
 												    </div>
-												    <textarea class="form-control no-display" id="content" name="content" cols="10" rows="10"></textarea>
-											        </div>
 												</div>
-												<div class="form-group">
-												  <div class="col-sm-12 center">
-												    <label class="control-label">
-													   Image Upload
-												    </label>
-											     	<div class="fileupload fileupload-new" data-provides="fileupload">
-													  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
-													  </div>
-													  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-													  <div>
-														<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
-															<input type="file" name="upload_file">
-														</span>
-														<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
-															<i class="fa fa-times"></i> Remove
-														</a>
-													  </div>
-												    </div>
-												
-										     	 </div>
-												</div>
-																								
-												
+																							
 											</div>
-										</div>
-										<hr>
-										<div class="row">
-											<div class="col-md-8">
-												<p>
-													<span class="symbol required"></span>Required Fields
-												</p>
-											</div>
-											<input type="hidden" id="page_type" value="store_add" />
-											<div class="col-md-4">
-												<button class="btn btn-yellow btn-block" id="add_category">
-													ADD <i class="fa fa-arrow-circle-right"></i>
-												</button>
-											</div>
-										</div>
 									</form>
 								</div>
 							</div>
@@ -277,10 +232,8 @@
 
 	</div>
     
-	~$FOOTER`
-	<script>
-     var Cat_Action = "~$catAction`";
-	</script>
+	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
+
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>
@@ -308,10 +261,9 @@
 		<script>
 			jQuery(document).ready(function() {
 				Main.init();
-				FormValidator.init();
-
+				FormElements.init();
 			});
 		</script>
 
 </body>
-</html>
+</html><?php }} ?>

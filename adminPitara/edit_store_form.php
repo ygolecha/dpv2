@@ -33,6 +33,7 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
     
 $smarty->assign("storeData", $storeData);
+$smarty->assign("catAction", $Cat_Action);
     
 $smarty->display("edit_store_form.tpl");
 
