@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 09:06:18
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-21 15:20:43
          compiled from "templates\set_weightage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:256985379a9d4523b13-42410257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '5f34c9f230878bac9b61d52ca64dbd19f5ca9ef5' => 
     array (
       0 => 'templates\\set_weightage.tpl',
-      1 => 1400483175,
+      1 => 1400678442,
       2 => 'file',
     ),
   ),
@@ -179,24 +179,34 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 								</div>
 								<div class="panel-body">
 						
-									<form action="search_page.php" role="form">
+									<form action="search_page.php" role="form" method="get">
 											<div class="row">
-												<div class="col-md-5">
+												<div class="col-md-3">
 													<p>
-											         Date Range Picker
-												    </p>
+										               Date From
+													</p>
 													<div class="input-group">
+														<input type="text" data-date-format="yyyy-mm-dd" name="fromDate" data-date-viewmode="years" class="form-control date-picker">
 														<span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
-														<input type="text" class="form-control date-range">
 													</div>
 												</div>
-												<div class="col-md-4">
+												<div class="col-md-3">
+													<p>
+										               Date To
+													</p>
+													<div class="input-group">
+														<input type="text" data-date-format="yyyy-mm-dd" name="toDate" data-date-viewmode="years" class="form-control date-picker">
+														<span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
+													</div>
+												</div>
+												<div class="col-md-3">
 													<p>
 											         Deals Status
 												    </p>
 													<div class="input-group">
-														<select id="store_name" name="store_name" class="form-control">
+														<select id="dealStatus" name="dealStatus" class="form-control">
 															<option value="">&nbsp;</option>
+															<option value="All">All</option>
 															<option value="Not Expired">Not Expired</option>
 															<option value="Expired">Expired</option>
 															
@@ -207,7 +217,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<p>.
 												    </p>
 													<div class="input-group">
-														<button class="btn btn-yellow btn-block" id="date_range">
+														<button class="btn btn-yellow btn-block" id="dateRange">
 													      SUBMIT <i class="fa fa-arrow-circle-right"></i>
 												        </button>
 												    </div>

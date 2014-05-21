@@ -12,11 +12,11 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 $smarty->assign("sessionUsername",$_SESSION['username']);
 $smarty->assign("sessionUserid",$_SESSION['user_id']);
 $smarty->assign("userLevel",$_SESSION['user_level']);
-$smarty->assign("catID",$_POST['cat_id']);
+$smarty->assign("catID",$_POST['catId']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
 
-	$sql = "SELECT * FROM category_details WHERE id='".$_POST['cat_id']."' ";
+	$sql = "SELECT * FROM category_details WHERE id='".$_POST['catId']."' ";
 
 	if(!$result = $mysqli->query($sql)) {
 
@@ -33,7 +33,7 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
     
 $smarty->assign("catData", $catData);
-$smarty->assign("catAction", $Cat_Action);
+$smarty->assign("catAction", $catAction);
     
 $smarty->display("edit_category_form.tpl");
 

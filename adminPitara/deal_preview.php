@@ -14,18 +14,18 @@ $smarty->assign("sessionUserid",$_SESSION['user_id']);
 $smarty->assign("userLevel",$_SESSION['user_level']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
     
-    if(isset($_POST['hidden_lastID'])) {
-	$last_id = $_POST['hidden_lastID'];
+    if(isset($_POST['hiddenLastID'])) {
+	$lastId = $_POST['hiddenLastID'];
     }
     else {
-    $last_id = "";
-    $last_id_old = $_POST['hidden_lastID_old'];
+    $lastId = "";
+    $lastIdOld = $_POST['hiddenLastIDOld'];
     }
-    if($last_id != "") {
-	$sql = "SELECT * FROM product_deals WHERE deal_id='$last_id' ";
+    if($lastId != "") {
+	$sql = "SELECT * FROM product_deals WHERE deal_id='$lastId' ";
     }
     else {
-    $sql = "SELECT * FROM product_deals_old WHERE deal_id='$last_id_old' ";	
+    $sql = "SELECT * FROM product_deals_old WHERE deal_id='$lastIdOld' ";	
     }
 
 	if(!$result = $mysqli->query($sql)) {

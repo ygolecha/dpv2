@@ -66,6 +66,12 @@
 						</a>
 
 					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
+						</a>
+
+					</li>
 					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
@@ -175,36 +181,36 @@
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seoTitle" name="seoTitle">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seoDesc" name="seoDesc">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="ogTitle" name="ogTitle">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="ogDesc" name="ogDesc">
 												</div>
 												<div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
 													<label class="control-label">
 															Store Name <span class="symbol required"></span>
 														</label>
-														<select id="store_name" name="store_name" class="form-control">
+														<select id="storeName" name="storeName" class="form-control">
 															<option value="">&nbsp;</option>
-															~foreach $storeName as $store_name`
+															~foreach $storeName as $storeSingle`
 															
-															<option value="~$store_name`">~$store_name`</option>
+															<option value="~$storeSingle`">~$storeSingle`</option>
 															
 															~/foreach`
 														</select>
@@ -217,9 +223,9 @@
 														</label>
 														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
 															<option value="">&nbsp;</option>
-															~foreach $catName as $cat_id=>$cat_name`
+															~foreach $catName as $catId=>$cat`
 															
-															<option value="~$cat_id`">~$cat_name`</option>
+															<option value="~$catId`">~$cat`</option>
 															
 															~/foreach`
 														</select>
@@ -230,7 +236,7 @@
 													<label class="control-label">
 														Original Price
 													</label>
-														<input type="number" placeholder="" id="original_price" name="original_price" class="form-control">
+														<input type="number" placeholder="" id="originalPrice" name="originalPrice" class="form-control">
 												</div>
 											    </div>
 											    <div class="col-sm-6">
@@ -238,7 +244,7 @@
 													<label class="control-label">
 														Final Price
 													</label>
-														<input type="number" placeholder="" id="final_price" name="final_price" class="form-control">
+														<input type="number" placeholder="" id="finalPrice" name="finalPrice" class="form-control">
 												</div>
 											    </div>
 														
@@ -260,7 +266,7 @@
 														Expiry Date
 													</label>
 														<div class="input-group"> 
-											    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_date" name="expiry_date">
+											    	      <input type="text" data-date-format="yyyy-mm-dd" data-date-viewmode="years" class="form-control date-picker" id="expiryDate" name="expiryDate">
 											    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
 											           </div>
 												</div>
@@ -270,32 +276,32 @@
 													<label class="control-label">
 														Coupon Code
 													</label>
-														<input type="text" placeholder="" id="coupon_code" name="coupon_code" class="form-control">
+														<input type="text" placeholder="" id="couponCode" name="couponCode" class="form-control">
 												</div>
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Shipping Charges
 													</label>
-														<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control">
+														<input type="text" placeholder="" id="shippingCharges" name="shippingCharges" class="form-control">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Offer Text
 													</label>
-														<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control">
+														<input type="text" placeholder="" id="offerText" name="offerText" class="form-control">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Affiliate Url <span class="symbol required"></span>
 													</label>
-														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control">
+														<input type="text" placeholder="" id="affiliateUrl" name="affiliateUrl" class="form-control">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Slug 
 													</label>
-														<input type="text" placeholder="" id="slug_url" name="slug_url" class="form-control">
+														<input type="text" placeholder="" id="slugUrl" name="slugUrl" class="form-control">
 											    </div>
 
 												<div class="form-group">
@@ -341,28 +347,28 @@
 												</p>
 											</div>
 											<input type="hidden" id="author" value="~$sessionUserid`" />
-											<input type="hidden" id="page_type" value="Deal Add" />
-											<div class="col-md-1" id="save_col">
-												<button class="btn btn-yellow btn-block" id="save_deals">
+											<input type="hidden" id="pageType" value="Deal Add" />
+											<div class="col-md-1" id="saveCol">
+												<button class="btn btn-yellow btn-block" id="saveDeals">
 													SAVE <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
 									</form> <!-- main form ends -->
-									        <div class="col-md-1" id="update_col" style="display:none;">
-												<button class="btn btn-yellow btn-block" id="update_deals">
+									        <div class="col-md-1" id="updateCol" style="display:none;">
+												<button class="btn btn-yellow btn-block" id="updateDeals">
 													SAVE AGAIN <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
 											<form method="post" action="deal_preview.php" target="_blank">
-												<input type="hidden" name="hidden_lastID" id="hidden_lastID" value="" />
+												<input type="hidden" name="hiddenLastID" id="hiddenLastID" value="" />
 												<div class="col-md-1">
-													<button class="btn btn-yellow btn-block" id="preview_deals" disabled="disabled">
+													<button class="btn btn-yellow btn-block" id="previewDeals" disabled="disabled">
 														PREVIEW <i class="fa fa-arrow-circle-right"></i>
 													</button>
 												</div>
 										    </form>
 											<div class="col-md-2">
-												<div class="btn btn-yellow btn-block" id="add_deals_main">
+												<div class="btn btn-yellow btn-block" id="addDealsMain">
 													ADD <i class="fa fa-arrow-circle-right"></i>
 												</div>
 											</div>
@@ -388,7 +394,7 @@
     
 	~$FOOTER`
 	<script>
-     var Deal_Action = "~$dealAction`";
+     var dealAction = "~$dealAction`";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>

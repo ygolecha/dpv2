@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 16:28:36
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-21 14:46:27
          compiled from "templates\add_store.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:11680536a68efb6eb96-15478645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fbb5f3e8becc31effaa668049a72d424fa6b1fde' => 
     array (
       0 => 'templates\\add_store.tpl',
-      1 => 1400509524,
+      1 => 1400606818,
       2 => 'file',
     ),
   ),
@@ -94,6 +94,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li>
 						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
+						</a>
+
+					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
 						</a>
 
 					</li>
@@ -211,19 +217,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seoTitle" name="seoTitle">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seoDesc" name="seoDesc">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="ogTitle" name="ogTitle">
 												</div>
 												
 												
@@ -233,13 +239,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="ogDesc" name="ogDesc">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Short Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc">
+													<input type="text" placeholder="" class="form-control" id="shortDesc" name="shortDesc">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -283,9 +289,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="store_add" />
+											<input type="hidden" id="pageType" value="store_add" />
 											<div class="col-md-4">
-												<button class="btn btn-yellow btn-block" id="add_category">
+												<button class="btn btn-yellow btn-block" id="addCategory">
 													ADD <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
@@ -311,7 +317,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
 	<script>
-     var Cat_Action = "<?php echo $_smarty_tpl->tpl_vars['catAction']->value;?>
+     var catAction = "<?php echo $_smarty_tpl->tpl_vars['catAction']->value;?>
 ";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->

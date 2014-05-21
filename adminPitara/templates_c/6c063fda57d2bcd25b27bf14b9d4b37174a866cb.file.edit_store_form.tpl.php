@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-10 22:45:47
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-21 14:46:55
          compiled from "templates\edit_store_form.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29009536e37f7261f05-31241595%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c063fda57d2bcd25b27bf14b9d4b37174a866cb' => 
     array (
       0 => 'templates\\edit_store_form.tpl',
-      1 => 1399754738,
+      1 => 1400606881,
       2 => 'file',
     ),
   ),
@@ -25,6 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'storeData' => 0,
     'storeID' => 0,
     'FOOTER' => 0,
+    'catAction' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -95,6 +96,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li>
 						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
+						</a>
+
+					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
 						</a>
 
 					</li>
@@ -216,21 +223,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['seo_title'];?>
+													<input type="text" placeholder="" class="form-control" id="seoTitle" name="seoTitle" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['seo_title'];?>
 ">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['seo_desc'];?>
+													<input type="text" placeholder="" class="form-control" id="seoDesc" name="seoDesc" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['seo_desc'];?>
 ">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['og_title'];?>
+													<input type="text" placeholder="" class="form-control" id="ogTitle" name="ogTitle" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['og_title'];?>
 ">
 												</div>
 												
@@ -241,14 +248,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['og_desc'];?>
+													<input type="text" placeholder="" class="form-control" id="ogDesc" name="ogDesc" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['og_desc'];?>
 ">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Short Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['short_desc'];?>
+													<input type="text" placeholder="" class="form-control" id="shortDesc" name="shortDesc" value="<?php echo $_smarty_tpl->tpl_vars['storeData']->value['short_desc'];?>
 ">
 												</div>
 												<div class="form-group">
@@ -296,7 +303,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="store_edit" />
+											<input type="hidden" id="pageType" value="store_edit" />
 											<input type="hidden" id="ID" value="<?php echo $_smarty_tpl->tpl_vars['storeID']->value;?>
 " />
 											<div class="col-md-4">
@@ -325,6 +332,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
+	<script>
+     var catAction = "<?php echo $_smarty_tpl->tpl_vars['catAction']->value;?>
+";
+	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>

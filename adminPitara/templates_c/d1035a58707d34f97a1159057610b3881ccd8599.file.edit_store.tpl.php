@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-16 14:28:48
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-21 14:46:53
          compiled from "templates\edit_store.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:19718536e14a3958c88-19129419%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd1035a58707d34f97a1159057610b3881ccd8599' => 
     array (
       0 => 'templates\\edit_store.tpl',
-      1 => 1400243200,
+      1 => 1400606873,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'storeID' => 0,
     'paginationHtml' => 0,
     'FOOTER' => 0,
+    'search' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -97,6 +98,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li>
 						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
+						</a>
+
+					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
 						</a>
 
 					</li>
@@ -198,7 +205,7 @@ $_smarty_tpl->tpl_vars['storeTitle']->_loop = true;
 												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['storeTitle']->value;?>
 </td>
 												<td>
-													<form method="post" action="edit_store_form.php"> <input type="hidden" name="store_id" value="<?php echo $_smarty_tpl->tpl_vars['storeID']->value;?>
+													<form method="post" action="edit_store_form.php"> <input type="hidden" name="storeId" value="<?php echo $_smarty_tpl->tpl_vars['storeID']->value;?>
 " />
 														<button class="btn btn-default">EDIT</button>
 													</form>
@@ -231,6 +238,10 @@ $_smarty_tpl->tpl_vars['storeTitle']->_loop = true;
     
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
+	<script>
+     var search = "<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+";
+	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>

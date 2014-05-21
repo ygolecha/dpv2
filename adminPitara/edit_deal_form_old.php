@@ -12,7 +12,7 @@ $Login_Process->check_status($_SERVER['SCRIPT_NAME']);
 $smarty->assign("sessionUsername",$_SESSION['username']);
 $smarty->assign("sessionUserid",$_SESSION['user_id']);
 $smarty->assign("userLevel",$_SESSION['user_level']);
-$smarty->assign("dealID",$_POST['deal_id']);
+$smarty->assign("dealID",$_POST['dealId']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
 $sql = "SELECT id,name FROM store_details ";
@@ -40,7 +40,7 @@ $sql = "SELECT id,name FROM store_details ";
 	
 	} 
 
-	$sql = "SELECT * FROM product_deals_old WHERE deal_id='".$_POST['deal_id']."' ";
+	$sql = "SELECT * FROM product_deals_old WHERE deal_id='".$_POST['dealId']."' ";
 
 	if(!$result = $mysqli->query($sql)) {
 
@@ -55,7 +55,7 @@ $sql = "SELECT id,name FROM store_details ";
 	
 	} 
 
-	$sql = "SELECT * FROM category_mapping WHERE deal_id='".$_POST['deal_id']."' ";
+	$sql = "SELECT * FROM category_mapping WHERE deal_id='".$_POST['dealId']."' ";
 
 	if(!$result = $mysqli->query($sql)) {
 
@@ -81,7 +81,7 @@ $smarty->assign("catName", $catArr);
 $smarty->assign("dealData", $dealData);
 $smarty->assign("catMap", $catMap);
 $smarty->assign("countCat", $countCat);
-$smarty->assign("dealActionOld", $Deal_Action);
+$smarty->assign("dealActionOld", $dealAction);
 
     
 $smarty->display("edit_deal_form_old.tpl");

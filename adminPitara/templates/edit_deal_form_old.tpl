@@ -73,6 +73,12 @@
 						</a>
 
 					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
+						</a>
+
+					</li>
 					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
@@ -172,7 +178,7 @@
 													<label class="control-label">
 														Old Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="Insert category title" class="form-control" id="old_title" name="old_title" value="~$dealData['old_title']`">
+													<input type="text" placeholder="Insert category title" class="form-control" id="oldTitle" name="oldTitle" value="~$dealData['old_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -189,36 +195,36 @@
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="~$dealData['seo_title']`">
+													<input type="text" placeholder="" class="form-control" id="seoTitle" name="seoTitle" value="~$dealData['seo_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="~$dealData['seo_desc']`">
+													<input type="text" placeholder="" class="form-control" id="seoDesc" name="seoDesc" value="~$dealData['seo_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="~$dealData['og_title']`">
+													<input type="text" placeholder="" class="form-control" id="ogTitle" name="ogTitle" value="~$dealData['og_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="~$dealData['og_desc']`">
+													<input type="text" placeholder="" class="form-control" id="ogDesc" name="ogDesc" value="~$dealData['og_desc']`">
 												</div>
 												<div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
 													<label class="control-label">
 															Store Name <span class="symbol required"></span>
 														</label>
-														<select id="store_name" name="store_name" class="form-control">
+														<select id="storeName" name="storeName" class="form-control">
 															<option value="~$dealData['store_name']`">~$dealData['store_name']`</option>
-															~foreach $storeName as $store_name`
+															~foreach $storeName as $store`
 															
-															<option value="~$store_name`">~$store_name`</option>
+															<option value="~$store`">~$store`</option>
 															
 															~/foreach`
 														</select>
@@ -228,7 +234,7 @@
 													<label class="control-label">
 														Old Store <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="old_store" name="old_store" value="~$dealData['old_store']`">
+													<input type="text" placeholder="" class="form-control" id="oldStore" name="oldStore" value="~$dealData['old_store']`">
 												</div>
 											    <div class="col-sm-6">
 												<div class="form-group">
@@ -241,9 +247,9 @@
 													~/foreach`
 														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
 															<option value="">&nbsp;</option>
-															~foreach $catName as $cat_id=>$cat_name`
+															~foreach $catName as $catId=>$cat`
 															
-															<option value="~$cat_id`">~$cat_name`</option>
+															<option value="~$catId`">~$cat`</option>
 															
 															~/foreach`
 														</select>
@@ -254,14 +260,14 @@
 													<label class="control-label">
 														Old Categories <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="old_categories" name="old_categories" value="~$dealData['old_categories']`">
+													<input type="text" placeholder="" class="form-control" id="oldCategories" name="oldCategories" value="~$dealData['old_categories']`">
 												</div>
 											   </div>
 												<div class="form-group">
 													<label class="control-label">
 														Old Tags <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="old_tags" name="old_tags" value="~$dealData['old_tags']`">
+													<input type="text" placeholder="" class="form-control" id="oldTags" name="oldTags" value="~$dealData['old_tags']`">
 												</div>
 											   
 											   
@@ -270,7 +276,7 @@
 													<label class="control-label">
 														Original Price
 													</label>
-														<input type="number" placeholder="" id="original_price" name="original_price" class="form-control" value="~$dealData['original_price']`">
+														<input type="number" placeholder="" id="originalPrice" name="originalPrice" class="form-control" value="~$dealData['original_price']`">
 												</div>
 											    </div>
 											     <div class="col-sm-6" style="padding-left:0;">
@@ -278,7 +284,7 @@
 													<label class="control-label">
 														Old Original Price
 													</label>
-														<input type="number" placeholder="" id="old_original_price" name="old_original_price" class="form-control" value="~$dealData['old_original_price']`">
+														<input type="number" placeholder="" id="oldOriginalPrice" name="oldOriginalPrice" class="form-control" value="~$dealData['old_original_price']`">
 												</div>
 											    </div>
 											    <div class="col-sm-6">
@@ -286,7 +292,7 @@
 													<label class="control-label">
 														Final Price
 													</label>
-														<input type="number" placeholder="" id="final_price" name="final_price" class="form-control" value="~$dealData['final_price']`">
+														<input type="number" placeholder="" id="finalPrice" name="finalPrice" class="form-control" value="~$dealData['final_price']`">
 												</div>
 											    </div>
 											    <div class="col-sm-6">
@@ -294,7 +300,7 @@
 													<label class="control-label">
 														Old Final Price
 													</label>
-														<input type="number" placeholder="" id="old_final_price" name="old_final_price" class="form-control" value="~$dealData['old_final_price']`">
+														<input type="number" placeholder="" id="oldFinalPrice" name="oldFinalPrice" class="form-control" value="~$dealData['old_final_price']`">
 												</div>
 											    </div>
 														
@@ -316,7 +322,7 @@
 														Expiry Date
 													</label>
 														<div class="input-group"> 
-											    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_date" name="expiry_date" value="~$dealData['expiry']`">
+											    	      <input type="text" data-date-format="yyyy-mm-dd" data-date-viewmode="years" class="form-control date-picker" id="expiryDate" name="expiryDate" value="~$dealData['expiry']`">
 											    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
 											           </div>
 												</div>
@@ -326,7 +332,7 @@
 													<label class="control-label">
 														Coupon Code
 													</label>
-														<input type="text" placeholder="" id="coupon_code" name="coupon_code" class="form-control" value="~$dealData['coupon_code']`">
+														<input type="text" placeholder="" id="couponCode" name="couponCode" class="form-control" value="~$dealData['coupon_code']`">
 												</div>
 											    </div>
 											    <div class="col-sm-4" style="padding-left:0;">
@@ -334,32 +340,32 @@
 													<label class="control-label">
 														Old Coupon Code
 													</label>
-														<input type="text" placeholder="" id="old_coupon_code" name="old_coupon_code" class="form-control" value="~$dealData['old_coupon_code']`">
+														<input type="text" placeholder="" id="oldCouponCode" name="oldCouponCode" class="form-control" value="~$dealData['old_coupon_code']`">
 												</div>
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Shipping Charges
 													</label>
-														<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control" value="~$dealData['shipping_charges']`">
+														<input type="text" placeholder="" id="shippingCharges" name="shippingCharges" class="form-control" value="~$dealData['shipping_charges']`">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Offer Text
 													</label>
-														<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control" value="~$dealData['offer_text']`">
+														<input type="text" placeholder="" id="offerText" name="offerText" class="form-control" value="~$dealData['offer_text']`">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Affiliate Url <span class="symbol required"></span>
 													</label>
-														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control" value="~$dealData['affiliate_url']`">
+														<input type="text" placeholder="" id="affiliateUrl" name="affiliateUrl" class="form-control" value="~$dealData['affiliate_url']`">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Old Affiliate Url <span class="symbol required"></span>
 													</label>
-														<input type="text" placeholder="" id="old_affiliate_url" name="old_affiliate_url" class="form-control" value="~$dealData['old_affiliate']`">
+														<input type="text" placeholder="" id="oldAffiliateUrl" name="oldAffiliateUrl" class="form-control" value="~$dealData['old_affiliate']`">
 											    </div>
 
 												<div class="form-group">
@@ -378,7 +384,7 @@
 														Old Content <span class="symbol required"></span>
 													</label>
 													
-												    <textarea class="form-control" id="old_content" name="old_content" cols="10" rows="10">~$dealData['old_content']`</textarea>
+												    <textarea class="form-control" id="oldContent" name="oldContent" cols="10" rows="10">~$dealData['old_content']`</textarea>
 											        
 												</div>
 												<div class="form-group">
@@ -414,16 +420,16 @@
 											</div>
 											<input type="hidden" id="author" value="~$sessionUserid`" />
 											<input type="hidden" id="dealID" value="~$dealID`" />
-											<input type="hidden" id="page_type" value="Deal Edit" />
+											<input type="hidden" id="pageType" value="Deal Edit" />
 											<div class="col-md-2">
-												<div class="btn btn-yellow btn-block" id="add_deals_old">
+												<div class="btn btn-yellow btn-block" id="addDealsOld">
 													UPDATE <i class="fa fa-arrow-circle-right"></i>
 												</div><div id="res"></div>
 											</div>
 											</form>
 											<div class="col-md-2">
 												<form method="post" action="deal_preview.php" target="_blank">
-													<input type="hidden" name="hidden_lastID_old" value="~$dealID`" />
+													<input type="hidden" name="hiddenLastIDOld" value="~$dealID`" />
 													<button class="btn btn-yellow btn-block">
 														PREVIEW <i class="fa fa-arrow-circle-right"></i>
 													</button>
@@ -451,7 +457,7 @@
     
 	~$FOOTER`
 	<script>
-     var Deal_Action_Old = "~$dealActionOld`";
+     var dealActionOld = "~$dealActionOld`";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 16:18:33
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-20 17:30:17
          compiled from "templates\add_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:13042536a65f74c1788-61393219%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f30a576b5cdfa5c5368002a0da0ae3f6ba2a6fe' => 
     array (
       0 => 'templates\\add_deals.tpl',
-      1 => 1400509110,
+      1 => 1400599688,
       2 => 'file',
     ),
   ),
@@ -23,10 +23,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'TOPMENU' => 0,
     'userLevel' => 0,
     'storeName' => 0,
-    'store_name' => 0,
+    'storeSingle' => 0,
     'catName' => 0,
-    'cat_id' => 0,
-    'cat_name' => 0,
+    'catId' => 0,
+    'cat' => 0,
     'sessionUserid' => 0,
     'FOOTER' => 0,
     'dealAction' => 0,
@@ -212,41 +212,41 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title">
+													<input type="text" placeholder="" class="form-control" id="seoTitle" name="seoTitle">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc">
+													<input type="text" placeholder="" class="form-control" id="seoDesc" name="seoDesc">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title">
+													<input type="text" placeholder="" class="form-control" id="ogTitle" name="ogTitle">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc">
+													<input type="text" placeholder="" class="form-control" id="ogDesc" name="ogDesc">
 												</div>
 												<div class="col-sm-6" style="padding-left:0;">
 												<div class="form-group">
 													<label class="control-label">
 															Store Name <span class="symbol required"></span>
 														</label>
-														<select id="store_name" name="store_name" class="form-control">
+														<select id="storeName" name="storeName" class="form-control">
 															<option value="">&nbsp;</option>
-															<?php  $_smarty_tpl->tpl_vars['store_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['store_name']->_loop = false;
+															<?php  $_smarty_tpl->tpl_vars['storeSingle'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['storeSingle']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['storeName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['store_name']->key => $_smarty_tpl->tpl_vars['store_name']->value) {
-$_smarty_tpl->tpl_vars['store_name']->_loop = true;
+foreach ($_from as $_smarty_tpl->tpl_vars['storeSingle']->key => $_smarty_tpl->tpl_vars['storeSingle']->value) {
+$_smarty_tpl->tpl_vars['storeSingle']->_loop = true;
 ?>
 															
-															<option value="<?php echo $_smarty_tpl->tpl_vars['store_name']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['store_name']->value;?>
+															<option value="<?php echo $_smarty_tpl->tpl_vars['storeSingle']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['storeSingle']->value;?>
 </option>
 															
 															<?php } ?>
@@ -260,16 +260,16 @@ $_smarty_tpl->tpl_vars['store_name']->_loop = true;
 														</label>
 														<select  multiple="multiple" id="category" name="category" class="form-control search-select">
 															<option value="">&nbsp;</option>
-															<?php  $_smarty_tpl->tpl_vars['cat_name'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat_name']->_loop = false;
- $_smarty_tpl->tpl_vars['cat_id'] = new Smarty_Variable;
+															<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_smarty_tpl->tpl_vars['catId'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['catName']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['cat_name']->key => $_smarty_tpl->tpl_vars['cat_name']->value) {
-$_smarty_tpl->tpl_vars['cat_name']->_loop = true;
- $_smarty_tpl->tpl_vars['cat_id']->value = $_smarty_tpl->tpl_vars['cat_name']->key;
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+ $_smarty_tpl->tpl_vars['catId']->value = $_smarty_tpl->tpl_vars['cat']->key;
 ?>
 															
-															<option value="<?php echo $_smarty_tpl->tpl_vars['cat_id']->value;?>
-"><?php echo $_smarty_tpl->tpl_vars['cat_name']->value;?>
+															<option value="<?php echo $_smarty_tpl->tpl_vars['catId']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value;?>
 </option>
 															
 															<?php } ?>
@@ -281,7 +281,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 													<label class="control-label">
 														Original Price
 													</label>
-														<input type="number" placeholder="" id="original_price" name="original_price" class="form-control">
+														<input type="number" placeholder="" id="originalPrice" name="originalPrice" class="form-control">
 												</div>
 											    </div>
 											    <div class="col-sm-6">
@@ -289,7 +289,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 													<label class="control-label">
 														Final Price
 													</label>
-														<input type="number" placeholder="" id="final_price" name="final_price" class="form-control">
+														<input type="number" placeholder="" id="finalPrice" name="finalPrice" class="form-control">
 												</div>
 											    </div>
 														
@@ -311,7 +311,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 														Expiry Date
 													</label>
 														<div class="input-group"> 
-											    	      <input type="text" data-date-format="dd-mm-yyyy" data-date-viewmode="years" class="form-control date-picker" id="expiry_date" name="expiry_date">
+											    	      <input type="text" data-date-format="yyyy-mm-dd" data-date-viewmode="years" class="form-control date-picker" id="expiryDate" name="expiryDate">
 											    	      <span class="input-group-addon"> <i class="fa fa-calendar"></i> </span>
 											           </div>
 												</div>
@@ -321,32 +321,32 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 													<label class="control-label">
 														Coupon Code
 													</label>
-														<input type="text" placeholder="" id="coupon_code" name="coupon_code" class="form-control">
+														<input type="text" placeholder="" id="couponCode" name="couponCode" class="form-control">
 												</div>
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Shipping Charges
 													</label>
-														<input type="text" placeholder="" id="shipping_charges" name="shipping_charges" class="form-control">
+														<input type="text" placeholder="" id="shippingCharges" name="shippingCharges" class="form-control">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Offer Text
 													</label>
-														<input type="text" placeholder="" id="offer_text" name="offer_text" class="form-control">
+														<input type="text" placeholder="" id="offerText" name="offerText" class="form-control">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Affiliate Url <span class="symbol required"></span>
 													</label>
-														<input type="text" placeholder="" id="affiliate_url" name="affiliate_url" class="form-control">
+														<input type="text" placeholder="" id="affiliateUrl" name="affiliateUrl" class="form-control">
 											    </div>
 											    <div class="form-group">
 													<label class="control-label">
 														Slug 
 													</label>
-														<input type="text" placeholder="" id="slug_url" name="slug_url" class="form-control">
+														<input type="text" placeholder="" id="slugUrl" name="slugUrl" class="form-control">
 											    </div>
 
 												<div class="form-group">
@@ -393,28 +393,28 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 											</div>
 											<input type="hidden" id="author" value="<?php echo $_smarty_tpl->tpl_vars['sessionUserid']->value;?>
 " />
-											<input type="hidden" id="page_type" value="Deal Add" />
-											<div class="col-md-1" id="save_col">
-												<button class="btn btn-yellow btn-block" id="save_deals">
+											<input type="hidden" id="pageType" value="Deal Add" />
+											<div class="col-md-1" id="saveCol">
+												<button class="btn btn-yellow btn-block" id="saveDeals">
 													SAVE <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
 									</form> <!-- main form ends -->
-									        <div class="col-md-1" id="update_col" style="display:none;">
-												<button class="btn btn-yellow btn-block" id="update_deals">
+									        <div class="col-md-1" id="updateCol" style="display:none;">
+												<button class="btn btn-yellow btn-block" id="updateDeals">
 													SAVE AGAIN <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
 											<form method="post" action="deal_preview.php" target="_blank">
-												<input type="hidden" name="hidden_lastID" id="hidden_lastID" value="" />
+												<input type="hidden" name="hiddenLastID" id="hiddenLastID" value="" />
 												<div class="col-md-1">
-													<button class="btn btn-yellow btn-block" id="preview_deals" disabled="disabled">
+													<button class="btn btn-yellow btn-block" id="previewDeals" disabled="disabled">
 														PREVIEW <i class="fa fa-arrow-circle-right"></i>
 													</button>
 												</div>
 										    </form>
 											<div class="col-md-2">
-												<div class="btn btn-yellow btn-block" id="add_deals_main">
+												<div class="btn btn-yellow btn-block" id="addDealsMain">
 													ADD <i class="fa fa-arrow-circle-right"></i>
 												</div>
 											</div>
@@ -441,7 +441,7 @@ $_smarty_tpl->tpl_vars['cat_name']->_loop = true;
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
 	<script>
-     var Deal_Action = "<?php echo $_smarty_tpl->tpl_vars['dealAction']->value;?>
+     var dealAction = "<?php echo $_smarty_tpl->tpl_vars['dealAction']->value;?>
 ";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->

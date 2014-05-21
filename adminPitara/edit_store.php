@@ -14,26 +14,22 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
      
      if(isset($_GET['page'])) {
 
-	   $low_lim = ($_GET['page'] * 20) - 20;
-       $up_lim = 20;
+	   $lowLim = ($_GET['page'] * 20) - 20;
+       $upLim = 20;
 	}
 	else {
-		$low_lim = 0;
-		$up_lim = 20;
+		$lowLim = 0;
+		$upLim = 20;
 	}
 
-     $sql = "SELECT id,name FROM store_details ";
-     if(!$result = $mysqli->query($sql)) {
-
-		die('There was an error running the query [' . $mysqli->error . ']');
-	 }
     //required data for pagination starts
 	$itemLimit = 20;
-	$totaDeals = $result->num_rows;
+	$tableName = "store_details";
+	$totaDeals = getNum($tableName);
 	$totalPages = ceil($totaDeals/$itemLimit);
 	//required data for pagination ends
-
-	 $sql = "SELECT id,name FROM store_details ORDER BY id DESC LIMIT $low_lim,$up_lim ";
+    
+	 $sql = "SELECT id,name FROM store_details ORDER BY id DESC LIMIT $lowLim,$upLim ";
      if(!$result = $mysqli->query($sql)) {
 
 		die('There was an error running the query [' . $mysqli->error . ']');
@@ -47,8 +43,8 @@ include_once 'pagination.php';
 $smarty->assign("storeName", $storeArr);
 $smarty->assign("totalPages", $totalPages);
 $smarty->assign("paginationHtml", $pagination);
-$smarty->assign("catAction", $Cat_Action);
-$smarty->assign("Search", $Search);
+$smarty->assign("catAction", $catAction);
+$smarty->assign("search", $search);
 
 $smarty->display("edit_store.tpl");
 

@@ -73,6 +73,12 @@
 						</a>
 
 					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
+						</a>
+
+					</li>
 					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
@@ -165,13 +171,13 @@
 											<tr>
 												<td class="hidden-xs">~$dealTitle`</td>
 												<td>
-													<form method="post" action="edit_deal_form.php"> <input type="hidden" name="deal_id" value="~$dealID`" />
+													<form method="post" action="edit_deal_form.php"> <input type="hidden" name="dealId" value="~$dealID`" />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
 												<td>
 													<form method="post" action="deal_preview.php" target="_blank">
-														<input type="hidden" name="hidden_lastID" value="~$dealID`" />
+														<input type="hidden" name="hiddenLastID" value="~$dealID`" />
 														<button class="btn btn-default" id="preview_deals">
 															PREVIEW 
 														</button>
@@ -204,7 +210,7 @@
     
 	~$FOOTER`
 	<script>
-     var Search = "~$Search`";
+     var search = "~$search`";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>

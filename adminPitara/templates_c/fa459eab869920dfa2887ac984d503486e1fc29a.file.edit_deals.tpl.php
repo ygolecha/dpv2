@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-19 16:37:51
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-20 19:37:22
          compiled from "templates\edit_deals.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9774536dac83b0a427-93128273%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fa459eab869920dfa2887ac984d503486e1fc29a' => 
     array (
       0 => 'templates\\edit_deals.tpl',
-      1 => 1400510237,
+      1 => 1400606860,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'dealID' => 0,
     'paginationHtml' => 0,
     'FOOTER' => 0,
-    'Search' => 0,
+    'search' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -105,6 +105,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li>
 						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span>
+						</a>
+
+					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
 						</a>
 
 					</li>
@@ -207,14 +213,14 @@ $_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
 												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['dealTitle']->value;?>
 </td>
 												<td>
-													<form method="post" action="edit_deal_form.php"> <input type="hidden" name="deal_id" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
+													<form method="post" action="edit_deal_form.php"> <input type="hidden" name="dealId" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
 " />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
 												<td>
 													<form method="post" action="deal_preview.php" target="_blank">
-														<input type="hidden" name="hidden_lastID" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
+														<input type="hidden" name="hiddenLastID" value="<?php echo $_smarty_tpl->tpl_vars['dealID']->value;?>
 " />
 														<button class="btn btn-default" id="preview_deals">
 															PREVIEW 
@@ -250,7 +256,7 @@ $_smarty_tpl->tpl_vars['dealTitle']->_loop = true;
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
 	<script>
-     var Search = "<?php echo $_smarty_tpl->tpl_vars['Search']->value;?>
+     var search = "<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
 ";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->

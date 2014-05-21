@@ -66,6 +66,12 @@
 						</a>
 
 					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
+						</a>
+
+					</li>
 					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
@@ -157,7 +163,7 @@
 											<tr>
 												<td class="hidden-xs">~$catTitle`</td>
 												<td>
-													<form method="post" action="edit_category_form.php"> <input type="hidden" name="cat_id" value="~$catID`" />
+													<form method="post" action="edit_category_form.php"> <input type="hidden" name="catId" value="~$catID`" />
 														<button class="btn btn-default">EDIT</button>
 													</form>
 												</td>
@@ -189,7 +195,7 @@
     
 	~$FOOTER`
 	<script>
-     var Search = "~$Search`";
+     var search = "~$search`";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>

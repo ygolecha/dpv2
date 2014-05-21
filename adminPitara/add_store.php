@@ -12,7 +12,7 @@ $smarty->assign("sessionUsername",$_SESSION['username']);
 $smarty->assign("userLevel",$_SESSION['user_level']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 
-$smarty->assign("catAction", $Cat_Action);
+$smarty->assign("catAction", $catAction);
 
 $smarty->display("add_store.tpl");
 

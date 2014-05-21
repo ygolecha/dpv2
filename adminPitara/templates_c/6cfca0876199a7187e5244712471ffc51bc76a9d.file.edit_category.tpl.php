@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-16 14:28:53
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-21 06:24:29
          compiled from "templates\edit_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14809536e0d46a41943-65799059%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6cfca0876199a7187e5244712471ffc51bc76a9d' => 
     array (
       0 => 'templates\\edit_category.tpl',
-      1 => 1400243212,
+      1 => 1400606834,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'catID' => 0,
     'paginationHtml' => 0,
     'FOOTER' => 0,
+    'search' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -97,6 +98,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li class="active open">
 						<a href="edit_category.php"><i class="clip-pencil"></i>
 							<span class="title"> Edit Category </span><span class="selected"></span>
+						</a>
+
+					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
 						</a>
 
 					</li>
@@ -198,7 +205,7 @@ $_smarty_tpl->tpl_vars['catTitle']->_loop = true;
 												<td class="hidden-xs"><?php echo $_smarty_tpl->tpl_vars['catTitle']->value;?>
 </td>
 												<td>
-													<form method="post" action="edit_category_form.php"> <input type="hidden" name="cat_id" value="<?php echo $_smarty_tpl->tpl_vars['catID']->value;?>
+													<form method="post" action="edit_category_form.php"> <input type="hidden" name="catId" value="<?php echo $_smarty_tpl->tpl_vars['catID']->value;?>
 " />
 														<button class="btn btn-default">EDIT</button>
 													</form>
@@ -232,6 +239,10 @@ $_smarty_tpl->tpl_vars['catTitle']->_loop = true;
     
 	<?php echo $_smarty_tpl->tpl_vars['FOOTER']->value;?>
 
+	<script>
+     var search = "<?php echo $_smarty_tpl->tpl_vars['search']->value;?>
+";
+	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
 		<script src="assets/plugins/autosize/jquery.autosize.min.js"></script>

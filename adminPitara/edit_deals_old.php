@@ -15,13 +15,13 @@ $smarty->assign("userLevel",$_SESSION['user_level']);
 $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
     if(isset($_GET['page'])) {
        
-       $low_lim = ($_GET['page'] * 20) - 20;
-       $up_lim = 20;
+       $lowLim = ($_GET['page'] * 20) - 20;
+       $upLim = 20;
 	}
 	else {
 
-		$low_lim = 0;
-		$up_lim = 20;
+		$lowLim = 0;
+		$upLim = 20;
 	}
     //for total deals count
 	$sql = "SELECT deal_id FROM product_deals_old ";
@@ -37,11 +37,11 @@ $smarty->assign("TOPMENU",$smarty->fetch("top-menu.tpl"));
 	//required data for pagination ends
     
     if($_SESSION['user_id'] != 3) {
-    $sql = "SELECT deal_id,old_title FROM product_deals_old ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";
+    $sql = "SELECT deal_id,old_title FROM product_deals_old ORDER BY creation_date DESC LIMIT $lowLim,$upLim ";
     }
     else
     {
-    $sql = "SELECT deal_id,old_title FROM product_deals_old WHERE author='".$_SESSION['user_id']."' ORDER BY creation_date DESC LIMIT $low_lim,$up_lim ";	
+    $sql = "SELECT deal_id,old_title FROM product_deals_old WHERE author='".$_SESSION['user_id']."' ORDER BY creation_date DESC LIMIT $lowLim,$upLim ";	
     }
 
 	if(!$result = $mysqli->query($sql)) {
@@ -58,7 +58,7 @@ include_once 'pagination.php';
 $smarty->assign("dealName", $dealArr);
 $smarty->assign("totalPages", $totalPages);
 $smarty->assign("paginationHtml", $pagination);
-$smarty->assign("Search", $Search);
+$smarty->assign("search", $search);
 
 $smarty->display("edit_deals_old.tpl");
 

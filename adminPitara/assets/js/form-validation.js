@@ -85,18 +85,18 @@ var FormValidator = function () {
                 var title = $("#title").val(),
                 name = $("#name").val(),
                 desc = $("#descMain").find("div.note-editable").html(),
-                og_title = $("#og_title").val(),
-                og_desc = $("#og_desc").val(),
-                seo_title = $("#seo_title").val(),
-                seo_desc = $("#seo_desc").val(),
+                ogTitle = $("#ogTitle").val(),
+                ogDesc = $("#ogDesc").val(),
+                seoTitle = $("#seoTitle").val(),
+                seoDesc = $("#seoDesc").val(),
                 content = $("#contentMain").find("div.note-editable").html(),
-                short_desc = $("#short_desc").val(),
-                img_url = $(".fileupload-preview").find("img").attr('src'),
-                page_type = $("#page_type").val(),
+                shortDesc = $("#shortDesc").val(),
+                imgUrl = $(".fileupload-preview").find("img").attr('src'),
+                pageType = $("#pageType").val(),
                 ID = $("#ID").val();
 
 
-                $.post(Cat_Action, {ID:ID, name:name, title:title, desc:desc, og_title:og_title, og_desc:og_desc, seo_title:seo_title, seo_desc:seo_desc, content:content, short_desc:short_desc, img_url:img_url, page_type:page_type}, function(data){
+                $.post(catAction, {ID:ID, name:name, title:title, desc:desc, ogTitle:ogTitle, ogDesc:ogDesc, seoTitle:seoTitle, seoDesc:seoDesc, content:content, shortDesc:shortDesc, imgUrl:imgUrl, pageType:pageType}, function(data){
                 $("#xyz").html(data);    
                 });
                 // submit form
@@ -188,36 +188,36 @@ var FormValidator = function () {
               
                 // action on successful form submition
                 var title = $("#title").val(),
-                store_name = $("#store_name").val(),
+                storeName = $("#storeName").val(),
                 desc = $("#descMain").find("div.note-editable").html(),
-                og_title = $("#og_title").val(),
-                og_desc = $("#og_desc").val(),
-                seo_title = $("#seo_title").val(),
-                seo_desc = $("#seo_desc").val(),
+                ogTitle = $("#ogTitle").val(),
+                ogDesc = $("#ogDesc").val(),
+                seoTitle = $("#seoTitle").val(),
+                seoDesc = $("#seoDesc").val(),
                 content = $("#contentMain").find("div.note-editable").html(),
                 category = $("#category").val(),
-                original_price = $("#original_price").val(),
-                final_price = $("#final_price").val(),
+                originalPrice = $("#originalPrice").val(),
+                finalPrice = $("#finalPrice").val(),
                 discount = $("#discount").val(),
-                expiry_date = $("#expiry_date").val(),
-                shipping_charges = $("#shipping_charges").val(),
-                offer_text = $("#offer_text").val(),
-                affiliate_url = $("#affiliate_url").val(),
-                slug_url = $("#slug_url").val(),
+                expiryDate = $("#expiryDate").val(),
+                shippingCharges = $("#shippingCharges").val(),
+                offerText = $("#offerText").val(),
+                affiliateUrl = $("#affiliateUrl").val(),
+                slugUrl = $("#slugUrl").val(),
                 author = $("#author").val(),
-                coupon_code = $("#coupon_code").val(),
-                img_url = $(".fileupload-preview").find("img").attr('src'),
-                page_type = $("#page_type").val(),
+                couponCode = $("#couponCode").val(),
+                imgUrl = $(".fileupload-preview").find("img").attr('src'),
+                pageType = $("#pageType").val(),
                 dealID = $("#dealID").val();
 
 
-                $.post(Deal_Action, {store_name:store_name, title:title, desc:desc, seo_title:seo_title, seo_desc:seo_desc, og_title:og_title, og_desc:og_desc, content:content, category:category, original_price:original_price, final_price:final_price, discount:discount, expiry_date:expiry_date, shipping_charges:shipping_charges, offer_text:offer_text, affiliate_url:affiliate_url, coupon_code:coupon_code, img_url:img_url, page_type:page_type, author:author, dealID:dealID, slug_url:slug_url}, function(data){
-                    
-                    $("#hidden_lastID").val(data);
-                    $("#save_col").hide();
-                    $("#update_col").show();
+                $.post(dealAction, {storeName:storeName, title:title, desc:desc, seoTitle:seoTitle, seoDesc:seoDesc, ogTitle:ogTitle, ogDesc:ogDesc, content:content, category:category, originalPrice:originalPrice, finalPrice:finalPrice, discount:discount, expiryDate:expiryDate, shippingCharges:shippingCharges, offerText:offerText, affiliateUrl:affiliateUrl, couponCode:couponCode, imgUrl:imgUrl, pageType:pageType, author:author, dealID:dealID, slugUrl:slugUrl}, function(data){
+                    $("#xyz").html(data);
+                    $("#hiddenLastID").val(data);
+                    $("#saveCol").hide();
+                    $("#updateCol").show();
 
-                    $("#preview_deals").removeAttr("disabled");
+                    $("#previewDeals").removeAttr("disabled");
                 });
                 // submit form
                 //$('#form').submit();

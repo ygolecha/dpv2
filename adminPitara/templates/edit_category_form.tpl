@@ -66,6 +66,12 @@
 						</a>
 
 					</li>
+					<li>
+						<a href="set_weightage.php"><i class="clip-pencil"></i>
+							<span class="title"> Set Weightages </span>
+						</a>
+
+					</li>
 					~if $userLevel eq 1`
 					<li>
 						<a href="register.php">
@@ -181,19 +187,19 @@
 													<label class="control-label">
 														SEO Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_title" name="seo_title" value="~$catData['seo_title']`">
+													<input type="text" placeholder="" class="form-control" id="seoTitle" name="seoTitle" value="~$catData['seo_title']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														SEO Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="seo_desc" name="seo_desc" value="~$catData['seo_desc']`">
+													<input type="text" placeholder="" class="form-control" id="seoDesc" name="seoDesc" value="~$catData['seo_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														OG Title <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_title" name="og_title" value="~$catData['og_title']`">
+													<input type="text" placeholder="" class="form-control" id="ogTitle" name="ogTitle" value="~$catData['og_title']`">
 												</div>
 												
 												
@@ -203,13 +209,13 @@
 													<label class="control-label">
 														OG Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="og_desc" name="og_desc" value="~$catData['og_desc']`">
+													<input type="text" placeholder="" class="form-control" id="ogDesc" name="ogDesc" value="~$catData['og_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
 														Short Description <span class="symbol required"></span>
 													</label>
-													<input type="text" placeholder="" class="form-control" id="short_desc" name="short_desc" value="~$catData['short_desc']`">
+													<input type="text" placeholder="" class="form-control" id="shortDesc" name="shortDesc" value="~$catData['short_desc']`">
 												</div>
 												<div class="form-group">
 													<label class="control-label">
@@ -254,10 +260,10 @@
 													<span class="symbol required"></span>Required Fields
 												</p>
 											</div>
-											<input type="hidden" id="page_type" value="category_edit" />
+											<input type="hidden" id="pageType" value="category_edit" />
 											<input type="hidden" id="ID" value="~$catID`" />
-											<div class="col-md-4">
-												<button class="btn btn-yellow btn-block" id="add_category">
+											<div class="col-md-4"><div id="xyz"></div>
+												<button class="btn btn-yellow btn-block" id="addCategory">
 													ADD <i class="fa fa-arrow-circle-right"></i>
 												</button>
 											</div>
@@ -282,7 +288,7 @@
     
 	~$FOOTER`
 	<script>
-     var Cat_Action = "~$catAction`";
+     var catAction = "~$catAction`";
 	</script>
 	<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="assets/plugins/jquery-inputlimiter/jquery.inputlimiter.1.3.1.min.js"></script>
