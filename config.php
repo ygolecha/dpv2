@@ -1,28 +1,28 @@
 <?php
 # Location Infomation
 // Path of script with trailing slashes
-$scriptPath = "/dealspitara/dpv2/adminPitara/";
+$scriptPath = "/adminPitara/";
 // URL of script (no trailing slash)
-$scriptUrl = "http://localhost/dealspitara/dpv2/adminPitara/";
+$scriptUrl = "http://".$_SERVER["HTTP_HOST"]."/adminPitara/";
 
-$dealAction = "http://localhost/dealspitara/dpv2/adminPitara/add_deals_action.php";
+$dealAction = "http://".$_SERVER["HTTP_HOST"]."/adminPitara/add_deals_action.php";
 
 //for old deals edit page
-$dealActionOld = "http://localhost/dealspitara/dpv2/adminPitara/add_deals_action_old.php";
+$dealActionOld = "http://".$_SERVER["HTTP_HOST"]."/adminPitara/add_deals_action_old.php";
 
-$catAction = "http://localhost/dealspitara/dpv2/adminPitara/add_category_action_new.php";
+$catAction = "http://".$_SERVER["HTTP_HOST"]."/adminPitara/add_category_action_new.php";
 
 //for live search action
-$search = "http://localhost/dealspitara/dpv2/adminPitara/search.php";
+$search = "http://".$_SERVER["HTTP_HOST"]."/adminPitara/search.php";
 
 define("Script_Path",$scriptPath);
 
 define("Script_URL",$scriptUrl);
 
 //setting path for uploading images
-$uploadPath = "C://xampp/htdocs/dealspitara/dpv2/adminPitara/deals_images/";
+$uploadPath = $_SERVER["DOCUMENT_ROOT"]."/adminPitara/deals_images/";
 //setting url for images
-$uploadUrl = "http://localhost/dealspitara/dpv2/adminPitara/deals_images/";
+$uploadUrl = "http://".$_SERVER["HTTP_HOST"]."/adminPitara/deals_images/";
 
 require 'libs/Smarty.class.php';
 include 'adminPitara/include/constants.php';
